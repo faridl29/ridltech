@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Miftah Faridl — Mobile Developer Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="style.css" rel="stylesheet" />
+  <meta name="description" content="Portfolio of Miftah Faridl Al-Anshari — Mobile & Web Developer specialized in Flutter, Kotlin/Java, modern web stacks, and scalable architectures." />
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
+
+  <!-- Floating background orbs -->
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+  <div class="bg-orb orb-c"></div>
+
+  <!-- Navbar -->
+  <nav id="mainNav" class="navbar navbar-expand-lg sticky-top bg-body border-bottom shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home">
+        <span class="brand-gradient">Miftah</span> Faridl
+      </a>
+
+      <div class="d-flex align-items-center gap-2 order-lg-2">
+        <!-- Theme Toggle -->
+        <button id="themeToggle" class="btn btn-outline-primary btn-sm" type="button" aria-label="Toggle theme">
+          <i class="bi bi-moon-stars me-1" id="themeIcon"></i><span class="d-none d-sm-inline">Theme</span>
+        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div id="navContent" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <div class="d-none d-lg-block ms-3">
+          <a href="#contact" class="btn btn-primary btn-sm">Hire Me</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="home" class="hero-section position-relative overflow-hidden">
+    <div class="container py-5 py-lg-6">
+      <div class="row align-items-center g-5">
+        <div class="col-12 col-lg-7" data-aos="fade-right">
+          <span class="badge rounded-pill bg-primary-subtle text-primary mb-3">Mobile & Web Developer</span>
+          <h1 class="display-5 fw-bold lh-1 mb-3">Hi, I'm <span class="text-primary">Miftah Faridl</span></h1>
+          <p class="lead mb-2 text-secondary">I build cross-platform mobile apps and modern web systems that feel fast, reliable, and delightful.</p>
+          <p class="typewriter text-secondary-emphasis">Flutter • Kotlin/Java • React • Laravel/CI • BLoC/GetX • Realtime • Maps • FCM</p>
+
+          <div class="d-flex flex-wrap gap-2 mt-4">
+            <a href="#projects" class="btn btn-primary">
+              <i class="bi bi-rocket-takeoff me-2"></i>View Projects
+            </a>
+            <a href="#contact" class="btn btn-outline-primary">
+              <i class="bi bi-envelope me-2"></i>Contact Me
+            </a>
+            <a href="#" class="btn btn-outline-secondary">
+              <i class="bi bi-file-earmark-text me-2"></i>Download CV
+            </a>
+          </div>
+
+          <div class="d-flex align-items-center gap-3 mt-4">
+            <a class="text-body-secondary fs-4" href="mailto:m.faridl441@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
+            <a class="text-body-secondary fs-4" href="https://linkedin.com/in/miftah-faridl" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a class="text-body-secondary fs-4" href="tel:+6289654711175" aria-label="Phone"><i class="bi bi-telephone"></i></a>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-5 text-center" data-aos="fade-left">
+          <div class="hero-photo-wrap position-relative d-inline-block">
+            <div class="glow-ring"></div>
+            <img src="assets/images/profile.jpg" 
+     class="profile-photo shadow-lg frosted" 
+     alt="Profile photo of Miftah Faridl" />
+
+            <span class="position-absolute bottom-0 start-50 translate-middle-x badge rounded-pill bg-info-subtle text-info p-2 shadow-sm">
+              <i class="bi bi-geo-alt me-1"></i> Cimahi, West Java
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="py-5 position-relative">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center" data-aos="fade-up">
+          <h2 class="fw-bold mb-4">About Me</h2>
+          <p class="lead text-secondary mb-4">
+            I am a passionate Mobile & Web Developer who thrives on crafting apps that are not just functional, but also intuitive and visually appealing.
+          </p>
+          <div class="stats-row d-flex justify-content-center gap-5 flex-wrap">
+            <div class="stat-item text-center" data-aos="zoom-in" data-aos-delay="100">
+              <div class="stat-number display-6 fw-bold text-primary mb-1">5+</div>
+              <div class="stat-label text-secondary small text-uppercase fw-medium">Years Experience</div>
+            </div>
+            <div class="stat-item text-center" data-aos="zoom-in" data-aos-delay="200">
+              <div class="stat-number display-6 fw-bold text-primary mb-1">20+</div>
+              <div class="stat-label text-secondary small text-uppercase fw-medium">Projects Completed</div>
+            </div>
+            <div class="stat-item text-center" data-aos="zoom-in" data-aos-delay="300">
+              <div class="stat-number display-6 fw-bold text-primary mb-1">10+</div>
+              <div class="stat-label text-secondary small text-uppercase fw-medium">Technologies</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="about-card glass p-4 h-100 position-relative overflow-hidden">
+            <div class="card-glow"></div>
+            <div class="d-flex align-items-center mb-3">
+              <div class="icon-wrapper bg-primary text-white rounded-circle me-3 d-flex align-items-center justify-content-center">
+                <i class="bi bi-code-slash fs-4"></i>
+              </div>
+              <h4 class="mb-0 fw-semibold">What I Do</h4>
+            </div>
+            <p class="text-secondary mb-3">
+              I specialize in creating cross-platform mobile applications and modern web systems that deliver exceptional user experiences. My approach combines clean code practices with intuitive design principles.
+            </p>
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="feature-item d-flex align-items-center">
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  <span class="small">Mobile Apps</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="feature-item d-flex align-items-center">
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  <span class="small">Web Systems</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="feature-item d-flex align-items-center">
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  <span class="small">Real-time Apps</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="feature-item d-flex align-items-center">
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  <span class="small">API Integration</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="about-card glass p-4 h-100 position-relative overflow-hidden">
+            <div class="card-glow"></div>
+            <div class="d-flex align-items-center mb-3">
+              <div class="icon-wrapper bg-success text-white rounded-circle me-3 d-flex align-items-center justify-content-center">
+                <i class="bi bi-lightbulb fs-4"></i>
+              </div>
+              <h4 class="mb-0 fw-semibold">My Philosophy</h4>
+            </div>
+            <p class="text-secondary mb-3">
+              I believe technology should solve real problems while being accessible and enjoyable to use. Every project is an opportunity to create something meaningful that makes a positive impact.
+            </p>
+            <div class="philosophy-points">
+              <div class="point-item d-flex align-items-start mb-2">
+                <div class="point-dot bg-primary rounded-circle me-3 mt-2"></div>
+                <span class="small">User-first approach in every design decision</span>
+              </div>
+              <div class="point-item d-flex align-items-start mb-2">
+                <div class="point-dot bg-primary rounded-circle me-3 mt-2"></div>
+                <span class="small">Clean, maintainable code that scales</span>
+              </div>
+              <div class="point-item d-flex align-items-start">
+                <div class="point-dot bg-primary rounded-circle me-3 mt-2"></div>
+                <span class="small">Continuous learning and adaptation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+<section id="skills" class="py-5 section-gradient-strong position-relative overflow-hidden">
+  <div class="container">
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-8 text-center text-light" data-aos="fade-up">
+        <h2 class="fw-bold mb-3">Skills & Tools</h2>
+        <p class="opacity-75 mb-0">A curated set of technologies I use to craft mobile, web, and backend systems.</p>
+      </div>
+    </div>
+
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3" data-aos="fade-up" data-aos-delay="50">
+      <!-- Programming Languages -->
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-code-slash fs-2 d-block mb-2"></i><div>Java</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-code-slash fs-2 d-block mb-2"></i><div>Kotlin</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-code-slash fs-2 d-block mb-2"></i><div>PHP</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-code-slash fs-2 d-block mb-2"></i><div>Ruby</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-code-slash fs-2 d-block mb-2"></i><div>JavaScript</div></div></div>
+
+      <!-- Frameworks -->
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-phone fs-2 d-block mb-2"></i><div>Flutter</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-layers fs-2 d-block mb-2"></i><div>React</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-window fs-2 d-block mb-2"></i><div>jQuery</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-code fs-2 d-block mb-2"></i><div>Laravel</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-code fs-2 d-block mb-2"></i><div>Lumen</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-code-slash fs-2 d-block mb-2"></i><div>CodeIgniter</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-gem fs-2 d-block mb-2"></i><div>Rails</div></div></div>
+
+      <!-- UI / Frontend -->
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-filetype-html fs-2 d-block mb-2"></i><div>HTML</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-filetype-css fs-2 d-block mb-2"></i><div>CSS</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-bootstrap fs-2 d-block mb-2"></i><div>Bootstrap</div></div></div>
+
+      <!-- Architecture -->
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-diagram-3 fs-2 d-block mb-2"></i><div>MVC / MVVM / BLoC</div></div></div>
+
+      <!-- Tools -->
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-git fs-2 d-block mb-2"></i><div>Git / GitHub / GitLab</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-gear fs-2 d-block mb-2"></i><div>Codemagic</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-ubuntu fs-2 d-block mb-2"></i><div>Linux / MacOS</div></div></div>
+
+      <!-- Cloud -->
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-cloud fs-2 d-block mb-2"></i><div>GCP</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-cloud fs-2 d-block mb-2"></i><div>Firebase</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-map fs-2 d-block mb-2"></i><div>Google Maps</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-hdd-network fs-2 d-block mb-2"></i><div>REST / JWT</div></div></div>
+
+      <!-- Databases -->
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-database fs-2 d-block mb-2"></i><div>SQL / PostgreSQL</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-database fs-2 d-block mb-2"></i><div>Redis / NoSQL</div></div></div>
+
+      <!-- Integrations -->
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-credit-card fs-2 d-block mb-2"></i><div>Stripe</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-chat-dots fs-2 d-block mb-2"></i><div>Twilio</div></div></div>
+
+      <!-- Project Management -->
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-kanban fs-2 d-block mb-2"></i><div>Scrum</div></div></div>
+      <div class="col"><div class="skill-card glass text-center p-3 text-light"><i class="bi bi-headset fs-2 d-block mb-2"></i><div>Helpdesk</div></div></div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Projects -->
+  <section id="projects" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center mb-4">
+        <div class="col-lg-9 text-center" data-aos="fade-up">
+          <h2 class="fw-bold mb-3">Selected Projects</h2>
+          <p class="text-secondary mb-0">A curated showcase of my recent works.</p>
+        </div>
+      </div>
+
+      <!-- Category Filters -->
+      <div class="d-flex flex-wrap gap-2 justify-content-center mb-4" data-aos="fade-up" data-aos-delay="50">
+        <button class="btn btn-outline-primary btn-sm filter-btn active" data-filter="all">All</button>
+        <button class="btn btn-outline-primary btn-sm filter-btn" data-filter="Mobile">Mobile</button>
+        <button class="btn btn-outline-primary btn-sm filter-btn" data-filter="Web">Web</button>
+        <button class="btn btn-outline-primary btn-sm filter-btn" data-filter="Backend">Backend</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div id="projectsGrid" class="row g-4" data-aos="fade-up" data-aos-delay="100">
+        <!-- Injected by script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-5 section-gradient-strong position-relative overflow-hidden">
+    <div class="container">
+      <div class="row justify-content-center mb-4">
+        <div class="col-lg-8 text-center text-light" data-aos="fade-up">
+          <h2 class="fw-bold mb-3">Get In Touch</h2>
+          <p class="opacity-75 mb-0">Let’s talk about your project or team needs.</p>
+        </div>
+      </div>
+
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-6" data-aos="fade-right">
+          <form id="contactForm" class="p-4 rounded-4 glass text-light shadow-sm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Your Name</label>
+              <input id="name" type="text" class="form-control" placeholder="John Doe" required />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input id="email" type="email" class="form-control" placeholder="john@example.com" required />
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" class="form-control" rows="5" placeholder="Tell me about your idea..." required></textarea>
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-send me-2"></i>Send Message
+              </button>
+            </div>
+            <div id="formAlert" class="alert alert-success mt-3 d-none" role="alert">
+              Thanks! Your message has been sent.
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="p-4 rounded-4 glass h-100 text-light">
+            <h5 class="fw-semibold mb-3">Contact Details</h5>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2"><i class="bi bi-geo-alt me-2 text-primary-emphasis"></i>Cimahi, West Java</li>
+              <li class="mb-2"><i class="bi bi-envelope me-2 text-primary-emphasis"></i><a href="mailto:m.faridl441@gmail.com" class="link-underline link-underline-opacity-0 text-light">m.faridl441@gmail.com</a></li>
+              <li class="mb-2"><i class="bi bi-telephone me-2 text-primary-emphasis"></i><a href="tel:+6289654711175" class="link-underline link-underline-opacity-0 text-light">+62 896 5471 1175</a></li>
+              <li class="mb-2"><i class="bi bi-linkedin me-2 text-primary-emphasis"></i><a href="https://linkedin.com/in/miftah-faridl" class="link-underline link-underline-opacity-0 text-light" target="_blank" rel="noopener">linkedin.com/in/miftah-faridl</a></li>
+            </ul>
+            <div class="d-flex gap-2">
+              <a href="https://linkedin.com/in/miftah-faridl" class="btn btn-outline-light btn-sm" target="_blank" rel="noopener"><i class="bi bi-linkedin me-1"></i>LinkedIn</a>
+              <a href="mailto:m.faridl441@gmail.com" class="btn btn-outline-light btn-sm"><i class="bi bi-envelope me-1"></i>Email</a>
+              <a href="tel:+6289654711175" class="btn btn-outline-light btn-sm"><i class="bi bi-telephone me-1"></i>Call</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Detail Modal -->
+<div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content project-modal glass">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="projectModalLabel">Project Title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img id="projectModalImg" src="" class="img-fluid rounded mb-3" alt="Project preview">
+        <p id="projectModalDesc" class="text-secondary"></p>
+        <div id="projectModalTech" class="mb-3"></div>
+      </div>
+      <div class="modal-footer">
+        <a id="projectModalDemo" href="#" target="_blank" class="btn btn-outline-primary btn-sm">
+          <i class="bi bi-box-arrow-up-right me-1"></i>Live
+        </a>
+        <a id="projectModalGithub" href="#" target="_blank" class="btn btn-primary btn-sm">
+          <i class="bi bi-github me-1"></i>GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <footer class="py-4 border-top bg-body">
+    <div class="container text-center small text-secondary">
+      © <span id="year"></span> Miftah Faridl. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
