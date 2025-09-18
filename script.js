@@ -59,7 +59,6 @@ if (themeToggleBtn) {
 
 /* ---------- Projects Data (Complete with dummy images) ---------- */
 const projectsData = [
-  // === Mobile Projects ===
   {
     title: "Komplekita",
     category: "Mobile",
@@ -79,54 +78,7 @@ const projectsData = [
     links: { demo: "#", github: "#" }
   },
   {
-    title: "WFM (Work Force Management)",
-    category: "Mobile",
-    thumb: "assets/images/wfm.png",
-    description: "Field operations tool: realtime location tracking, Google Maps (custom markers, polylines, geofencing, distance calc), offline caching.",
-    tech: ["Flutter","Maps","Realtime","Offline"],
-    tags: ["Mobile","Flutter","Maps","Realtime"],
-    links: { demo: "#", github: "#" }
-  },
-  {
-    title: "KlikGazz",
-    category: "Mobile",
-    thumb: "assets/images/klikgazz.png",
-    description: "Gas delivery service app (Customer in Kotlin, Driver in Java). Maps place picker & geocoding, Xendit QRIS payments, FCM notifications, MVP architecture.",
-    tech: ["Kotlin","Java","Maps","Xendit","FCM","MVP"],
-    tags: ["Mobile","Kotlin","Maps"],
-    links: { demo: "#", github: "#" }
-  },
-  {
-    title: "ABDNT (AR Education)",
-    category: "Mobile",
-    thumb: "assets/images/abdnt.png",
-    description: "Native Android app (Kotlin, MVVM) with Sceneform SDK for AR to visualize 3D models in real environments.",
-    tech: ["Kotlin","MVVM","AR","Sceneform"],
-    tags: ["Mobile","Kotlin"],
-    links: { demo: "#", github: "#" }
-  },
-  {
-    title: "Meeting Room Booking (Internship)",
-    category: "Mobile",
-    thumb: "https://placehold.co/800x500/png?text=Meeting+Room+Booking",
-    description: "Android user app + web admin to book meeting rooms; part of internship workload along with invoicing/shipment utilities.",
-    tech: ["Android","Web Admin"],
-    tags: ["Mobile","Android"],
-    links: { demo: "#", github: "#" }
-  },
-  {
-    title: "Cakep (Cari Kerja Pariwisata)",
-    category: "Mobile",
-    thumb: "assets/images/cakep.png",
-    description: "Mobile + API Developer. App in Kotlin; API using CodeIgniter 3.",
-    tech: ["Kotlin","CodeIgniter 3","API"],
-    tags: ["Mobile","Kotlin","Backend"],
-    links: { demo: "#", github: "#" }
-  },
-
-  // === Web Projects ===
-  {
-    title: "Eoffice Portal (BKPM)",
+    title: "Eoffice Portal (BKPM / Kementerian Investasi & Hilirisasi)",
     category: "Web",
     thumb: "assets/images/eoffice.png",
     description: "Start page management with NLP speech-to-text. Frontend: React JS; Backend: Lumen; DB: PostgreSQL.",
@@ -135,7 +87,7 @@ const projectsData = [
     links: { demo: "#", github: "#" }
   },
   {
-    title: "Eoffice DMS (BKPM)",
+    title: "Eoffice DMS (BKPM / Kementerian Investasi & Hilirisasi)",
     category: "Web",
     thumb: "assets/images/dms.png",
     description: "Employee document management system. Frontend: React JS; Backend: Lumen; DB: PostgreSQL.",
@@ -171,7 +123,7 @@ const projectsData = [
     links: { demo: "#", github: "#" }
   },
   {
-    title: "Kearsipan (BNI)",
+    title: "Kearsipan (BNI / Bank Nasional Indonesia)",
     category: "Web",
     thumb: "assets/images/kearsipan.png",
     description: "Head office archive management. Frontend: HTML/CSS; Backend: CodeIgniter 3; DB: MySQL.",
@@ -188,8 +140,6 @@ const projectsData = [
     tags: ["Web","CodeIgniter"],
     links: { demo: "#", github: "#" }
   },
-
-  // === Backend Projects ===
   {
     title: "WhatsDoc (International Pte. Ltd)",
     category: "Backend",
@@ -198,7 +148,52 @@ const projectsData = [
     tech: ["Ruby on Rails","PostgreSQL"],
     tags: ["Backend","Rails"],
     links: { demo: "#", github: "#" }
-  }
+  },
+  {
+    title: "WFM (Work Force Management)",
+    category: "Mobile",
+    thumb: "assets/images/wfm.png",
+    description: "Field operations tool: realtime location tracking, Google Maps (custom markers, polylines, geofencing, distance calc), offline caching.",
+    tech: ["Flutter","Maps","Realtime","Offline"],
+    tags: ["Mobile","Flutter","Maps","Realtime"],
+    links: { demo: "#", github: "#" }
+  },
+  {
+    title: "KlikGazz",
+    category: "Mobile",
+    thumb: "assets/images/klikgazz.png",
+    description: "Gas delivery service app (Customer in Kotlin, Driver in Java). Maps place picker & geocoding, Xendit QRIS payments, FCM notifications, MVP architecture.",
+    tech: ["Kotlin","Java","Maps","Xendit","FCM","MVP"],
+    tags: ["Mobile","Kotlin","Maps"],
+    links: { demo: "#", github: "#" }
+  },
+  {
+    title: "ABDNT (AR Education)",
+    category: "Mobile",
+    thumb: "assets/images/abdnt.png",
+    description: "Native Android app (Kotlin, MVVM) with Sceneform SDK for AR to visualize 3D models in real environments.",
+    tech: ["Kotlin","MVVM","AR","Sceneform"],
+    tags: ["Mobile","Kotlin"],
+    links: { demo: "#", github: "#" }
+  },
+  {
+    title: "Cakep (Cari Kerja Pariwisata)",
+    category: "Mobile",
+    thumb: "assets/images/cakep.png",
+    description: "Mobile + API Developer. App in Kotlin; API using CodeIgniter 3.",
+    tech: ["Kotlin","CodeIgniter 3","API"],
+    tags: ["Mobile","Kotlin","Backend"],
+    links: { demo: "#", github: "#" }
+  },
+  {
+    title: "Meeting Room Booking (Internship)",
+    category: "Mobile",
+    thumb: "https://placehold.co/800x500/png?text=Meeting+Room+Booking",
+    description: "Android user app + web admin to book meeting rooms; part of internship workload along with invoicing/shipment utilities.",
+    tech: ["Android","Web Admin"],
+    tags: ["Mobile","Android"],
+    links: { demo: "#", github: "#" }
+  },
 ];
 
 /* ---------- Render Projects ---------- */
