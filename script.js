@@ -60,6 +60,15 @@ if (themeToggleBtn) {
 /* ---------- Projects Data (Complete with dummy images) ---------- */
 const projectsData = [
   {
+    title: "E-Office BKPM",
+    category: "Mobile",
+    thumb: "assets/images/eoffice_bkpm.png",
+    description: "Enterprise-grade government internal platform for BKPM (Investment Coordinating Board). Modules include Attendance, Leave, HR, and Finance with secure SSO (Keycloak/Azure AD), dynamic dashboards, and document workflow integration.",
+    tech: ["Flutter", "BLoC", "Keycloak", "AzureAD", "REST API", "Minio", "PDF Viewer", "Firebase"],
+    tags: ["Mobile", "Flutter", "Enterprise", "SSO", "Government"],
+    links: { demo: "#", github: "#" }
+  },
+  {
     title: "Komplekita",
     category: "Mobile",
     thumb: "assets/images/komplekita.png",
