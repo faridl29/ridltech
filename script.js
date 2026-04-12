@@ -109,8 +109,8 @@ function renderPortfolio() {
       </div>
       
       <div class="d-flex flex-wrap gap-3 mb-5">
-        <a href="#projects" class="btn btn-primary px-4 py-3 rounded-pill fw-medium shadow-sm d-flex align-items-center gap-2"><i class="bi bi-briefcase"></i> View Projects</a>
-        <a href="#contact" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i class="bi bi-envelope"></i> Contact Me</a>
+        <a href="#projects" class="btn btn-primary px-4 py-3 rounded-pill fw-medium shadow-sm d-flex align-items-center gap-2 custom-link"><i class="bi bi-briefcase"></i> View Projects</a>
+        <a href="#contact" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2 custom-link"><i class="bi bi-envelope"></i> Contact Me</a>
         <a href="${data.profile.cv_link}" target="_blank" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i class="bi bi-file-earmark-arrow-down"></i> Resume</a>
       </div>
       
@@ -153,12 +153,12 @@ function renderPortfolio() {
       <div class="elegant-card p-4">
         <div class="row g-0">
           <div class="col-lg-6 pe-lg-4">
-            <h4 class="fw-bold mb-3 d-flex align-items-center gap-3"><div class="brand-icon text-white" style="width: 36px; height: 36px; font-size: 0.85rem;"><i class="bi bi-code-slash"></i></div> ${data.about.what_i_do.title}</h4>
+            <h4 class="fw-bold mb-3 d-flex align-items-center gap-3"><div class="brand-icon" style="background: var(--accent);"><i class="bi bi-code-slash"></i></div> ${data.about.what_i_do.title}</h4>
             <p class="text-secondary lh-lg mb-3 small">${data.about.what_i_do.description}</p>
             <div class="row g-2 fw-medium text-main small">${doFeatures}</div>
           </div>
           <div class="col-lg-6 ps-lg-4 mt-4 mt-lg-0" style="border-left: 1px solid var(--border-color);">
-            <h4 class="fw-bold mb-3 d-flex align-items-center gap-3"><div class="brand-icon text-white" style="width: 36px; height: 36px; font-size: 0.85rem; background: var(--text-main);"><i class="bi bi-lightbulb"></i></div> ${data.about.philosophy.title}</h4>
+            <h4 class="fw-bold mb-3 d-flex align-items-center gap-3"><div class="brand-icon" style="background: var(--accent-2);"><i class="bi bi-lightbulb-fill"></i></div> ${data.about.philosophy.title}</h4>
             <div class="text-secondary lh-lg mb-3 small">${data.about.philosophy.description}</div>
             <ul class="list-unstyled fw-medium text-secondary m-0 small">${philFeatures}</ul>
           </div>
