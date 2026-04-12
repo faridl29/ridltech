@@ -3,7 +3,7 @@ const PORTFOLIO_DATA = {
     name: "Miftah Faridl",
     role: "Mobile & Web Developer",
     hero_title: "Hi, I'm Miftah Faridl",
-    hero_subtitle: "I build cross-platform mobile apps and modern web systems that feel fast, reliable, and delightful.",
+    hero_subtitle: "Transforming complex business requirements into high-performance digital solutions. I specialize in building scalable mobile and web ecosystems that drive user engagement.",
     typewriter: ["Flutter", "Kotlin/Java", "React JS", "Laravel/CI", "Ruby on Rails"],
     location: "Cimahi, West Java",
     email: "m.faridl441@gmail.com",
@@ -14,24 +14,24 @@ const PORTFOLIO_DATA = {
   },
   about: {
     title: "About Me",
-    description: "I am a passionate Mobile & Web Developer who thrives on crafting apps that are not just functional, but also intuitive and visually appealing.",
+    description: "A Full-stack Mobile & Web Engineer dedicated to delivering high-performance digital products. I bridge the gap between complex business logic and intuitive user experiences using modern architectural patterns.",
     stats: [
       { number: "5+", label: "Years Experience" },
       { number: "20+", label: "Projects Completed" },
       { number: "10+", label: "Technologies" }
     ],
     what_i_do: {
-      title: "What I Do",
-      description: "I specialize in creating cross-platform mobile applications and modern web systems that deliver exceptional user experiences. My approach combines clean code practices with intuitive design principles.",
-      features: ["Mobile Apps", "Web Systems", "Real-time Apps", "API Integration"]
+      title: "Core Expertise",
+      description: "I engineer scalable architectures and seamless user interfaces that drive business growth. From concept to deployment, I ensure every line of code adds measurable beauty and value to the product.",
+      features: ["Native & Hybrid Mobile", "Enterprise Web Apps", "High-Concurrency Systems", "Cloud & API Architecture"]
     },
     philosophy: {
-      title: "My Philosophy",
-      description: "I believe technology should solve real problems while being accessible and enjoyable to use. Every project is an opportunity to create something meaningful that makes a positive impact.",
+      title: "Engineering Standard",
+      description: "I focus on building sustainable systems rather than just features. I prioritize technical excellence and architectural integrity to ensure products are performant, secure, and ready for scale.",
       features: [
-        "User-first approach in every design decision",
-        "Clean, maintainable code that scales",
-        "Continuous learning and adaptation"
+        "User-Centric & Data-Driven Design",
+        "Clean, Maintainable & Scalable Code",
+        "Strategic Solutions for Complex Problems"
       ]
     }
   },
@@ -67,9 +67,15 @@ const PORTFOLIO_DATA = {
       ]
     },
     {
-      title: "Architecture",
+      title: "Design Pattern",
       items: [
-        { name: "MVC / MVVM / BLoC", icon: "bi-diagram-3" }
+        { name: "MVC", icon: "bi-diagram-3" },
+        { name: "MVVM", icon: "bi-diagram-3" },
+        { name: "BLoC", icon: "bi-diagram-3" },
+        { name: "Repository Pattern", icon: "bi-diagram-3" },
+        { name: "Clean Architecture", icon: "bi-diagram-3" },
+        { name: "Provider", icon: "bi-diagram-3" },
+        { name: "GetX", icon: "bi-diagram-3" }
       ]
     },
     {
@@ -92,7 +98,7 @@ const PORTFOLIO_DATA = {
     {
       title: "Databases",
       items: [
-        { name: "SQL / PostgreSQL", icon: "bi-database" },
+        { name: "My SQL / PostgreSQL", icon: "bi-database" },
         { name: "Redis / NoSQL", icon: "bi-database" }
       ]
     },
