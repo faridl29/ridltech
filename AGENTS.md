@@ -1,0 +1,1 @@
+jangan update .well-known, .nojekyll, app-ads.txt, dan CNAME
