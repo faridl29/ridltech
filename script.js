@@ -6,17 +6,30 @@ AOS.init({ duration: 700, once: true, offset: 60, easing: 'ease-out-cubic' });
 // CUSTOM SCROLLSPY — reliable section tracking
 // ═══════════════════════════════════════
 const navLinks = document.querySelectorAll('#mainNav .custom-link');
-const sectionIds = ['home', 'about', 'skills', 'projects', 'contact'];
+const sectionIds = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
 
 function updateActiveNav() {
-  const scrollY = window.scrollY + 120; // offset for fixed nav
+  const scrollY = window.scrollY;
+  const viewportHeight = window.innerHeight;
+  const offset = 150; // offset for fixed nav + buffer
+
   let currentSection = 'home';
 
+  // Find the section that is currently most prominent in the viewport
   for (const id of sectionIds) {
-    const section = document.getElementById(id);
-    if (section && section.offsetTop <= scrollY) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    
+    const rect = el.getBoundingClientRect();
+    // If the top of the section is above the threshold (offset)
+    if (rect.top <= offset) {
       currentSection = id;
     }
+  }
+
+  // Bottom of the page check (Contact)
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+    currentSection = 'contact';
   }
 
   navLinks.forEach(link => {
@@ -68,7 +81,7 @@ function setTheme(theme) {
     icon.style.color = "var(--accent)";
   }
 }
-setTheme(localStorage.getItem("theme") || "light");
+setTheme(localStorage.getItem("theme") || "dark");
 document.getElementById("themeToggle").addEventListener("click", () => {
   setTheme(rootHtml.getAttribute("data-bs-theme") === "light" ? "dark" : "light");
 });
@@ -223,6 +236,53 @@ function renderPortfolio() {
     `;
   });
   document.getElementById('skillsContent').innerHTML = skillsHtml;
+
+  // ═══════════════════════════════════════
+  // EXPERIENCE & EDUCATION
+  // ═══════════════════════════════════════
+  let expHtml = '';
+  data.experience.forEach((exp, idx) => {
+    expHtml += `
+      <div class="exp-item mb-5" data-aos="fade-up" data-aos-delay="${idx * 100}">
+        <div class="exp-dot"></div>
+        <div class="elegant-card elegant-card-hover p-4 exp-card">
+          <div class="exp-header">
+            <div class="exp-company-wrap">
+              <div class="exp-company-icon">
+                <i class="bi bi-building"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-1 fs-5 text-main">${exp.role}</h4>
+                <div class="text-accent fw-medium small">${exp.company}</div>
+              </div>
+            </div>
+            <div class="exp-period-badge">${exp.period}</div>
+          </div>
+          <p class="text-secondary small mb-4 lh-base">${exp.description}</p>
+          <ul class="list-unstyled mb-0 exp-highlight-list">
+            ${exp.highlights.map(h => `<li><i class="bi bi-check2-circle"></i> ${h}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    `;
+  });
+  document.getElementById('experienceContent').innerHTML = expHtml;
+
+  let eduHtml = '';
+  data.education.forEach((edu, idx) => {
+    eduHtml += `
+      <div class="edu-card elegant-card p-4" data-aos="fade-up" data-aos-delay="${idx * 150}">
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <div class="edu-icon"><i class="bi bi-mortarboard-fill"></i></div>
+          <div class="edu-status-badge">${edu.status}</div>
+        </div>
+        <h5 class="fw-bold mb-1 fs-6">${edu.degree}</h5>
+        <div class="text-secondary small mb-3">${edu.school}</div>
+        <div class="text-accent fw-semibold small">${edu.period}</div>
+      </div>
+    `;
+  });
+  document.getElementById('educationContent').innerHTML = eduHtml;
 
   // ═══════════════════════════════════════
   // PROJECTS FILTER

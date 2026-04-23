@@ -3,7 +3,7 @@ const PORTFOLIO_DATA = {
     name: "Miftah Faridl",
     role: "Mobile & Web Developer",
     hero_title: "Hi, I'm Miftah Faridl",
-    hero_subtitle: "Transforming complex business requirements into high-performance digital solutions. I specialize in building scalable mobile and web ecosystems that drive user engagement.",
+    hero_subtitle: "Results-driven Senior Mobile Developer with 5+ years of experience building scalable, high-performance solutions for enterprise and government systems using Flutter, Java, and Kotlin.",
     typewriter: ["Flutter", "Kotlin/Java", "React JS", "Laravel/CI", "Ruby on Rails"],
     location: "Cimahi, West Java",
     email: "m.faridl441@gmail.com",
@@ -14,7 +14,7 @@ const PORTFOLIO_DATA = {
   },
   about: {
     title: "About Me",
-    description: "A Full-stack Mobile & Web Engineer dedicated to delivering high-performance digital products. I bridge the gap between complex business logic and intuitive user experiences using modern architectural patterns.",
+    description: "Results-driven Senior Mobile Developer with 5+ years of experience. Skilled in secure authentication (SSO, OAuth), real-time features, and modular architecture using Clean Architecture and BLoC, with a strong focus on performance, maintainability, and user-centric design.",
     stats: [
       { number: "5+", label: "Years Experience" },
       { number: "20+", label: "Projects Completed" },
@@ -252,6 +252,58 @@ const PORTFOLIO_DATA = {
       description: "Android user app + web admin to book meeting rooms; part of internship workload along with invoicing/shipment utilities.",
       tech: ["Android", "Web Admin"],
       links: { demo: "#", github: "#" }
+    }
+  ],
+  experience: [
+    {
+      company: "PT. Mediatama Kreasi Informatika",
+      role: "Senior Mobile Developer",
+      period: "01/2022 - Present",
+      description: "Developing scalable mobile applications for enterprise and government systems, focusing on secure authentication, real-time features, and maintainable architecture.",
+      highlights: [
+        "Developed cross-platform mobile applications using Flutter for enterprise and government-scale systems.",
+        "Implemented secure SSO authentication using Keycloak, OAuth (Azure AD), and role-based access control.",
+        "Designed and applied Clean Architecture with BLoC and repository pattern.",
+        "Built real-time features using Socket.IO, including live data synchronization.",
+        "Improved application performance through optimized state management and lazy loading."
+      ]
+    },
+    {
+      company: "PT Sampulkreativ Technology",
+      role: "Ruby on Rails Developer",
+      period: "06/2020 - 12/2021",
+      description: "Developed and maintained scalable backend systems and RESTful APIs for custom software solutions.",
+      highlights: [
+        "Built scalable backend systems using Ruby on Rails.",
+        "Designed and implemented RESTful APIs with JWT authentication.",
+        "Collaborated in Agile/Scrum teams to deliver features iteratively.",
+        "Resolved critical bugs and improved application performance."
+      ]
+    },
+    {
+      company: "PT. Aplikanusa Lintasarta",
+      role: "Internship Student",
+      period: "06/2019 - 12/2019",
+      description: "Developed internal tools and mobile applications to support logistics and office workflows.",
+      highlights: [
+        "Developed Android-based meeting room booking application.",
+        "Implemented scheduling and booking management features.",
+        "Created tools to support logistics workflows and invoice processing."
+      ]
+    }
+  ],
+  education: [
+    {
+      school: "Universitas Terbuka",
+      degree: "Bachelor of Information Systems",
+      period: "06/2023 - Present",
+      status: "In Progress"
+    },
+    {
+      school: "SMK Negeri 1 Cimahi",
+      degree: "High School Diploma (4-Year Program)",
+      period: "06/2016 - 06/2020",
+      status: "Graduated"
     }
   ]
 };

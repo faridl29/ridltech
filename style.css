@@ -611,6 +611,179 @@ h1, h2, h3, h4, h5, h6 {
 .skill-chip:hover i { transform: scale(1.15); }
 
 /* ═══════════════════════════════════════
+   EXPERIENCE & EDUCATION SECTION
+═══════════════════════════════════════ */
+.experience-timeline {
+  position: relative;
+  padding-left: 45px; /* More space for the glowing dot */
+  margin-top: 1rem;
+}
+
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px; /* Center the line relative to the dot */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 50%, transparent 100%);
+  opacity: 0.5;
+}
+
+.exp-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.exp-dot {
+  position: absolute;
+  left: -45px; /* Move back by the padding amount */
+  top: 24px; /* Align with the top of the card */
+  width: 18px;
+  height: 18px;
+  background-color: var(--card-bg);
+  border: 4px solid var(--accent);
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 0 6px var(--accent-soft), 0 0 20px var(--accent-glow);
+  transition: all 0.3s ease;
+}
+
+.exp-item:hover .exp-dot {
+  background-color: var(--accent);
+  box-shadow: 0 0 0 8px rgba(99, 102, 241, 0.15), 0 0 30px var(--accent-glow);
+  transform: scale(1.1);
+}
+
+.exp-card {
+  position: relative;
+  border-radius: 20px;
+}
+
+/* Arrow pointing to the timeline */
+.exp-card::before {
+  content: '';
+  position: absolute;
+  left: -9px;
+  top: 25px;
+  width: 18px;
+  height: 18px;
+  background-color: var(--card-bg);
+  border-left: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  transform: rotate(45deg);
+  z-index: 0;
+  transition: border-color 0.4s ease;
+}
+
+.elegant-card-hover:hover::before {
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.exp-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--border-color);
+  position: relative;
+  z-index: 1; /* Above the arrow */
+}
+
+@media (min-width: 768px) {
+  .exp-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.exp-company-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.exp-company-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--bg-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+  border: 1px solid var(--border-color);
+}
+
+.exp-period-badge {
+  background: var(--bg-soft);
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  letter-spacing: 0.02em;
+}
+
+.exp-highlight-list li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 0.8rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.exp-highlight-list li i {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.text-accent { color: var(--accent) !important; }
+
+/* Education Side */
+.edu-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border-color);
+}
+
+.edu-card:hover {
+  transform: translateX(5px);
+  border-color: var(--accent);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.edu-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.edu-status-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: var(--bg-soft);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+/* ═══════════════════════════════════════
    PROJECTS
 ═══════════════════════════════════════ */
 .project-card {
