@@ -10,7 +10,7 @@ const PORTFOLIO_DATA = {
     linkedin: "https://linkedin.com/in/miftah-faridl",
     phone: "+6289654711175",
     photo: "assets/images/profile2.jpg",
-    cv_link: "assets/files/cv_miftah_faridl_al-anshari_fullstack_developer.pdf"
+    cv_link: "assets/files/cv_miftah_faridl_alanshari_mobile_developer.pdf"
   },
   about: {
     title: "About Me",
