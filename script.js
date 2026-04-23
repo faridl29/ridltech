@@ -122,8 +122,8 @@ function renderPortfolio() {
       </div>
       
       <div class="d-flex flex-wrap gap-3 mb-5">
-        <a href="#projects" class="btn btn-primary px-4 py-3 rounded-pill fw-medium shadow-sm d-flex align-items-center gap-2 custom-link"><i class="bi bi-briefcase"></i> View Projects</a>
-        <a href="#contact" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2 custom-link"><i class="bi bi-envelope"></i> Contact Me</a>
+        <a href="#projects" class="btn btn-primary px-4 py-3 rounded-pill fw-medium shadow-sm d-flex align-items-center gap-2"><i class="bi bi-briefcase"></i> View Projects</a>
+        <a href="#contact" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i class="bi bi-envelope"></i> Contact Me</a>
         <a href="${data.profile.cv_link}" target="_blank" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i class="bi bi-file-earmark-arrow-down"></i> Resume</a>
       </div>
       
