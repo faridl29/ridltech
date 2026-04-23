@@ -118,6 +118,14 @@ const PORTFOLIO_DATA = {
   ],
   projects: [
     {
+      title: "MKI Hub",
+      category: "Mobile",
+      thumb: "assets/images/mki_hub.png",
+      description: "A flagship enterprise workforce ecosystem for Mediatama Kreasi Informatika. Built with a modular monorepo architecture, it provides an all-in-one solution for HR management including AI-driven face recognition attendance, Sick Leave, WFH, Leave management, Business Trips (Perjadin), and real-time presence tracking.",
+      tech: ["Flutter", "Melos", "Riverpod", "GoRouter", "Face Recognition", "Dio", "Clean Architecture"],
+      links: { demo: "#", github: "#" }
+    },
+    {
       title: "E-Office BKPM",
       category: "Mobile",
       thumb: "assets/images/eoffice_bkpm.png",
@@ -129,8 +137,8 @@ const PORTFOLIO_DATA = {
       title: "Komplekita",
       category: "Mobile",
       thumb: "assets/images/komplekita.png",
-      description: "Residential/complex management app. Core features: Panic Button (Socket.IO + FlutterMap) realtime, Resident Permit, Complaint Management, Carpool live driver tracking.",
-      tech: ["Flutter", "BLoC", "GetX", "Realtime", "Maps", "FCM"],
+      description: "A comprehensive residential and community management platform. It features a Realtime Panic Button (Socket.IO + FlutterMap), Smart QR Access for residents and guests, Complaint Management with multimedia support, Carpool tracking, and integrated PPOB payment services.",
+      tech: ["Flutter", "BLoC", "Socket.IO", "FlutterMap", "Firebase", "REST API", "Multimedia", "QR Scanner"],
       links: { demo: "#", github: "#" }
     },
     {
