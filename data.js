@@ -39,23 +39,24 @@ const PORTFOLIO_DATA = {
     {
       title: "Programming Languages",
       items: [
-        { name: "Java", icon: "bi-code-slash" },
+        { name: "Dart", icon: "bi-code-slash" },
         { name: "Kotlin", icon: "bi-code-slash" },
+        { name: "Java", icon: "bi-code-slash" },
         { name: "PHP", icon: "bi-code-slash" },
-        { name: "Ruby", icon: "bi-code-slash" },
-        { name: "JavaScript", icon: "bi-code-slash" }
+        { name: "JavaScript", icon: "bi-code-slash" },
+        { name: "Ruby", icon: "bi-code-slash" }
       ]
     },
     {
       title: "Frameworks",
       items: [
         { name: "Flutter", icon: "bi-phone" },
-        { name: "React", icon: "bi-layers" },
-        { name: "jQuery", icon: "bi-window" },
         { name: "Laravel", icon: "bi-code" },
-        { name: "Lumen", icon: "bi-code" },
         { name: "CodeIgniter", icon: "bi-code-slash" },
-        { name: "Rails", icon: "bi-gem" }
+        { name: "React js", icon: "bi-layers" },
+        { name: "Next js", icon: "bi-lightning-charge" },
+        { name: "Node js", icon: "bi-node-plus" },
+        { name: "Ruby on Rails", icon: "bi-gem" }
       ]
     },
     {
@@ -67,48 +68,51 @@ const PORTFOLIO_DATA = {
       ]
     },
     {
-      title: "Design Pattern",
+      title: "Design Patterns",
       items: [
+        { name: "BloC", icon: "bi-diagram-3" },
+        { name: "Cubit", icon: "bi-diagram-3" },
         { name: "MVC", icon: "bi-diagram-3" },
+        { name: "MVP", icon: "bi-diagram-3" },
         { name: "MVVM", icon: "bi-diagram-3" },
-        { name: "BLoC", icon: "bi-diagram-3" },
-        { name: "Repository Pattern", icon: "bi-diagram-3" },
         { name: "Clean Architecture", icon: "bi-diagram-3" },
+        { name: "Repository Pattern", icon: "bi-diagram-3" },
         { name: "Provider", icon: "bi-diagram-3" },
         { name: "GetX", icon: "bi-diagram-3" }
+      ]
+    },
+    {
+      title: "Databases",
+      items: [
+        { name: "MySQL", icon: "bi-database" },
+        { name: "PostgreSQL", icon: "bi-database" },
+        { name: "Redis", icon: "bi-database" },
+        { name: "Firebase Realtime Database", icon: "bi-database" }
       ]
     },
     {
       title: "Tools & OS",
       items: [
         { name: "Git / GitHub / GitLab", icon: "bi-git" },
-        { name: "Codemagic", icon: "bi-gear" },
-        { name: "Linux / MacOS", icon: "bi-ubuntu" }
+        { name: "CodeMagic", icon: "bi-gear" },
+        { name: "Windows / MacOS / Linux", icon: "bi-pc-display" }
       ]
     },
     {
-      title: "Cloud",
+      title: "Integrations",
       items: [
         { name: "GCP", icon: "bi-cloud" },
         { name: "Firebase", icon: "bi-cloud" },
         { name: "Google Maps", icon: "bi-map" },
-        { name: "REST / JWT", icon: "bi-hdd-network" }
-      ]
-    },
-    {
-      title: "Databases",
-      items: [
-        { name: "My SQL / PostgreSQL", icon: "bi-database" },
-        { name: "Redis / NoSQL", icon: "bi-database" }
-      ]
-    },
-    {
-      title: "Integrations & PM",
-      items: [
+        { name: "REST API", icon: "bi-hdd-network" },
+        { name: "JWT", icon: "bi-shield-lock" },
+        { name: "Oauth", icon: "bi-key" },
         { name: "Stripe", icon: "bi-credit-card" },
+        { name: "SocketIO", icon: "bi-broadcast" },
         { name: "Twilio", icon: "bi-chat-dots" },
-        { name: "Scrum", icon: "bi-kanban" },
-        { name: "Helpdesk", icon: "bi-headset" }
+        { name: "Xendit", icon: "bi-wallet2" },
+        { name: "AI", icon: "bi-cpu" },
+        { name: "minIO", icon: "bi-archive" }
       ]
     }
   ],

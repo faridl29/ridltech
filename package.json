@@ -1,0 +1,16 @@
+{
+  "name": "ridltech",
+  "version": "1.0.0",
+  "description": "Miftah Faridl Portfolio",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "portfolio",
+    "static",
+    "miftah-faridl"
+  ],
+  "author": "Miftah Faridl",
+  "license": "MIT"
+}
