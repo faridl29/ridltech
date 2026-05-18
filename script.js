@@ -289,6 +289,7 @@ function renderPortfolio() {
   // ═══════════════════════════════════════
   const categories = ["all", ...new Set(data.projects.map(p => p.category))];
   const filterWrap = document.getElementById('projectFilters');
+  if (filterWrap) filterWrap.innerHTML = '';
   categories.forEach(cat => {
     const btn = document.createElement('button');
     btn.className = `filter-pill ${cat === 'all' ? 'active' : ''}`;
@@ -301,7 +302,7 @@ function renderPortfolio() {
       currentProjectCount = 6;
       renderProjectsGrid();
     });
-    filterWrap.appendChild(btn);
+    if (filterWrap) filterWrap.appendChild(btn);
   });
 
   // Load more container
@@ -338,16 +339,16 @@ function renderPortfolio() {
         <form id="contactForm">
           <div class="row g-3">
             <div class="col-md-6 mb-3">
-              <label class="form-label text-main fw-semibold small mb-2">Name</label>
+              <label class="form-label text-main fw-semibold small mb-2" for="contactName">Name</label>
               <input type="text" class="form-control modern-input text-main" id="contactName" placeholder="John Doe" required>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="form-label text-main fw-semibold small mb-2">Subject</label>
+              <label class="form-label text-main fw-semibold small mb-2" for="contactSubject">Subject</label>
               <input type="text" class="form-control modern-input text-main" id="contactSubject" placeholder="App Development" required>
             </div>
           </div>
           <div class="mb-4">
-            <label class="form-label text-main fw-semibold small mb-2">Project Details</label>
+            <label class="form-label text-main fw-semibold small mb-2" for="contactMessage">Project Details</label>
             <textarea class="form-control modern-input text-main" id="contactMessage" rows="5" placeholder="Tell me about your idea..." required></textarea>
           </div>
           <button type="submit" class="btn btn-primary w-100 py-3 rounded-3 fw-medium fs-6 d-flex justify-content-center align-items-center gap-2"><i class="bi bi-whatsapp fs-5"></i> Send Message via WhatsApp</button>
