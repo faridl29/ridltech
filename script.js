@@ -42,8 +42,24 @@ function updateActiveNav() {
   });
 }
 
-window.addEventListener('scroll', updateActiveNav, { passive: true });
-// Will also be called after renderPortfolio
+// Throttled and Combined Scroll Listener to prevent layout thrashing
+let scrollThrottleTimeout;
+window.addEventListener('scroll', () => {
+  // Fast class toggle (no layout reflow)
+  if (window.scrollY > 30) {
+    document.getElementById('mainNav').classList.add('scrolled');
+  } else {
+    document.getElementById('mainNav').classList.remove('scrolled');
+  }
+
+  // Throttled scrollspy calculations (only runs once every 100ms)
+  if (!scrollThrottleTimeout) {
+    scrollThrottleTimeout = setTimeout(() => {
+      updateActiveNav();
+      scrollThrottleTimeout = null;
+    }, 100);
+  }
+}, { passive: true });
 
 // Smooth Navigation — use event delegation so dynamically injected links also work
 document.addEventListener('click', function (e) {
@@ -60,12 +76,6 @@ document.addEventListener('click', function (e) {
     if (nav && nav.classList.contains('show')) new bootstrap.Collapse(nav).hide();
   }
 });
-
-// Navbar scrolled state
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 30) document.getElementById('mainNav').classList.add('scrolled');
-  else document.getElementById('mainNav').classList.remove('scrolled');
-}, { passive: true });
 
 // Theme System
 const rootHtml = document.documentElement;
@@ -106,9 +116,9 @@ function renderPortfolio() {
 
   document.getElementById('heroContent').innerHTML = `
     <div class="col-lg-7 mb-5 mb-lg-0 order-2 order-lg-1" data-aos="fade-right">
-      <div class="hero-role-badge mb-4">
-        <span class="hero-role-dot"></span>
-        <span>${data.profile.role}</span>
+      <div class="availability-banner">
+        <span class="availability-dot"></span>
+        <span>Available for new opportunities</span>
       </div>
       <h1 class="hero-heading mb-4">
         <span class="hero-greeting">Hi, I'm</span>
@@ -122,9 +132,9 @@ function renderPortfolio() {
       </div>
       
       <div class="d-flex flex-wrap gap-3 mb-5">
-        <a href="#projects" class="btn btn-primary px-4 py-3 rounded-pill fw-medium shadow-sm d-flex align-items-center gap-2"><i class="bi bi-briefcase"></i> View Projects</a>
+        <a href="${data.profile.cv_link}" target="_blank" class="btn btn-primary px-4 py-3 rounded-pill fw-medium shadow-sm d-flex align-items-center gap-2"><i class="bi bi-file-earmark-arrow-down"></i> Download Resume</a>
+        <a href="#projects" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i class="bi bi-briefcase"></i> View Projects</a>
         <a href="#contact" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i class="bi bi-envelope"></i> Contact Me</a>
-        <a href="${data.profile.cv_link}" target="_blank" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i class="bi bi-file-earmark-arrow-down"></i> Resume</a>
       </div>
       
       <div class="d-flex gap-3">
@@ -140,6 +150,8 @@ function renderPortfolio() {
       </div>
     </div>
   `;
+
+
 
   // Typewriter
   const twEl = document.getElementById('tw-text');
@@ -158,36 +170,62 @@ function renderPortfolio() {
   // ═══════════════════════════════════════
   // ABOUT
   // ═══════════════════════════════════════
-  let doFeatures = data.about.what_i_do.features.map(f => `<div class="col-6 d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill" style="color:var(--accent); font-size: 0.8rem; flex-shrink:0;"></i><span>${f}</span></div>`).join('');
-  let philFeatures = data.about.philosophy.features.map(f => `<li class="mb-2 d-flex align-items-start gap-2"><i class="bi bi-check-circle-fill" style="color:var(--accent); font-size: 0.8rem; flex-shrink:0; margin-top: 2px;"></i><span class="lh-sm">${f}</span></li>`).join('');
+  let doFeatures = data.about.what_i_do.features.map(f => `
+    <div class="col-12 d-flex align-items-center gap-2">
+      <i class="bi bi-check-circle-fill text-accent" style="font-size: 0.8rem; flex-shrink:0;"></i>
+      <span>${f}</span>
+    </div>
+  `).join('');
+  let philFeatures = data.about.philosophy.features.map(f => `
+    <li class="d-flex align-items-start gap-2">
+      <i class="bi bi-check-circle-fill text-accent" style="font-size: 0.8rem; flex-shrink:0; margin-top: 2px;"></i>
+      <span class="lh-sm">${f}</span>
+    </li>
+  `).join('');
 
+  document.getElementById('aboutContent').className = 'about-bento-grid';
   document.getElementById('aboutContent').innerHTML = `
-    <div class="col-12" data-aos="fade-up">
-      <div class="elegant-card p-4">
-        <div class="row g-0">
-          <div class="col-lg-6 pe-lg-4">
-            <h4 class="fw-bold mb-3 d-flex align-items-center gap-3"><div class="brand-icon" style="background: var(--accent);"><i class="bi bi-code-slash"></i></div> ${data.about.what_i_do.title}</h4>
-            <p class="text-secondary lh-lg mb-3 small">${data.about.what_i_do.description}</p>
-            <div class="row g-2 fw-medium text-main small">${doFeatures}</div>
-          </div>
-          <div class="col-lg-6 ps-lg-4 mt-4 mt-lg-0" style="border-left: 1px solid var(--border-color);">
-            <h4 class="fw-bold mb-3 d-flex align-items-center gap-3"><div class="brand-icon" style="background: var(--accent-2);"><i class="bi bi-lightbulb-fill"></i></div> ${data.about.philosophy.title}</h4>
-            <div class="text-secondary lh-lg mb-3 small">${data.about.philosophy.description}</div>
-            <ul class="list-unstyled fw-medium text-secondary m-0 small">${philFeatures}</ul>
-          </div>
-        </div>
+    <!-- Bento Card 1: Bio & Summary -->
+    <div class="bento-card bento-bio" data-aos="fade-up">
+      <div class="elegant-card h-100 p-4">
+        <h4 class="fw-bold mb-3 d-flex align-items-center gap-3">
+          <div class="brand-icon" style="background: var(--accent);"><i class="bi bi-person-fill"></i></div> About Me
+        </h4>
+        <p class="text-secondary lh-lg mb-0 small">${data.about.description}</p>
       </div>
     </div>
-    <div class="col-12 mt-3" data-aos="fade-up" data-aos-delay="100">
-      <div class="row g-3">
-        ${data.about.stats.map(s => `
-          <div class="col-4">
-            <div class="elegant-card p-3 text-center">
-              <div class="stat-number">${s.number}</div>
-              <div class="text-muted small text-uppercase fw-semibold" style="letter-spacing: 0.06em; font-size: 0.68rem;">${s.label}</div>
-            </div>
+
+    <!-- Bento Card 2: Dashboard Stats -->
+    <div class="bento-card bento-stats" data-aos="fade-up" data-aos-delay="50">
+      <div class="elegant-card h-100 p-4 d-flex flex-column justify-content-between gap-3">
+        ${data.about.stats.map((s, sIdx) => `
+          <div class="text-center p-2 ${sIdx < data.about.stats.length - 1 ? 'border-bottom border-subtle' : ''}">
+            <div class="stat-number">${s.number}</div>
+            <div class="text-muted small text-uppercase fw-bold" style="font-size: 0.65rem; letter-spacing: 0.05em;">${s.label}</div>
           </div>
         `).join('')}
+      </div>
+    </div>
+
+    <!-- Bento Card 3: Core Expertise -->
+    <div class="bento-card bento-expertise" data-aos="fade-up" data-aos-delay="100">
+      <div class="elegant-card h-100 p-4">
+        <h4 class="fw-bold mb-3 d-flex align-items-center gap-3">
+          <div class="brand-icon" style="background: var(--accent-3);"><i class="bi bi-code-slash"></i></div> ${data.about.what_i_do.title}
+        </h4>
+        <p class="text-secondary small mb-3">${data.about.what_i_do.description}</p>
+        <div class="row g-2 fw-medium text-main small">${doFeatures}</div>
+      </div>
+    </div>
+
+    <!-- Bento Card 4: Philosophy & Standards -->
+    <div class="bento-card bento-philosophy" data-aos="fade-up" data-aos-delay="150">
+      <div class="elegant-card h-100 p-4">
+        <h4 class="fw-bold mb-3 d-flex align-items-center gap-3">
+          <div class="brand-icon" style="background: var(--accent-2);"><i class="bi bi-lightbulb-fill"></i></div> ${data.about.philosophy.title}
+        </h4>
+        <p class="text-secondary small mb-3">${data.about.philosophy.description}</p>
+        <ul class="list-unstyled fw-medium text-secondary m-0 small d-flex flex-column gap-2">${philFeatures}</ul>
       </div>
     </div>
   `;
@@ -214,12 +252,15 @@ function renderPortfolio() {
   data.skills_categories.forEach((cat, idx) => {
     const icon = skillCategoryIcons[cat.title] || 'bi-star';
     const color = skillCategoryColors[idx % skillCategoryColors.length];
-    let tagsHtml = cat.items.map(item => `
-      <div class="skill-chip">
-        <i class="bi ${item.icon}"></i>
-        <span>${item.name}</span>
-      </div>
-    `).join('');
+    let tagsHtml = cat.items.map(item => {
+      const isCore = ['Flutter', 'Dart', 'Kotlin'].includes(item.name);
+      return `
+        <div class="skill-chip ${isCore ? 'skill-chip-featured' : ''}">
+          <i class="bi ${item.icon}"></i>
+          <span>${item.name}${isCore ? ' <span class="core-badge">★</span>' : ''}</span>
+        </div>
+      `;
+    }).join('');
 
     skillsHtml += `
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="${(idx % 3) * 60}">
@@ -325,11 +366,27 @@ function renderPortfolio() {
       <div class="d-flex flex-column gap-4">
         <div class="d-flex align-items-center gap-3">
           <div class="contact-info-icon"><i class="bi bi-envelope"></i></div>
-          <div><div class="text-muted small fw-semibold text-uppercase" style="letter-spacing: 0.06em; font-size: 0.7rem;">Email Me</div><a href="mailto:${data.profile.email}" class="text-main text-decoration-none fw-semibold fs-6">${data.profile.email}</a></div>
+          <div>
+            <div class="text-muted small fw-semibold text-uppercase" style="letter-spacing: 0.06em; font-size: 0.7rem;">Email Me</div>
+            <div class="d-flex align-items-center gap-2">
+              <a href="mailto:${data.profile.email}" class="text-main text-decoration-none fw-semibold fs-6">${data.profile.email}</a>
+              <button type="button" class="btn btn-sm btn-icon border-0 p-1" id="copyEmailBtn" title="Copy email to clipboard" style="background: transparent; color: var(--accent); transition: transform 0.2s;"><i class="bi bi-copy" id="copyEmailIcon"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <div class="contact-info-icon"><i class="bi bi-linkedin"></i></div>
+          <div>
+            <div class="text-muted small fw-semibold text-uppercase" style="letter-spacing: 0.06em; font-size: 0.7rem;">LinkedIn</div>
+            <a href="${data.profile.linkedin}" target="_blank" class="text-main text-decoration-none fw-semibold fs-6">linkedin.com/in/miftah-faridl</a>
+          </div>
         </div>
         <div class="d-flex align-items-center gap-3">
           <div class="contact-info-icon"><i class="bi bi-geo-alt"></i></div>
-          <div><div class="text-muted small fw-semibold text-uppercase" style="letter-spacing: 0.06em; font-size: 0.7rem;">Location</div><span class="text-main fw-semibold fs-6">${data.profile.location}</span></div>
+          <div>
+            <div class="text-muted small fw-semibold text-uppercase" style="letter-spacing: 0.06em; font-size: 0.7rem;">Location</div>
+            <span class="text-main fw-semibold fs-6">${data.profile.location}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -357,6 +414,24 @@ function renderPortfolio() {
     </div>
   `;
 
+  // Attach Copy Email handler
+  const copyBtn = document.getElementById('copyEmailBtn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(data.profile.email).then(() => {
+        const icon = document.getElementById('copyEmailIcon');
+        icon.className = 'bi bi-check-lg';
+        icon.style.color = '#22c55e'; // Green checkmark
+        copyBtn.style.transform = 'scale(1.2)';
+        setTimeout(() => {
+          icon.className = 'bi bi-copy';
+          icon.style.color = '';
+          copyBtn.style.transform = '';
+        }, 2000);
+      });
+    });
+  }
+
   document.getElementById("contactForm").addEventListener("submit", function (e) {
     e.preventDefault();
     const name = document.getElementById('contactName').value;
@@ -382,6 +457,7 @@ function renderPortfolio() {
 
   // Trigger scrollspy after render
   updateActiveNav();
+  initCardGlows();
 }
 
 // ═══════════════════════════════════════
@@ -431,6 +507,25 @@ function renderProjectsGrid() {
       document.getElementById('projectModalDesc').textContent = proj.description;
       document.getElementById('projectModalTech').innerHTML = proj.tech.map(t => `<span class="tech-pill border-subtle px-3 py-2 fs-6 fw-medium">${t}</span>`).join('');
 
+      // Populate case-study elements
+      const roleBadge = document.getElementById('projectModalRole');
+      const caseStudyContainer = document.getElementById('projectCaseStudyContainer');
+      const challengeEl = document.getElementById('projectModalChallenge');
+      const solutionEl = document.getElementById('projectModalSolution');
+      const impactEl = document.getElementById('projectModalImpact');
+
+      if (proj.role) {
+        roleBadge.textContent = proj.role;
+        roleBadge.style.display = 'inline-block';
+        challengeEl.textContent = proj.challenge;
+        solutionEl.textContent = proj.solution;
+        impactEl.textContent = proj.impact;
+        caseStudyContainer.style.display = 'flex';
+      } else {
+        roleBadge.style.display = 'none';
+        caseStudyContainer.style.display = 'none';
+      }
+
       const btnDemo = document.getElementById('projectModalDemo');
       const btnGit = document.getElementById('projectModalGithub');
 
@@ -439,6 +534,16 @@ function renderProjectsGrid() {
 
       if (!proj.links || proj.links.github === '#') btnGit.style.display = 'none';
       else { btnGit.style.display = 'inline-flex'; btnGit.href = proj.links.github; }
+
+      // Private/restricted system badge logic
+      const securityBadge = document.getElementById('projectModalSecurityBadge');
+      if (securityBadge) {
+        if (!proj.links || (proj.links.demo === '#' && proj.links.github === '#')) {
+          securityBadge.style.display = 'flex';
+        } else {
+          securityBadge.style.display = 'none';
+        }
+      }
 
       let projModal = bootstrap.Modal.getInstance(document.getElementById('projectModal'));
       if (!projModal) projModal = new bootstrap.Modal(document.getElementById('projectModal'));
@@ -462,6 +567,34 @@ function renderProjectsGrid() {
   } else {
     loadMoreBtnContainer.innerHTML = '';
   }
+  initCardGlows();
+}
+
+// Optimized mouse move handler with bounding rect cache to prevent layout thrashing
+function initCardGlows() {
+  document.querySelectorAll('.elegant-card-hover').forEach(card => {
+    if (card.dataset.glowInitialized) return;
+    card.dataset.glowInitialized = "true";
+
+    let rect = null;
+
+    // Cache the bounding rect on mouse enter, avoiding repeated client calls on mouse move
+    card.addEventListener('mouseenter', () => {
+      rect = card.getBoundingClientRect();
+    });
+
+    card.addEventListener('mousemove', e => {
+      if (!rect) rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      rect = null;
+    });
+  });
 }
 
 window.addEventListener('DOMContentLoaded', renderPortfolio);
