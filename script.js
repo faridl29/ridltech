@@ -52,6 +52,14 @@ window.addEventListener('scroll', () => {
     document.getElementById('mainNav').classList.remove('scrolled');
   }
 
+  // Scroll progress bar
+  const progressEl = document.getElementById('scrollProgress');
+  if (progressEl) {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+    progressEl.style.width = pct + '%';
+  }
+
   // Throttled scrollspy calculations (only runs once every 100ms)
   if (!scrollThrottleTimeout) {
     scrollThrottleTimeout = setTimeout(() => {
@@ -100,6 +108,7 @@ document.getElementById("themeToggle").addEventListener("click", () => {
 let cachedProjectsList = [];
 let currentProjectCount = 6;
 let allGlobalProjects = [];
+const isWorkPage = window.location.pathname.includes('work');
 
 // ═══════════════════════════════════════
 // MAIN RENDER
@@ -112,9 +121,15 @@ function renderPortfolio() {
   const data = PORTFOLIO_DATA;
   allGlobalProjects = data.projects;
   cachedProjectsList = data.projects;
-  document.getElementById('footerText').textContent = data.profile.name;
+  const footerTextEl = document.getElementById('footerText');
+  if (footerTextEl) footerTextEl.textContent = data.profile.name;
 
-  document.getElementById('heroContent').innerHTML = `
+  // ═══════════════════════════════════════
+  // HERO (homepage only)
+  // ═══════════════════════════════════════
+  const heroEl = document.getElementById('heroContent');
+  if (heroEl) {
+  heroEl.innerHTML = `
     <div class="col-lg-7 mb-5 mb-lg-0 order-2 order-lg-1" data-aos="fade-right">
       <div class="availability-banner">
         <span class="availability-dot"></span>
@@ -155,6 +170,7 @@ function renderPortfolio() {
 
   // Typewriter
   const twEl = document.getElementById('tw-text');
+  if (twEl) {
   let typeIdx = 0, charIdx = 0, isDeleting = false;
   function typeEffect() {
     const currentWord = data.profile.typewriter[typeIdx];
@@ -166,16 +182,14 @@ function renderPortfolio() {
     setTimeout(typeEffect, typeSpeed);
   }
   setTimeout(typeEffect, 500);
+  } // end typewriter
+  } // end hero
 
   // ═══════════════════════════════════════
-  // ABOUT
+  // ABOUT (homepage only)
   // ═══════════════════════════════════════
-  let doFeatures = data.about.what_i_do.features.map(f => `
-    <div class="col-12 d-flex align-items-center gap-2">
-      <i class="bi bi-check-circle-fill text-accent" style="font-size: 0.8rem; flex-shrink:0;"></i>
-      <span>${f}</span>
-    </div>
-  `).join('');
+  const aboutEl = document.getElementById('aboutContent');
+  if (aboutEl) {
   let philFeatures = data.about.philosophy.features.map(f => `
     <li class="d-flex align-items-start gap-2">
       <i class="bi bi-check-circle-fill text-accent" style="font-size: 0.8rem; flex-shrink:0; margin-top: 2px;"></i>
@@ -183,8 +197,8 @@ function renderPortfolio() {
     </li>
   `).join('');
 
-  document.getElementById('aboutContent').className = 'about-bento-grid';
-  document.getElementById('aboutContent').innerHTML = `
+  aboutEl.className = 'about-bento-grid';
+  aboutEl.innerHTML = `
     <!-- Bento Card 1: Bio & Summary -->
     <div class="bento-card bento-bio" data-aos="fade-up">
       <div class="elegant-card h-100 p-4">
@@ -207,19 +221,8 @@ function renderPortfolio() {
       </div>
     </div>
 
-    <!-- Bento Card 3: Core Expertise -->
-    <div class="bento-card bento-expertise" data-aos="fade-up" data-aos-delay="100">
-      <div class="elegant-card h-100 p-4">
-        <h4 class="fw-bold mb-3 d-flex align-items-center gap-3">
-          <div class="brand-icon" style="background: var(--accent-3);"><i class="bi bi-code-slash"></i></div> ${data.about.what_i_do.title}
-        </h4>
-        <p class="text-secondary small mb-3">${data.about.what_i_do.description}</p>
-        <div class="row g-2 fw-medium text-main small">${doFeatures}</div>
-      </div>
-    </div>
-
-    <!-- Bento Card 4: Philosophy & Standards -->
-    <div class="bento-card bento-philosophy" data-aos="fade-up" data-aos-delay="150">
+    <!-- Bento Card 3: Philosophy & Standards -->
+    <div class="bento-card bento-philosophy" data-aos="fade-up" data-aos-delay="100">
       <div class="elegant-card h-100 p-4">
         <h4 class="fw-bold mb-3 d-flex align-items-center gap-3">
           <div class="brand-icon" style="background: var(--accent-2);"><i class="bi bi-lightbulb-fill"></i></div> ${data.about.philosophy.title}
@@ -229,10 +232,13 @@ function renderPortfolio() {
       </div>
     </div>
   `;
+  } // end about
 
   // ═══════════════════════════════════════
-  // SKILLS — Card grid with category icons & colored accents
+  // SKILLS (homepage only)
   // ═══════════════════════════════════════
+  const skillsEl = document.getElementById('skillsContent');
+  if (skillsEl) {
   const skillCategoryIcons = {
     'Programming Languages': 'bi-braces-asterisk',
     'Frameworks': 'bi-layers',
@@ -276,11 +282,14 @@ function renderPortfolio() {
       </div>
     `;
   });
-  document.getElementById('skillsContent').innerHTML = skillsHtml;
+  skillsEl.innerHTML = skillsHtml;
+  } // end skills
 
   // ═══════════════════════════════════════
-  // EXPERIENCE & EDUCATION
+  // EXPERIENCE & EDUCATION (homepage only)
   // ═══════════════════════════════════════
+  const expEl = document.getElementById('experienceContent');
+  if (expEl) {
   let expHtml = '';
   data.experience.forEach((exp, idx) => {
     expHtml += `
@@ -307,8 +316,11 @@ function renderPortfolio() {
       </div>
     `;
   });
-  document.getElementById('experienceContent').innerHTML = expHtml;
+  expEl.innerHTML = expHtml;
+  }
 
+  const eduEl = document.getElementById('educationContent');
+  if (eduEl) {
   let eduHtml = '';
   data.education.forEach((edu, idx) => {
     eduHtml += `
@@ -323,41 +335,50 @@ function renderPortfolio() {
       </div>
     `;
   });
-  document.getElementById('educationContent').innerHTML = eduHtml;
+  eduEl.innerHTML = eduHtml;
+  } // end education
 
-  // ═══════════════════════════════════════
-  // PROJECTS FILTER
-  // ═══════════════════════════════════════
-  const categories = ["all", ...new Set(data.projects.map(p => p.category))];
-  const filterWrap = document.getElementById('projectFilters');
-  if (filterWrap) filterWrap.innerHTML = '';
-  categories.forEach(cat => {
-    const btn = document.createElement('button');
-    btn.className = `filter-pill ${cat === 'all' ? 'active' : ''}`;
-    btn.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
-    btn.dataset.filter = cat;
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      cachedProjectsList = cat === 'all' ? data.projects : data.projects.filter(p => p.category === cat);
-      currentProjectCount = 6;
-      renderProjectsGrid();
+  // Only show filter + load-more on work page
+  if (isWorkPage) {
+    const categories = ["all", ...new Set(data.projects.map(p => p.category))];
+    const filterWrap = document.getElementById('projectFilters');
+    if (filterWrap) filterWrap.innerHTML = '';
+    categories.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = `filter-pill ${cat === 'all' ? 'active' : ''}`;
+      btn.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+      btn.dataset.filter = cat;
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        cachedProjectsList = cat === 'all' ? data.projects : data.projects.filter(p => p.category === cat);
+        currentProjectCount = 6;
+        renderProjectsGrid();
+      });
+      if (filterWrap) filterWrap.appendChild(btn);
     });
-    if (filterWrap) filterWrap.appendChild(btn);
-  });
 
-  // Load more container
-  const loadMoreContainer = document.createElement('div');
-  loadMoreContainer.id = "loadMoreContainer";
-  loadMoreContainer.className = "col-12 text-center mt-5 mb-2";
-  document.getElementById('projectsGrid').parentNode.appendChild(loadMoreContainer);
+    // Load more container
+    const loadMoreContainer = document.createElement('div');
+    loadMoreContainer.id = "loadMoreContainer";
+    loadMoreContainer.className = "col-12 text-center mt-5 mb-2";
+    document.getElementById('projectsGrid').parentNode.appendChild(loadMoreContainer);
+  } else {
+    // Homepage: show only featured projects, hide filters
+    cachedProjectsList = data.projects.filter(p => p.featured);
+    currentProjectCount = 6;
+    const filterWrap = document.getElementById('projectFilters');
+    if (filterWrap) filterWrap.style.display = 'none';
+  }
 
   renderProjectsGrid();
 
   // ═══════════════════════════════════════
-  // CONTACT
+  // CONTACT (homepage only)
   // ═══════════════════════════════════════
-  document.getElementById('contactContent').innerHTML = `
+  const contactEl = document.getElementById('contactContent');
+  if (contactEl) {
+  contactEl.innerHTML = `
     <div class="col-lg-5 mb-5 mb-lg-0 z-1" data-aos="fade-right">
       <div class="badge-subtitle mb-3">Hire Me</div>
       <h2 class="section-title mb-4 lh-base text-main">Let's build something <span class="gradient-text">beautiful</span> together.</h2>
@@ -444,6 +465,7 @@ function renderPortfolio() {
     window.open(waUrl, '_blank');
     this.reset();
   });
+  } // end contact
 
   // Footer Socials
   const footerSocials = document.getElementById('footerSocials');
@@ -457,24 +479,29 @@ function renderPortfolio() {
 
   // Trigger scrollspy after render
   updateActiveNav();
-  initCardGlows();
 }
 
 // ═══════════════════════════════════════
 // PROJECTS GRID
 // ═══════════════════════════════════════
-function renderProjectsGrid() {
+function renderProjectsGrid(forceRefresh = true) {
   const grid = document.getElementById('projectsGrid');
   const loadMoreBtnContainer = document.getElementById('loadMoreContainer');
-  grid.innerHTML = '';
+
+  // Only clear grid on initial load or filter change, not on Load More
+  if (forceRefresh) {
+    grid.innerHTML = '';
+  }
 
   if (cachedProjectsList.length === 0) {
     grid.innerHTML = '<div class="col-12 text-center text-muted py-5 mt-3">No projects found.</div>';
-    loadMoreBtnContainer.innerHTML = '';
+    if (loadMoreBtnContainer) loadMoreBtnContainer.innerHTML = '';
     return;
   }
 
-  const toShow = cachedProjectsList.slice(0, currentProjectCount);
+  // Determine which cards need rendering
+  const alreadyRendered = forceRefresh ? 0 : grid.querySelectorAll('.col-md-6').length;
+  const toShow = cachedProjectsList.slice(alreadyRendered, currentProjectCount);
 
   toShow.forEach((p, index) => {
     const glIdx = allGlobalProjects.findIndex(ap => ap.title === p.title);
@@ -489,10 +516,11 @@ function renderProjectsGrid() {
     card.innerHTML = `
       <div class="elegant-card elegant-card-hover project-card h-100" style="cursor: pointer;">
         <div class="img-wrap">
+          <span class="img-tag">${p.category}</span>
           <img src="${p.thumb}" alt="${p.title}" loading="lazy">
         </div>
         <div class="p-4 d-flex flex-column flex-grow-1">
-          <div class="project-category mb-2">${p.category}</div>
+          <div class="project-arrow"><i class="bi bi-arrow-up-right"></i></div>
           <h4 class="fw-bold mb-3 fs-5">${p.title}</h4>
           <p class="text-secondary small mb-4 lh-base" style="display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; text-overflow:ellipsis; overflow:hidden;">${p.description}</p>
           <div class="mt-auto d-flex flex-wrap gap-2">${techsHtml}</div>
@@ -553,48 +581,37 @@ function renderProjectsGrid() {
     grid.appendChild(card);
   });
 
-  // Load More
-  if (cachedProjectsList.length > currentProjectCount) {
-    loadMoreBtnContainer.innerHTML = `
-      <button class="btn btn-outline-secondary rounded-pill px-5 py-2 mt-2 fw-medium d-inline-flex align-items-center gap-2">
-        Load More Works <i class="bi bi-arrow-down"></i>
-      </button>
-    `;
-    loadMoreBtnContainer.querySelector('button').addEventListener('click', () => {
-      currentProjectCount += 6;
-      renderProjectsGrid();
-    });
-  } else {
-    loadMoreBtnContainer.innerHTML = '';
+  // Re-init AOS for newly appended cards
+  if (!forceRefresh && typeof AOS !== 'undefined') {
+    AOS.refresh();
   }
-  initCardGlows();
-}
 
-// Optimized mouse move handler with bounding rect cache to prevent layout thrashing
-function initCardGlows() {
-  document.querySelectorAll('.elegant-card-hover').forEach(card => {
-    if (card.dataset.glowInitialized) return;
-    card.dataset.glowInitialized = "true";
-
-    let rect = null;
-
-    // Cache the bounding rect on mouse enter, avoiding repeated client calls on mouse move
-    card.addEventListener('mouseenter', () => {
-      rect = card.getBoundingClientRect();
-    });
-
-    card.addEventListener('mousemove', e => {
-      if (!rect) rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
-    });
-
-    card.addEventListener('mouseleave', () => {
-      rect = null;
-    });
-  });
+  // Load More / View All
+  if (isWorkPage) {
+    if (cachedProjectsList.length > currentProjectCount) {
+      loadMoreBtnContainer.innerHTML = `
+        <button class="btn btn-outline-secondary rounded-pill px-5 py-2 mt-2 fw-medium d-inline-flex align-items-center gap-2">
+          Load More Works <i class="bi bi-arrow-down"></i>
+        </button>
+      `;
+      loadMoreBtnContainer.querySelector('button').addEventListener('click', () => {
+        currentProjectCount += 6;
+        renderProjectsGrid(false); // append-only, no refresh
+      });
+    } else {
+      loadMoreBtnContainer.innerHTML = '';
+    }
+  } else {
+    // Homepage: show "View All Work" link
+    const viewAllContainer = document.getElementById('viewAllContainer');
+    if (viewAllContainer) {
+      viewAllContainer.innerHTML = `
+        <a href="work.html" class="btn btn-outline-secondary rounded-pill px-5 py-3 fw-medium d-inline-flex align-items-center gap-2">
+          View All Work <i class="bi bi-arrow-right"></i>
+        </a>
+      `;
+    }
+  }
 }
 
 window.addEventListener('DOMContentLoaded', renderPortfolio);

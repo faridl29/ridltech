@@ -3,7 +3,7 @@ const PORTFOLIO_DATA = {
     name: "Miftah Faridl",
     role: "Mobile & Web Developer",
     hero_title: "Hi, I'm Miftah Faridl",
-    hero_subtitle: "Results-driven Senior Mobile Developer with 5+ years of experience building scalable, high-performance solutions for enterprise and government systems using Flutter, Java, and Kotlin.",
+    hero_subtitle: "I build enterprise-grade mobile systems that governments and corporations rely on daily.",
     typewriter: ["Flutter", "Kotlin/Java", "React JS", "Laravel/CI", "Ruby on Rails"],
     location: "Cimahi, West Java",
     email: "m.faridl441@gmail.com",
@@ -14,17 +14,12 @@ const PORTFOLIO_DATA = {
   },
   about: {
     title: "About Me",
-    description: "Results-driven Senior Mobile Developer with 5+ years of experience. Skilled in secure authentication (SSO, OAuth), real-time features, and modular architecture using Clean Architecture and BLoC, with a strong focus on performance, maintainability, and user-centric design.",
+    description: "I started coding at 16, building Android apps during vocational school. Since then, I've shipped 20+ production systems — from government platforms used by thousands of civil servants at BKPM and OJK, to banking tools at BNI and BPD Bali, to an international health consultation backend in Singapore. I care deeply about architecture that outlasts the sprint it was built in.",
     stats: [
       { number: "5+", label: "Years Experience" },
       { number: "20+", label: "Projects Completed" },
       { number: "10+", label: "Technologies" }
     ],
-    what_i_do: {
-      title: "Core Expertise",
-      description: "I engineer scalable architectures and seamless user interfaces that drive business growth. From concept to deployment, I ensure every line of code adds measurable beauty and value to the product.",
-      features: ["Native & Hybrid Mobile", "Enterprise Web Apps", "High-Concurrency Systems", "Cloud & API Architecture"]
-    },
     philosophy: {
       title: "Engineering Standard",
       description: "I focus on building sustainable systems rather than just features. I prioritize technical excellence and architectural integrity to ensure products are performant, secure, and ready for scale.",
@@ -118,6 +113,7 @@ const PORTFOLIO_DATA = {
   ],
   projects: [
     {
+      featured: true,
       title: "MKI Hub",
       category: "Mobile",
       thumb: "assets/images/mki_hub.png",
@@ -130,6 +126,7 @@ const PORTFOLIO_DATA = {
       impact: "Reduced attendance fraud by 98% and improved data synchronization speed by 40%."
     },
     {
+      featured: true,
       title: "Noor Ramadhan",
       category: "Mobile",
       thumb: "assets/images/noor_ramadhan.png",
@@ -142,6 +139,7 @@ const PORTFOLIO_DATA = {
       impact: "Developed a responsive, cross-platform app supporting multiple locales (English, Indonesian, Arabic) maintaining a solid 60 FPS performance on budget devices."
     },
     {
+      featured: true,
       title: "E-Office BKPM",
       category: "Mobile",
       thumb: "assets/images/eoffice_bkpm.png",
@@ -154,6 +152,7 @@ const PORTFOLIO_DATA = {
       impact: "Successfully deployed to 3,000+ government employees with zero authentication leaks or downtime."
     },
     {
+      featured: true,
       title: "Komplekita",
       category: "Mobile",
       thumb: "assets/images/komplekita.png",
@@ -166,6 +165,7 @@ const PORTFOLIO_DATA = {
       impact: "Reduced panic-response dispatch time from minutes to under 3 seconds on average."
     },
     {
+      featured: true,
       title: "Sipena — OJK Archive App",
       category: "Mobile",
       thumb: "assets/images/sipena.png",
@@ -262,6 +262,7 @@ const PORTFOLIO_DATA = {
       impact: "Passed bank security assessments and supported billions of rupiah in automated procurements."
     },
     {
+      featured: true,
       title: "WhatsDoc (International Pte. Ltd)",
       category: "Backend",
       thumb: "assets/images/whatsdoc.png",

@@ -88,6 +88,9 @@
 </head>
 <body tabindex="0">
 
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
   <!-- Deep Space Background -->
   <div class="dot-bg"></div>
 
@@ -132,7 +135,7 @@
             <span class="hero-greeting">Hi, I'm</span>
             <span class="hero-name-gradient">Miftah Faridl</span>
           </h1>
-          <p class="hero-subtitle mb-4">Results-driven Senior Mobile Developer with 5+ years of experience building scalable, high-performance solutions for enterprise and government systems using Flutter, Java, and Kotlin.</p>
+          <p class="hero-subtitle mb-4">I build enterprise-grade mobile systems that governments and corporations rely on daily.</p>
           
           <div class="hero-typewriter-row mb-5">
             <span class="hero-typewriter-label">Specialized in</span>
@@ -180,7 +183,7 @@
               <div class="brand-icon" style="background: var(--accent);"><i class="bi bi-person-fill"></i></div> About Me
             </h4>
             <p class="text-secondary lh-lg mb-0 small">
-              Results-driven Senior Mobile Developer with 5+ years of experience. Skilled in secure authentication (SSO, OAuth), real-time features, and modular architecture using Clean Architecture and BLoC, with a strong focus on performance, maintainability, and user-centric design.
+              I started coding at 16, building Android apps during vocational school. Since then, I've shipped 20+ production systems — from government platforms used by thousands of civil servants at BKPM and OJK, to banking tools at BNI and BPD Bali, to an international health consultation backend in Singapore. I care deeply about architecture that outlasts the sprint it was built in.
             </p>
           </div>
         </div>
@@ -203,24 +206,8 @@
           </div>
         </div>
 
-        <!-- Bento Card 3: Core Expertise -->
-        <div class="bento-card bento-expertise" data-aos="fade-up" data-aos-delay="100">
-          <div class="elegant-card h-100 p-4">
-            <h4 class="fw-bold mb-3 d-flex align-items-center gap-3">
-              <div class="brand-icon" style="background: var(--accent-3);"><i class="bi bi-code-slash"></i></div> Core Expertise
-            </h4>
-            <p class="text-secondary small mb-3">Engineering scalable and high-performance solutions:</p>
-            <div class="row g-2 fw-medium text-main small">
-              <div class="col-12 d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-accent" style="font-size: 0.8rem;"></i><span>Native & Hybrid Mobile</span></div>
-              <div class="col-12 d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-accent" style="font-size: 0.8rem;"></i><span>Enterprise Web Apps</span></div>
-              <div class="col-12 d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-accent" style="font-size: 0.8rem;"></i><span>High-Concurrency Systems</span></div>
-              <div class="col-12 d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-accent" style="font-size: 0.8rem;"></i><span>Cloud & API Architecture</span></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bento Card 4: Philosophy & Standards -->
-        <div class="bento-card bento-philosophy" data-aos="fade-up" data-aos-delay="150">
+        <!-- Bento Card 3: Philosophy & Standards -->
+        <div class="bento-card bento-philosophy" data-aos="fade-up" data-aos-delay="100">
           <div class="elegant-card h-100 p-4">
             <h4 class="fw-bold mb-3 d-flex align-items-center gap-3">
               <div class="brand-icon" style="background: var(--accent-2);"><i class="bi bi-lightbulb-fill"></i></div> Engineering Standard
@@ -612,6 +599,7 @@
           </div>
         </div>
       </div>
+      <div id="viewAllContainer" class="text-center mt-5"></div>
     </div>
   </section>
 
@@ -727,13 +715,40 @@
     </div>
   </div>
 
-  <footer class="py-4 text-center mt-3 bg-card">
+  <footer class="site-footer">
     <div class="container">
-      <div class="d-flex justify-content-center gap-3 mb-3" id="footerSocials">
-        <!-- Injected via Script -->
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-6">
+          <a href="#home" class="d-inline-flex align-items-center gap-2 text-decoration-none mb-3">
+            <div class="brand-icon"><i class="bi bi-code-slash"></i></div>
+            <span class="footer-brand">Miftah Faridl</span>
+          </a>
+          <p class="footer-tagline mb-4">Senior Mobile &amp; Web Developer building scalable, high-performance solutions for enterprise and government systems.</p>
+          <div class="d-flex gap-3" id="footerSocials">
+            <!-- Injected via Script -->
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-6">
+          <div class="footer-heading">Navigate</div>
+          <div class="footer-links d-flex flex-column gap-2">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Work</a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-3 col-6">
+          <div class="footer-heading">Get in touch</div>
+          <div class="footer-links d-flex flex-column gap-2">
+            <a href="mailto:m.faridl441@gmail.com"><i class="bi bi-envelope me-2"></i>m.faridl441@gmail.com</a>
+            <a href="https://wa.me/6289654711175" target="_blank"><i class="bi bi-whatsapp me-2"></i>+62 896-5471-1175</a>
+            <a href="#contact"><i class="bi bi-geo-alt me-2"></i>Cimahi, West Java</a>
+          </div>
+        </div>
       </div>
-      <div class="text-secondary small fw-medium" style="letter-spacing: 0.02em;">
-        © <span id="year"></span> <span id="footerText"></span>. Crafted with precision.
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 text-center">
+        <div>© <span id="year"></span> <span id="footerText">Miftah Faridl</span>. All rights reserved.</div>
+        <div>Designed &amp; built with precision.</div>
       </div>
     </div>
   </footer>
