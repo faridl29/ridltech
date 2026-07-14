@@ -60,6 +60,16 @@ window.addEventListener('scroll', () => {
     progressEl.style.width = pct + '%';
   }
 
+  // Scroll-to-top button visibility
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  if (scrollTopBtn) {
+    if (window.scrollY > 400) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  }
+
   // Throttled scrollspy calculations (only runs once every 100ms)
   if (!scrollThrottleTimeout) {
     scrollThrottleTimeout = setTimeout(() => {
@@ -68,6 +78,14 @@ window.addEventListener('scroll', () => {
     }, 100);
   }
 }, { passive: true });
+
+// Scroll to Top click handler
+const scrollTopBtnEl = document.getElementById('scrollTopBtn');
+if (scrollTopBtnEl) {
+  scrollTopBtnEl.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
 // Smooth Navigation — use event delegation so dynamically injected links also work
 document.addEventListener('click', function (e) {
