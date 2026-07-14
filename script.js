@@ -355,37 +355,43 @@ function renderPortfolio() {
     eduEl.innerHTML = eduHtml;
   } // end education
 
-  // Only show filter + load-more on work page
-  if (isWorkPage) {
-    const categories = ["all", ...new Set(data.projects.map(p => p.category))];
-    const filterWrap = document.getElementById('projectFilters');
-    if (filterWrap) filterWrap.innerHTML = '';
+  // Filter pills — work on both pages
+  const categories = ["all", ...new Set(data.projects.map(p => p.category))];
+  const filterWrap = document.getElementById('projectFilters');
+  if (filterWrap) {
+    filterWrap.innerHTML = '';
+    filterWrap.style.display = '';
     categories.forEach(cat => {
       const btn = document.createElement('button');
       btn.className = `filter-pill ${cat === 'all' ? 'active' : ''}`;
-      btn.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+      btn.textContent = cat === 'all' ? t('filter_all') : cat;
       btn.dataset.filter = cat;
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        cachedProjectsList = cat === 'all' ? data.projects : data.projects.filter(p => p.category === cat);
+        if (cat === 'all') {
+          cachedProjectsList = isWorkPage ? data.projects : data.projects.filter(p => p.featured);
+        } else {
+          cachedProjectsList = data.projects.filter(p => p.category === cat);
+        }
         currentProjectCount = 6;
         renderProjectsGrid();
       });
-      if (filterWrap) filterWrap.appendChild(btn);
+      filterWrap.appendChild(btn);
     });
+  }
 
+  if (isWorkPage) {
+    cachedProjectsList = data.projects;
     // Load more container
     const loadMoreContainer = document.createElement('div');
     loadMoreContainer.id = "loadMoreContainer";
     loadMoreContainer.className = "col-12 text-center mt-5 mb-2";
     document.getElementById('projectsGrid').parentNode.appendChild(loadMoreContainer);
   } else {
-    // Homepage: show only featured projects, hide filters
+    // Homepage: start with featured projects
     cachedProjectsList = data.projects.filter(p => p.featured);
     currentProjectCount = 6;
-    const filterWrap = document.getElementById('projectFilters');
-    if (filterWrap) filterWrap.style.display = 'none';
   }
 
   renderProjectsGrid();
