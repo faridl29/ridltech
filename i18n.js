@@ -12,6 +12,7 @@ const I18N = {
     hero_label: "Mobile & Web Developer",
     hero_cta_work: "See My Work",
     hero_cta_resume: "Resume",
+    hero_channels: "Professional channels",
 
     // About
     section_about: "About Me",
@@ -86,6 +87,7 @@ const I18N = {
     hero_label: "Pengembang Mobile & Web",
     hero_cta_work: "Lihat Portofolio",
     hero_cta_resume: "Resume",
+    hero_channels: "Kanal profesional",
 
     // About
     section_about: "Tentang Saya",

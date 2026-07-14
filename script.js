@@ -150,26 +150,30 @@ function applyI18n() {
   });
 }
 
-// Language dropdown toggle
+// Init language dropdown
 const langToggleBtn = document.getElementById('langToggle');
-const langDropdown = document.getElementById('langDropdown');
-if (langToggleBtn && langDropdown) {
+const langDrop = document.getElementById('langDropdown');
+if (langToggleBtn && langDrop) {
   const savedLang = localStorage.getItem('lang') || 'en';
   const label = document.getElementById('langLabel');
   if (label) label.textContent = savedLang.toUpperCase();
 
   langToggleBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    langDropdown.classList.toggle('show');
+    langDrop.classList.toggle('show');
   });
 
-  langDropdown.querySelectorAll('[data-lang]').forEach(item => {
+  langDrop.querySelectorAll('.lang-option').forEach(item => {
     item.addEventListener('click', (e) => {
       e.stopPropagation();
       const lang = item.getAttribute('data-lang');
+      if (lang === getCurrentLang()) {
+        langDrop.classList.remove('show');
+        return;
+      }
       setLang(lang);
       renderPortfolio();
-      langDropdown.classList.remove('show');
+      langDrop.classList.remove('show');
     });
   });
 
@@ -207,17 +211,23 @@ function renderPortfolio() {
     <div class="col-lg-7 mb-5 mb-lg-0 order-2 order-lg-1" data-aos="fade-right">
       <p class="hero-label mb-3">${t('hero_label')}</p>
       <h1 class="hero-heading mb-4">${data.profile.name}</h1>
-      <p class="hero-subtitle mb-4">${t('about_desc').substring(0, 120)}...</p>
+      <p class="hero-subtitle mb-4">${data.profile.hero_subtitle}</p>
       
       <div class="d-flex flex-wrap gap-3 mb-5">
         <a href="#projects" class="btn btn-primary px-4 py-3 rounded-pill fw-medium shadow-sm d-flex align-items-center gap-2"><i class="bi bi-briefcase"></i> ${t('hero_cta_work')}</a>
+        <a href="#contact" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i class="bi bi-envelope"></i> ${t('nav_contact')}</a>
         <a href="${data.profile.cv_link}" target="_blank" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i class="bi bi-download"></i> ${t('hero_cta_resume')}</a>
       </div>
       
-      <div class="d-flex gap-3">
-        <a href="mailto:${data.profile.email}" class="social-icon text-decoration-none" aria-label="Email"><i class="bi bi-envelope"></i></a>
-        <a href="${data.profile.linkedin}" target="_blank" class="social-icon text-decoration-none" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-        <a href="https://wa.me/${data.profile.phone.replace(/[^a-zA-Z0-9]/g, '')}" target="_blank" class="social-icon text-decoration-none" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      <div class="hero-social-bar">
+        <span class="hero-social-label">${t('hero_channels')}</span>
+        <div class="hero-social-divider"></div>
+        <div class="d-flex gap-3">
+          <a href="${data.profile.github}" target="_blank" class="social-icon text-decoration-none" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="${data.profile.linkedin}" target="_blank" class="social-icon text-decoration-none" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="mailto:${data.profile.email}" class="social-icon text-decoration-none" aria-label="Email"><i class="bi bi-envelope"></i></a>
+          <a href="https://wa.me/${data.profile.phone.replace(/[^a-zA-Z0-9]/g, '')}" target="_blank" class="social-icon text-decoration-none" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        </div>
       </div>
     </div>
     <div class="col-lg-5 order-1 order-lg-2 text-center" data-aos="fade-left" data-aos-delay="100">
@@ -239,18 +249,18 @@ function renderPortfolio() {
       <div class="elegant-card h-100 p-4 p-lg-5">
         <h4 class="fw-bold mb-4">${t('section_about')}</h4>
         <p class="text-secondary lh-lg mb-4">${t('about_desc')}</p>
-        <div class="d-flex flex-wrap gap-4 pt-2">
-          <div>
-            <div class="fw-bold fs-4 text-main">${data.about.stats[0].number}</div>
-            <div class="text-muted small">${t('stat_years')}</div>
+        <div class="d-flex flex-wrap gap-5 pt-2">
+          <div class="text-center">
+            <div class="stat-counter gradient-text" data-counter="${data.about.stats[0].number}">0</div>
+            <div class="text-muted small fw-semibold text-uppercase" style="letter-spacing:0.05em;font-size:0.65rem;">${t('stat_years')}</div>
           </div>
-          <div>
-            <div class="fw-bold fs-4 text-main">${data.about.stats[1].number}</div>
-            <div class="text-muted small">${t('stat_projects')}</div>
+          <div class="text-center">
+            <div class="stat-counter gradient-text" data-counter="${data.about.stats[1].number}">0</div>
+            <div class="text-muted small fw-semibold text-uppercase" style="letter-spacing:0.05em;font-size:0.65rem;">${t('stat_projects')}</div>
           </div>
-          <div>
-            <div class="fw-bold fs-4 text-main">${data.about.stats[2].number}</div>
-            <div class="text-muted small">${t('stat_tech')}</div>
+          <div class="text-center">
+            <div class="stat-counter gradient-text" data-counter="${data.about.stats[2].number}">0</div>
+            <div class="text-muted small fw-semibold text-uppercase" style="letter-spacing:0.05em;font-size:0.65rem;">${t('stat_tech')}</div>
           </div>
         </div>
       </div>
@@ -478,6 +488,7 @@ function renderPortfolio() {
   const footerSocials = document.getElementById('footerSocials');
   if (footerSocials) {
     footerSocials.innerHTML = `
+      <a href="${data.profile.github}" target="_blank" class="social-icon text-decoration-none" style="width: 38px; height: 38px; font-size: 1rem; border-radius: 10px;" aria-label="GitHub"><i class="bi bi-github"></i></a>
       <a href="mailto:${data.profile.email}" class="social-icon text-decoration-none" style="width: 38px; height: 38px; font-size: 1rem; border-radius: 10px;" aria-label="Email"><i class="bi bi-envelope"></i></a>
       <a href="${data.profile.linkedin}" target="_blank" class="social-icon text-decoration-none" style="width: 38px; height: 38px; font-size: 1rem; border-radius: 10px;" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
       <a href="https://wa.me/${data.profile.phone.replace(/[^a-zA-Z0-9]/g, '')}" target="_blank" class="social-icon text-decoration-none" style="width: 38px; height: 38px; font-size: 1rem; border-radius: 10px;" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
@@ -621,7 +632,44 @@ function renderProjectsGrid(forceRefresh = true) {
   }
 }
 
+// ═══════════════════════════════════════
+// ANIMATED COUNTERS
+// ═══════════════════════════════════════
+function animateCounters() {
+  const counters = document.querySelectorAll('[data-counter]');
+  if (!counters.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const raw = el.getAttribute('data-counter');
+        const suffix = raw.replace(/[0-9]/g, '');
+        const target = parseInt(raw);
+        if (isNaN(target)) return;
+
+        let current = 0;
+        const duration = 1200;
+        const step = Math.max(1, Math.floor(target / (duration / 16)));
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          el.textContent = current + suffix;
+        }, 16);
+
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  counters.forEach(c => observer.observe(c));
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   renderPortfolio();
   applyI18n();
+  animateCounters();
 });
