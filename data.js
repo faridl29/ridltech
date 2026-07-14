@@ -180,7 +180,7 @@ const PORTFOLIO_DATA = {
     {
       title: "Eoffice Portal (BKPM / Kementerian Investasi & Hilirisasi)",
       category: "Web",
-      thumb: "assets/images/eoffice.png",
+      thumb: "assets/images/poster_eoffice_portal.png",
       description: "Start page management with NLP speech-to-text. Frontend: React JS; Backend: Lumen; DB: PostgreSQL.",
       tech: ["React", "Lumen", "PostgreSQL", "NLP"],
       links: { demo: "#", github: "#" },
@@ -192,7 +192,7 @@ const PORTFOLIO_DATA = {
     {
       title: "Eoffice DMS (BKPM / Kementerian Investasi & Hilirisasi)",
       category: "Web",
-      thumb: "assets/images/dms.png",
+      thumb: "assets/images/poster_dms.png",
       description: "Employee document management system. Frontend: React JS; Backend: Lumen; DB: PostgreSQL.",
       tech: ["React", "Lumen", "PostgreSQL"],
       links: { demo: "#", github: "#" },
@@ -204,7 +204,7 @@ const PORTFOLIO_DATA = {
     {
       title: "SIGTK (Kementerian Sekretariat Negara)",
       category: "Web",
-      thumb: "assets/images/sigtk.png",
+      thumb: "assets/images/poster_sigtk.png",
       description: "Gelar Tanda Kehormatan management. Frontend: HTML/CSS; Backend: CodeIgniter 4; DB: MySQL.",
       tech: ["HTML/CSS", "CodeIgniter 4", "MySQL"],
       links: { demo: "#", github: "#" },
@@ -216,7 +216,7 @@ const PORTFOLIO_DATA = {
     {
       title: "Eoffice Pendukung (Bank SulutGo)",
       category: "Web",
-      thumb: "assets/images/pendukung.png",
+      thumb: "assets/images/poster_pendukung.png",
       description: "Office loan supporting application. Frontend: HTML/CSS; Backend: CodeIgniter 3; DB: MySQL.",
       tech: ["HTML/CSS", "CodeIgniter 3", "MySQL"],
       links: { demo: "#", github: "#" },
@@ -228,7 +228,7 @@ const PORTFOLIO_DATA = {
     {
       title: "Eoffice Inventory (Bank SulutGo)",
       category: "Web",
-      thumb: "assets/images/inventory.png",
+      thumb: "assets/images/poster_inventory.png",
       description: "Inventory data management. Frontend: HTML/CSS; Backend: CodeIgniter 3; DB: MySQL.",
       tech: ["HTML/CSS", "CodeIgniter 3", "MySQL"],
       links: { demo: "#", github: "#" },
@@ -240,7 +240,7 @@ const PORTFOLIO_DATA = {
     {
       title: "Kearsipan (BNI / Bank Nasional Indonesia)",
       category: "Web",
-      thumb: "assets/images/kearsipan.png",
+      thumb: "assets/images/poster_kearsipan.png",
       description: "Head office archive management. Frontend: HTML/CSS; Backend: CodeIgniter 3; DB: MySQL.",
       tech: ["HTML/CSS", "CodeIgniter 3", "MySQL"],
       links: { demo: "#", github: "#" },
