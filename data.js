@@ -253,7 +253,7 @@ const PORTFOLIO_DATA = {
     {
       title: "Digiproc (BPD Bali)",
       category: "Web",
-      thumb: "assets/images/digiproc.png",
+      thumb: "assets/images/poster_digiproc.png",
       description: "Digital procurement system. Frontend: HTML/CSS; Backend: CodeIgniter 3; DB: MySQL.",
       tech: ["HTML/CSS", "CodeIgniter 3", "MySQL"],
       links: { demo: "#", github: "#" },
@@ -278,7 +278,7 @@ const PORTFOLIO_DATA = {
     {
       title: "WFM (Work Force Management)",
       category: "Mobile",
-      thumb: "assets/images/wfm.png",
+      thumb: "assets/images/poster_wfm.png",
       description: "Field operations tool: realtime location tracking, Google Maps (custom markers, polylines, geofencing, distance calc), offline caching.",
       tech: ["Flutter", "Maps", "Realtime", "Offline"],
       links: { demo: "#", github: "#" },
@@ -290,7 +290,7 @@ const PORTFOLIO_DATA = {
     {
       title: "KlikGazz",
       category: "Mobile",
-      thumb: "assets/images/klikgazz.png",
+      thumb: "assets/images/poster_klikgazz.png",
       description: "Gas delivery service app (Customer in Kotlin, Driver in Java). Maps place picker & geocoding, Xendit QRIS payments, FCM notifications, MVP architecture.",
       tech: ["Kotlin", "Java", "Maps", "Xendit", "FCM", "MVP"],
       links: { demo: "#", github: "#" },
@@ -302,7 +302,7 @@ const PORTFOLIO_DATA = {
     {
       title: "ABDNT (AR Education)",
       category: "Mobile",
-      thumb: "assets/images/abdnt.png",
+      thumb: "assets/images/poster_abdnt.png",
       description: "Native Android app (Kotlin, MVVM) with Sceneform SDK for AR to visualize 3D models in real environments.",
       tech: ["Kotlin", "MVVM", "AR", "Sceneform"],
       links: { demo: "#", github: "#" },
@@ -314,7 +314,7 @@ const PORTFOLIO_DATA = {
     {
       title: "Cakep (Cari Kerja Pariwisata)",
       category: "Mobile",
-      thumb: "assets/images/cakep.png",
+      thumb: "assets/images/poster_cakep.png",
       description: "Mobile + API Developer. App in Kotlin; API using CodeIgniter 3.",
       tech: ["Kotlin", "CodeIgniter 3", "API"],
       links: { demo: "#", github: "#" },
