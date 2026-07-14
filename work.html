@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
+
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWC2DHZBRJ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-MWC2DHZBRJ');
   </script>
@@ -13,7 +14,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>All Work — Miftah Faridl | Portfolio</title>
-  <meta name="description" content="Complete portfolio of Miftah Faridl — 20+ projects spanning enterprise mobile apps, government systems, banking tools, and international platforms." />
+  <meta name="description"
+    content="Complete portfolio of Miftah Faridl — 20+ projects spanning enterprise mobile apps, government systems, banking tools, and international platforms." />
   <meta name="keywords" content="Miftah Faridl, portfolio, projects, Flutter, Mobile Developer, Web Developer" />
   <meta name="author" content="Miftah Faridl" />
   <meta name="robots" content="index, follow" />
@@ -24,7 +26,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="All Work — Miftah Faridl" />
-  <meta property="og:description" content="Complete portfolio of Miftah Faridl — 20+ projects spanning enterprise mobile apps, government systems, banking tools, and international platforms." />
+  <meta property="og:description"
+    content="Complete portfolio of Miftah Faridl — 20+ projects spanning enterprise mobile apps, government systems, banking tools, and international platforms." />
   <meta property="og:url" content="https://ridltech.my.id/work.html" />
   <meta property="og:image" content="https://ridltech.my.id/assets/images/profile2.jpg" />
 
@@ -37,12 +40,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- Stylesheets -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <link href="style.css" rel="stylesheet" />
 </head>
+
 <body tabindex="0">
 
   <!-- Scroll Progress Indicator -->
@@ -59,21 +65,38 @@
         <span>Miftah Faridl</span>
       </a>
       <div class="d-flex align-items-center gap-2 order-lg-2">
+        <div class="position-relative">
+          <button id="langToggle" class="btn btn-icon lang-btn" type="button" aria-label="Toggle language">
+            <i class="bi bi-translate"></i>
+            <span id="langLabel" style="font-size: 0.65rem; font-weight: 700; margin-left: 2px;">EN</span>
+          </button>
+          <div id="langDropdown" class="lang-dropdown">
+            <button class="lang-option" data-lang="en"><span>🇺🇸</span> English</button>
+            <button class="lang-option" data-lang="id"><span>🇮🇩</span> Bahasa Indonesia</button>
+          </div>
+        </div>
         <button id="themeToggle" class="btn btn-icon theme-btn" type="button" aria-label="Toggle theme">
           <i class="bi bi-moon-stars" id="themeIcon"></i>
         </button>
-        <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+        <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navContent">
           <i class="bi bi-list"></i>
         </button>
       </div>
       <div id="navContent" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto gap-lg-3 fs-6 px-3 px-lg-0">
-          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="index.html#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="index.html#about">About</a></li>
-          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="index.html#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="index.html#experience">Experience</a></li>
-          <li class="nav-item"><a class="nav-link custom-link active rounded-pill px-3" href="work.html">Work</a></li>
-          <li class="nav-item"><a class="nav-link custom-link custom-link-contact rounded-pill px-3" href="index.html#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="index.html#home"
+              data-i18n="nav_home">Home</a></li>
+          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="index.html#about"
+              data-i18n="nav_about">About</a></li>
+          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="index.html#skills"
+              data-i18n="nav_skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="index.html#experience"
+              data-i18n="nav_experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link custom-link active rounded-pill px-3" href="work.html"
+              data-i18n="nav_work">Work</a></li>
+          <li class="nav-item"><a class="nav-link custom-link custom-link-contact rounded-pill px-3"
+              href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -83,10 +106,9 @@
   <section class="page-section" style="padding-top: 160px;">
     <div class="container">
       <div class="text-center mb-5" data-aos="fade-up">
-        <div class="badge-subtitle mb-3">Portfolio</div>
-        <h1 class="section-title">All Work</h1>
-        <p class="text-secondary mx-auto" style="max-width: 540px;">A complete collection of 20+ projects I've built — from enterprise mobile apps to government systems and international platforms.</p>
-        <div class="section-divider"></div>
+        <h1 class="section-title" data-i18n="work_title">All Work</h1>
+        <p class="text-secondary mx-auto" style="max-width: 540px;" data-i18n="work_desc">A complete collection of 20+
+          projects I've built — from enterprise mobile apps to government systems and international platforms.</p>
       </div>
 
       <!-- Filter Pills -->
@@ -107,45 +129,56 @@
         </div>
         <div class="modal-body px-4 pb-3 pt-2">
           <div class="d-flex flex-wrap align-items-center gap-2 mb-4">
-            <span id="projectModalRole" class="badge rounded-pill px-3 py-2 fw-semibold" style="background: var(--accent-soft); color: var(--accent); font-size: 0.78rem;"></span>
-            <div id="projectModalSecurityBadge" class="d-flex align-items-center gap-2 text-muted small" style="display: none;">
+            <span id="projectModalRole" class="badge rounded-pill px-3 py-2 fw-semibold"
+              style="background: var(--accent-soft); color: var(--accent); font-size: 0.78rem;"></span>
+            <div id="projectModalSecurityBadge" class="d-flex align-items-center gap-2 text-muted small"
+              style="display: none;">
               <i class="bi bi-shield-lock-fill"></i>
-              <span>Private / Restricted System</span>
+              <span data-i18n="modal_private">Private / Restricted System</span>
             </div>
           </div>
-          <img id="projectModalImg" class="w-100 rounded-4 mb-4 border border-subtle" alt="" loading="lazy" style="max-height: 400px; object-fit: cover;">
+          <img id="projectModalImg" class="w-100 rounded-4 mb-4 border border-subtle" alt="" loading="lazy"
+            style="max-height: 400px; object-fit: cover;">
           <p id="projectModalDesc" class="text-secondary lh-lg mb-4"></p>
 
           <div id="projectCaseStudyContainer" class="row g-3 mb-4" style="display: none;">
             <div class="col-md-6">
               <div class="elegant-card p-3 h-100 border-subtle bg-soft">
-                <h6 class="fw-bold mb-2 text-main d-flex align-items-center gap-2" style="font-size: 0.85rem;"><i class="bi bi-exclamation-triangle text-warning"></i> The Challenge</h6>
+                <h6 class="fw-bold mb-2 text-main d-flex align-items-center gap-2" style="font-size: 0.85rem;"><i
+                    class="bi bi-exclamation-triangle text-warning"></i> <span data-i18n="modal_challenge">The
+                    Challenge</span></h6>
                 <p id="projectModalChallenge" class="text-secondary small mb-0 lh-base" style="font-size: 0.8rem;"></p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="elegant-card p-3 h-100 border-subtle bg-soft">
-                <h6 class="fw-bold mb-2 text-main d-flex align-items-center gap-2" style="font-size: 0.85rem;"><i class="bi bi-cpu text-info"></i> The Solution</h6>
+                <h6 class="fw-bold mb-2 text-main d-flex align-items-center gap-2" style="font-size: 0.85rem;"><i
+                    class="bi bi-cpu text-info"></i> <span data-i18n="modal_solution">The Solution</span></h6>
                 <p id="projectModalSolution" class="text-secondary small mb-0 lh-base" style="font-size: 0.8rem;"></p>
               </div>
             </div>
             <div class="col-12">
-              <div class="elegant-card p-3 border-subtle" style="background-color: var(--accent-soft); border-left: 4px solid var(--accent) !important;">
-                <h6 class="fw-bold mb-1 text-main d-flex align-items-center gap-2" style="font-size: 0.85rem;"><i class="bi bi-graph-up-arrow text-accent"></i> Key Impact & Result</h6>
+              <div class="elegant-card p-3 border-subtle"
+                style="background-color: var(--accent-soft); border-left: 4px solid var(--accent) !important;">
+                <h6 class="fw-bold mb-1 text-main d-flex align-items-center gap-2" style="font-size: 0.85rem;"><i
+                    class="bi bi-graph-up-arrow text-accent"></i> <span data-i18n="modal_impact">Key Impact &
+                    Result</span></h6>
                 <p id="projectModalImpact" class="text-secondary small mb-0 lh-base" style="font-size: 0.8rem;"></p>
               </div>
             </div>
           </div>
 
-          <div class="fw-medium mb-3 text-main">Technologies Used:</div>
+          <div class="fw-medium mb-3 text-main" data-i18n="modal_tech">Technologies Used:</div>
           <div id="projectModalTech" class="d-flex flex-wrap gap-2 mb-2"></div>
         </div>
         <div class="modal-footer border-0 pt-0 pb-4 px-4 justify-content-start gap-2">
-          <a id="projectModalDemo" href="#" target="_blank" class="btn btn-primary rounded-pill px-4 fw-medium shadow-sm">
-             Open Live Site <i class="bi bi-box-arrow-up-right ms-2"></i>
+          <a id="projectModalDemo" href="#" target="_blank"
+            class="btn btn-primary rounded-pill px-4 fw-medium shadow-sm">
+            <span data-i18n="modal_live">Open Live Site</span> <i class="bi bi-box-arrow-up-right ms-2"></i>
           </a>
-          <a id="projectModalGithub" href="#" target="_blank" class="btn btn-outline-secondary rounded-pill px-4 fw-medium">
-             <i class="bi bi-github me-2"></i> Source Code
+          <a id="projectModalGithub" href="#" target="_blank"
+            class="btn btn-outline-secondary rounded-pill px-4 fw-medium">
+            <i class="bi bi-github me-2"></i> <span data-i18n="modal_source">Source Code</span>
           </a>
         </div>
       </div>
@@ -160,7 +193,8 @@
             <div class="brand-icon"><i class="bi bi-code-slash"></i></div>
             <span class="footer-brand">Miftah Faridl</span>
           </a>
-          <p class="footer-tagline mb-4">Senior Mobile &amp; Web Developer building scalable, high-performance solutions for enterprise and government systems.</p>
+          <p class="footer-tagline mb-4">Senior Mobile &amp; Web Developer building scalable, high-performance solutions
+            for enterprise and government systems.</p>
           <div class="d-flex gap-3" id="footerSocials"></div>
         </div>
         <div class="col-lg-3 col-md-3 col-6">
@@ -176,12 +210,14 @@
           <div class="footer-heading">Get in touch</div>
           <div class="footer-links d-flex flex-column gap-2">
             <a href="mailto:m.faridl441@gmail.com"><i class="bi bi-envelope me-2"></i>m.faridl441@gmail.com</a>
-            <a href="https://wa.me/6289654711175" target="_blank"><i class="bi bi-whatsapp me-2"></i>+62 896-5471-1175</a>
+            <a href="https://wa.me/6289654711175" target="_blank"><i class="bi bi-whatsapp me-2"></i>+62
+              896-5471-1175</a>
             <a href="index.html#contact"><i class="bi bi-geo-alt me-2"></i>Cimahi, West Java</a>
           </div>
         </div>
       </div>
-      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 text-center">
+      <div
+        class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 text-center">
         <div>© <span id="year"></span> <span id="footerText">Miftah Faridl</span>. All rights reserved.</div>
         <div>Designed &amp; built with precision.</div>
       </div>
@@ -195,7 +231,23 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="i18n.js"></script>
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
+
+</html>
+
+<!-- Scroll to Top Button -->
+<button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="i18n.js"></script>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+
 </html>

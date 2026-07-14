@@ -19,7 +19,7 @@ function updateActiveNav() {
   for (const id of sectionIds) {
     const el = document.getElementById(id);
     if (!el) continue;
-    
+
     const rect = el.getBoundingClientRect();
     // If the top of the section is above the threshold (offset)
     if (rect.top <= offset) {
@@ -122,6 +122,62 @@ document.getElementById("themeToggle").addEventListener("click", () => {
   setTheme(rootHtml.getAttribute("data-bs-theme") === "light" ? "dark" : "light");
 });
 
+// Language System
+function setLang(lang) {
+  localStorage.setItem('lang', lang);
+  const label = document.getElementById('langLabel');
+  if (label) label.textContent = lang.toUpperCase();
+  applyI18n();
+}
+
+function applyI18n() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const val = t(key);
+    if (val) {
+      if (val.includes('<')) {
+        el.innerHTML = val;
+      } else {
+        el.textContent = val;
+      }
+    }
+  });
+  // Also update placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    const val = t(key);
+    if (val) el.placeholder = val;
+  });
+}
+
+// Language dropdown toggle
+const langToggleBtn = document.getElementById('langToggle');
+const langDropdown = document.getElementById('langDropdown');
+if (langToggleBtn && langDropdown) {
+  const savedLang = localStorage.getItem('lang') || 'en';
+  const label = document.getElementById('langLabel');
+  if (label) label.textContent = savedLang.toUpperCase();
+
+  langToggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    langDropdown.classList.toggle('show');
+  });
+
+  langDropdown.querySelectorAll('[data-lang]').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const lang = item.getAttribute('data-lang');
+      setLang(lang);
+      renderPortfolio();
+      langDropdown.classList.remove('show');
+    });
+  });
+
+  document.addEventListener('click', () => {
+    langDropdown.classList.remove('show');
+  });
+}
+
 // Global state for projects
 let cachedProjectsList = [];
 let currentProjectCount = 6;
@@ -147,27 +203,15 @@ function renderPortfolio() {
   // ═══════════════════════════════════════
   const heroEl = document.getElementById('heroContent');
   if (heroEl) {
-  heroEl.innerHTML = `
+    heroEl.innerHTML = `
     <div class="col-lg-7 mb-5 mb-lg-0 order-2 order-lg-1" data-aos="fade-right">
-      <div class="availability-banner">
-        <span class="availability-dot"></span>
-        <span>Available for new opportunities</span>
-      </div>
-      <h1 class="hero-heading mb-4">
-        <span class="hero-greeting">Hi, I'm</span>
-        <span class="hero-name-gradient">${data.profile.name}</span>
-      </h1>
-      <p class="hero-subtitle mb-4">${data.profile.hero_subtitle}</p>
-      
-      <div class="hero-typewriter-row mb-5">
-        <span class="hero-typewriter-label">Specialized in</span>
-        <span class="typewriter-text fw-bold" id="tw-text"></span>
-      </div>
+      <p class="hero-label mb-3">${t('hero_label')}</p>
+      <h1 class="hero-heading mb-4">${data.profile.name}</h1>
+      <p class="hero-subtitle mb-4">${t('about_desc').substring(0, 120)}...</p>
       
       <div class="d-flex flex-wrap gap-3 mb-5">
-        <a href="${data.profile.cv_link}" target="_blank" class="btn btn-primary px-4 py-3 rounded-pill fw-medium shadow-sm d-flex align-items-center gap-2"><i class="bi bi-file-earmark-arrow-down"></i> Download Resume</a>
-        <a href="#projects" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i class="bi bi-briefcase"></i> View Projects</a>
-        <a href="#contact" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i class="bi bi-envelope"></i> Contact Me</a>
+        <a href="#projects" class="btn btn-primary px-4 py-3 rounded-pill fw-medium shadow-sm d-flex align-items-center gap-2"><i class="bi bi-briefcase"></i> ${t('hero_cta_work')}</a>
+        <a href="${data.profile.cv_link}" target="_blank" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i class="bi bi-download"></i> ${t('hero_cta_resume')}</a>
       </div>
       
       <div class="d-flex gap-3">
@@ -179,28 +223,9 @@ function renderPortfolio() {
     <div class="col-lg-5 order-1 order-lg-2 text-center" data-aos="fade-left" data-aos-delay="100">
       <div class="profile-wrap mx-auto">
         <img src="${data.profile.photo}" alt="${data.profile.name}" class="profile-img">
-        <div class="floating-badge"><i class="bi bi-geo-alt-fill" style="color: var(--accent);"></i> <span>${data.profile.location.split(',')[0]}</span></div>
       </div>
     </div>
   `;
-
-
-
-  // Typewriter
-  const twEl = document.getElementById('tw-text');
-  if (twEl) {
-  let typeIdx = 0, charIdx = 0, isDeleting = false;
-  function typeEffect() {
-    const currentWord = data.profile.typewriter[typeIdx];
-    if (isDeleting) charIdx--; else charIdx++;
-    twEl.textContent = currentWord.substring(0, charIdx);
-    let typeSpeed = isDeleting ? 50 : 100;
-    if (!isDeleting && charIdx === currentWord.length) { typeSpeed = 1500; isDeleting = true; }
-    else if (isDeleting && charIdx === 0) { isDeleting = false; typeIdx = (typeIdx + 1) % data.profile.typewriter.length; typeSpeed = 500; }
-    setTimeout(typeEffect, typeSpeed);
-  }
-  setTimeout(typeEffect, 500);
-  } // end typewriter
   } // end hero
 
   // ═══════════════════════════════════════
@@ -208,45 +233,37 @@ function renderPortfolio() {
   // ═══════════════════════════════════════
   const aboutEl = document.getElementById('aboutContent');
   if (aboutEl) {
-  let philFeatures = data.about.philosophy.features.map(f => `
-    <li class="d-flex align-items-start gap-2">
-      <i class="bi bi-check-circle-fill text-accent" style="font-size: 0.8rem; flex-shrink:0; margin-top: 2px;"></i>
-      <span class="lh-sm">${f}</span>
-    </li>
-  `).join('');
-
-  aboutEl.className = 'about-bento-grid';
-  aboutEl.innerHTML = `
-    <!-- Bento Card 1: Bio & Summary -->
-    <div class="bento-card bento-bio" data-aos="fade-up">
-      <div class="elegant-card h-100 p-4">
-        <h4 class="fw-bold mb-3 d-flex align-items-center gap-3">
-          <div class="brand-icon" style="background: var(--accent);"><i class="bi bi-person-fill"></i></div> About Me
-        </h4>
-        <p class="text-secondary lh-lg mb-0 small">${data.about.description}</p>
-      </div>
-    </div>
-
-    <!-- Bento Card 2: Dashboard Stats -->
-    <div class="bento-card bento-stats" data-aos="fade-up" data-aos-delay="50">
-      <div class="elegant-card h-100 p-4 d-flex flex-column justify-content-between gap-3">
-        ${data.about.stats.map((s, sIdx) => `
-          <div class="text-center p-2 ${sIdx < data.about.stats.length - 1 ? 'border-bottom border-subtle' : ''}">
-            <div class="stat-number">${s.number}</div>
-            <div class="text-muted small text-uppercase fw-bold" style="font-size: 0.65rem; letter-spacing: 0.05em;">${s.label}</div>
+    aboutEl.className = 'row g-4';
+    aboutEl.innerHTML = `
+    <div class="col-lg-7" data-aos="fade-up">
+      <div class="elegant-card h-100 p-4 p-lg-5">
+        <h4 class="fw-bold mb-4">${t('section_about')}</h4>
+        <p class="text-secondary lh-lg mb-4">${t('about_desc')}</p>
+        <div class="d-flex flex-wrap gap-4 pt-2">
+          <div>
+            <div class="fw-bold fs-4 text-main">${data.about.stats[0].number}</div>
+            <div class="text-muted small">${t('stat_years')}</div>
           </div>
-        `).join('')}
+          <div>
+            <div class="fw-bold fs-4 text-main">${data.about.stats[1].number}</div>
+            <div class="text-muted small">${t('stat_projects')}</div>
+          </div>
+          <div>
+            <div class="fw-bold fs-4 text-main">${data.about.stats[2].number}</div>
+            <div class="text-muted small">${t('stat_tech')}</div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <!-- Bento Card 3: Philosophy & Standards -->
-    <div class="bento-card bento-philosophy" data-aos="fade-up" data-aos-delay="100">
-      <div class="elegant-card h-100 p-4">
-        <h4 class="fw-bold mb-3 d-flex align-items-center gap-3">
-          <div class="brand-icon" style="background: var(--accent-2);"><i class="bi bi-lightbulb-fill"></i></div> ${data.about.philosophy.title}
-        </h4>
-        <p class="text-secondary small mb-3">${data.about.philosophy.description}</p>
-        <ul class="list-unstyled fw-medium text-secondary m-0 small d-flex flex-column gap-2">${philFeatures}</ul>
+    <div class="col-lg-5" data-aos="fade-up" data-aos-delay="80">
+      <div class="elegant-card h-100 p-4 p-lg-5">
+        <h4 class="fw-bold mb-3">${t('philosophy_title')}</h4>
+        <p class="text-secondary small mb-4">${t('philosophy_desc')}</p>
+        <ul class="list-unstyled fw-medium text-secondary m-0 small d-flex flex-column gap-3">
+          <li class="d-flex align-items-start gap-2"><span class="text-accent mt-1">→</span><span class="lh-sm">${t('philosophy_1')}</span></li>
+          <li class="d-flex align-items-start gap-2"><span class="text-accent mt-1">→</span><span class="lh-sm">${t('philosophy_2')}</span></li>
+          <li class="d-flex align-items-start gap-2"><span class="text-accent mt-1">→</span><span class="lh-sm">${t('philosophy_3')}</span></li>
+        </ul>
       </div>
     </div>
   `;
@@ -257,50 +274,22 @@ function renderPortfolio() {
   // ═══════════════════════════════════════
   const skillsEl = document.getElementById('skillsContent');
   if (skillsEl) {
-  const skillCategoryIcons = {
-    'Programming Languages': 'bi-braces-asterisk',
-    'Frameworks': 'bi-layers',
-    'UI / Frontend': 'bi-palette',
-    'Architecture': 'bi-diagram-3',
-    'Tools & OS': 'bi-terminal',
-    'Cloud': 'bi-cloud-arrow-up',
-    'Databases': 'bi-database',
-    'Integrations & PM': 'bi-plug'
-  };
-  const skillCategoryColors = [
-    '#6366f1', '#8b5cf6', '#06b6d4', '#10b981',
-    '#f59e0b', '#ef4444', '#3b82f6', '#ec4899'
-  ];
+    let skillsHtml = '';
+    data.skills_categories.forEach((cat, idx) => {
+      let tagsHtml = cat.items.map(item => `
+      <span class="skill-chip">${item.name}</span>
+    `).join('');
 
-  let skillsHtml = '';
-  data.skills_categories.forEach((cat, idx) => {
-    const icon = skillCategoryIcons[cat.title] || 'bi-star';
-    const color = skillCategoryColors[idx % skillCategoryColors.length];
-    let tagsHtml = cat.items.map(item => {
-      const isCore = ['Flutter', 'Dart', 'Kotlin'].includes(item.name);
-      return `
-        <div class="skill-chip ${isCore ? 'skill-chip-featured' : ''}">
-          <i class="bi ${item.icon}"></i>
-          <span>${item.name}${isCore ? ' <span class="core-badge">★</span>' : ''}</span>
-        </div>
-      `;
-    }).join('');
-
-    skillsHtml += `
+      skillsHtml += `
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="${(idx % 3) * 60}">
-        <div class="skill-card elegant-card elegant-card-hover h-100 p-4">
-          <div class="skill-card-header mb-3">
-            <div class="skill-card-icon" style="background: ${color}15; color: ${color}; border-color: ${color}25;">
-              <i class="bi ${icon}"></i>
-            </div>
-            <h5 class="skill-card-title">${cat.title}</h5>
-          </div>
-          <div class="skill-chips-wrap">${tagsHtml}</div>
+        <div class="elegant-card h-100 p-4">
+          <h6 class="fw-bold text-muted small text-uppercase mb-3" style="letter-spacing: 0.05em; font-size: 0.72rem;">${cat.title}</h6>
+          <div class="d-flex flex-wrap gap-2">${tagsHtml}</div>
         </div>
       </div>
     `;
-  });
-  skillsEl.innerHTML = skillsHtml;
+    });
+    skillsEl.innerHTML = skillsHtml;
   } // end skills
 
   // ═══════════════════════════════════════
@@ -308,9 +297,9 @@ function renderPortfolio() {
   // ═══════════════════════════════════════
   const expEl = document.getElementById('experienceContent');
   if (expEl) {
-  let expHtml = '';
-  data.experience.forEach((exp, idx) => {
-    expHtml += `
+    let expHtml = '';
+    data.experience.forEach((exp, idx) => {
+      expHtml += `
       <div class="exp-item mb-5" data-aos="fade-up" data-aos-delay="${idx * 100}">
         <div class="exp-dot"></div>
         <div class="elegant-card elegant-card-hover p-4 exp-card">
@@ -333,15 +322,15 @@ function renderPortfolio() {
         </div>
       </div>
     `;
-  });
-  expEl.innerHTML = expHtml;
+    });
+    expEl.innerHTML = expHtml;
   }
 
   const eduEl = document.getElementById('educationContent');
   if (eduEl) {
-  let eduHtml = '';
-  data.education.forEach((edu, idx) => {
-    eduHtml += `
+    let eduHtml = '';
+    data.education.forEach((edu, idx) => {
+      eduHtml += `
       <div class="edu-card elegant-card p-4" data-aos="fade-up" data-aos-delay="${idx * 150}">
         <div class="d-flex align-items-center gap-3 mb-3">
           <div class="edu-icon"><i class="bi bi-mortarboard-fill"></i></div>
@@ -352,8 +341,8 @@ function renderPortfolio() {
         <div class="text-accent fw-semibold small">${edu.period}</div>
       </div>
     `;
-  });
-  eduEl.innerHTML = eduHtml;
+    });
+    eduEl.innerHTML = eduHtml;
   } // end education
 
   // Only show filter + load-more on work page
@@ -396,17 +385,17 @@ function renderPortfolio() {
   // ═══════════════════════════════════════
   const contactEl = document.getElementById('contactContent');
   if (contactEl) {
-  contactEl.innerHTML = `
+    contactEl.innerHTML = `
     <div class="col-lg-5 mb-5 mb-lg-0 z-1" data-aos="fade-right">
-      <div class="badge-subtitle mb-3">Hire Me</div>
-      <h2 class="section-title mb-4 lh-base text-main">Let's build something <span class="gradient-text">beautiful</span> together.</h2>
-      <p class="text-secondary mb-5 fs-6 lh-lg">I'm currently available for freelance work or full-time roles. If you have a project that you want to get started, think you need my help with something, then get in touch.</p>
+      <div class="badge-subtitle mb-3" data-i18n="contact_hire">${t('contact_hire')}</div>
+      <h2 class="section-title mb-4 lh-base text-main" data-i18n="contact_heading">${t('contact_heading')}</h2>
+      <p class="text-secondary mb-5 fs-6 lh-lg" data-i18n="contact_desc">${t('contact_desc')}</p>
       
       <div class="d-flex flex-column gap-4">
         <div class="d-flex align-items-center gap-3">
           <div class="contact-info-icon"><i class="bi bi-envelope"></i></div>
           <div>
-            <div class="text-muted small fw-semibold text-uppercase" style="letter-spacing: 0.06em; font-size: 0.7rem;">Email Me</div>
+            <div class="text-muted small fw-semibold text-uppercase" style="letter-spacing: 0.06em; font-size: 0.7rem;" data-i18n="contact_email_label">${t('contact_email_label')}</div>
             <div class="d-flex align-items-center gap-2">
               <a href="mailto:${data.profile.email}" class="text-main text-decoration-none fw-semibold fs-6">${data.profile.email}</a>
               <button type="button" class="btn btn-sm btn-icon border-0 p-1" id="copyEmailBtn" title="Copy email to clipboard" style="background: transparent; color: var(--accent); transition: transform 0.2s;"><i class="bi bi-copy" id="copyEmailIcon"></i></button>
@@ -423,7 +412,7 @@ function renderPortfolio() {
         <div class="d-flex align-items-center gap-3">
           <div class="contact-info-icon"><i class="bi bi-geo-alt"></i></div>
           <div>
-            <div class="text-muted small fw-semibold text-uppercase" style="letter-spacing: 0.06em; font-size: 0.7rem;">Location</div>
+            <div class="text-muted small fw-semibold text-uppercase" style="letter-spacing: 0.06em; font-size: 0.7rem;" data-i18n="contact_location_label">${t('contact_location_label')}</div>
             <span class="text-main fw-semibold fs-6">${data.profile.location}</span>
           </div>
         </div>
@@ -435,54 +424,54 @@ function renderPortfolio() {
         <form id="contactForm">
           <div class="row g-3">
             <div class="col-md-6 mb-3">
-              <label class="form-label text-main fw-semibold small mb-2" for="contactName">Name</label>
-              <input type="text" class="form-control modern-input text-main" id="contactName" placeholder="John Doe" required>
+              <label class="form-label text-main fw-semibold small mb-2" for="contactName" data-i18n="contact_name">${t('contact_name')}</label>
+              <input type="text" class="form-control modern-input text-main" id="contactName" placeholder="${t('contact_name_placeholder')}" data-i18n-placeholder="contact_name_placeholder" required>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="form-label text-main fw-semibold small mb-2" for="contactSubject">Subject</label>
-              <input type="text" class="form-control modern-input text-main" id="contactSubject" placeholder="App Development" required>
+              <label class="form-label text-main fw-semibold small mb-2" for="contactSubject" data-i18n="contact_subject">${t('contact_subject')}</label>
+              <input type="text" class="form-control modern-input text-main" id="contactSubject" placeholder="${t('contact_subject_placeholder')}" data-i18n-placeholder="contact_subject_placeholder" required>
             </div>
           </div>
           <div class="mb-4">
-            <label class="form-label text-main fw-semibold small mb-2" for="contactMessage">Project Details</label>
-            <textarea class="form-control modern-input text-main" id="contactMessage" rows="5" placeholder="Tell me about your idea..." required></textarea>
+            <label class="form-label text-main fw-semibold small mb-2" for="contactMessage" data-i18n="contact_details">${t('contact_details')}</label>
+            <textarea class="form-control modern-input text-main" id="contactMessage" rows="5" placeholder="${t('contact_details_placeholder')}" data-i18n-placeholder="contact_details_placeholder" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary w-100 py-3 rounded-3 fw-medium fs-6 d-flex justify-content-center align-items-center gap-2"><i class="bi bi-whatsapp fs-5"></i> Send Message via WhatsApp</button>
+          <button type="submit" class="btn btn-primary w-100 py-3 rounded-3 fw-medium fs-6 d-flex justify-content-center align-items-center gap-2"><i class="bi bi-whatsapp fs-5"></i> <span data-i18n="contact_send">${t('contact_send')}</span></button>
         </form>
       </div>
     </div>
   `;
 
-  // Attach Copy Email handler
-  const copyBtn = document.getElementById('copyEmailBtn');
-  if (copyBtn) {
-    copyBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText(data.profile.email).then(() => {
-        const icon = document.getElementById('copyEmailIcon');
-        icon.className = 'bi bi-check-lg';
-        icon.style.color = '#22c55e'; // Green checkmark
-        copyBtn.style.transform = 'scale(1.2)';
-        setTimeout(() => {
-          icon.className = 'bi bi-copy';
-          icon.style.color = '';
-          copyBtn.style.transform = '';
-        }, 2000);
+    // Attach Copy Email handler
+    const copyBtn = document.getElementById('copyEmailBtn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(data.profile.email).then(() => {
+          const icon = document.getElementById('copyEmailIcon');
+          icon.className = 'bi bi-check-lg';
+          icon.style.color = '#22c55e'; // Green checkmark
+          copyBtn.style.transform = 'scale(1.2)';
+          setTimeout(() => {
+            icon.className = 'bi bi-copy';
+            icon.style.color = '';
+            copyBtn.style.transform = '';
+          }, 2000);
+        });
       });
-    });
-  }
+    }
 
-  document.getElementById("contactForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const name = document.getElementById('contactName').value;
-    const subject = document.getElementById('contactSubject').value;
-    const msg = document.getElementById('contactMessage').value;
-    let phone = data.profile.phone.replace(/[^a-zA-Z0-9]/g, '');
-    if (phone.startsWith('0')) phone = '62' + phone.substring(1);
-    const waText = `Hi Miftah, I am ${name}. Subject: ${subject}. \n${msg}`;
-    const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(waText)}`;
-    window.open(waUrl, '_blank');
-    this.reset();
-  });
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById('contactName').value;
+      const subject = document.getElementById('contactSubject').value;
+      const msg = document.getElementById('contactMessage').value;
+      let phone = data.profile.phone.replace(/[^a-zA-Z0-9]/g, '');
+      if (phone.startsWith('0')) phone = '62' + phone.substring(1);
+      const waText = `Hi Miftah, I am ${name}. Subject: ${subject}. \n${msg}`;
+      const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(waText)}`;
+      window.open(waUrl, '_blank');
+      this.reset();
+    });
   } // end contact
 
   // Footer Socials
@@ -528,7 +517,7 @@ function renderProjectsGrid(forceRefresh = true) {
     card.setAttribute('data-aos', 'fade-up');
     card.setAttribute('data-aos-delay', `${(index % 3) * 60}`);
 
-    let techsHtml = p.tech.slice(0, 3).map(t => `<span class="tech-pill">${t}</span>`).join('');
+    let techsHtml = p.tech.slice(0, 3).map(tech => `<span class="tech-pill">${tech}</span>`).join('');
     if (p.tech.length > 3) techsHtml += `<span class="tech-pill">+${p.tech.length - 3}</span>`;
 
     card.innerHTML = `
@@ -551,7 +540,7 @@ function renderProjectsGrid(forceRefresh = true) {
       document.getElementById('projectModalLabel').textContent = proj.title;
       document.getElementById('projectModalImg').src = proj.thumb;
       document.getElementById('projectModalDesc').textContent = proj.description;
-      document.getElementById('projectModalTech').innerHTML = proj.tech.map(t => `<span class="tech-pill border-subtle px-3 py-2 fs-6 fw-medium">${t}</span>`).join('');
+      document.getElementById('projectModalTech').innerHTML = proj.tech.map(tech => `<span class="tech-pill border-subtle px-3 py-2 fs-6 fw-medium">${tech}</span>`).join('');
 
       // Populate case-study elements
       const roleBadge = document.getElementById('projectModalRole');
@@ -609,7 +598,7 @@ function renderProjectsGrid(forceRefresh = true) {
     if (cachedProjectsList.length > currentProjectCount) {
       loadMoreBtnContainer.innerHTML = `
         <button class="btn btn-outline-secondary rounded-pill px-5 py-2 mt-2 fw-medium d-inline-flex align-items-center gap-2">
-          Load More Works <i class="bi bi-arrow-down"></i>
+          ${t('btn_load_more')} <i class="bi bi-arrow-down"></i>
         </button>
       `;
       loadMoreBtnContainer.querySelector('button').addEventListener('click', () => {
@@ -625,11 +614,14 @@ function renderProjectsGrid(forceRefresh = true) {
     if (viewAllContainer) {
       viewAllContainer.innerHTML = `
         <a href="work.html" class="btn btn-outline-secondary rounded-pill px-5 py-3 fw-medium d-inline-flex align-items-center gap-2">
-          View All Work <i class="bi bi-arrow-right"></i>
+          ${t('btn_view_all')} <i class="bi bi-arrow-right"></i>
         </a>
       `;
     }
   }
 }
 
-window.addEventListener('DOMContentLoaded', renderPortfolio);
+window.addEventListener('DOMContentLoaded', () => {
+  renderPortfolio();
+  applyI18n();
+});

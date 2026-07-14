@@ -3,7 +3,7 @@ const PORTFOLIO_DATA = {
     name: "Miftah Faridl",
     role: "Mobile & Web Developer",
     hero_title: "Hi, I'm Miftah Faridl",
-    hero_subtitle: "I build enterprise-grade mobile systems that governments and corporations rely on daily.",
+    hero_subtitle: "5+ years delivering production-grade systems for governments, banks, and enterprises across Indonesia and Singapore.",
     typewriter: ["Flutter", "Kotlin/Java", "React JS", "Laravel/CI", "Ruby on Rails"],
     location: "Cimahi, West Java",
     email: "m.faridl441@gmail.com",
@@ -14,19 +14,19 @@ const PORTFOLIO_DATA = {
   },
   about: {
     title: "About Me",
-    description: "I started coding at 16, building Android apps during vocational school. Since then, I've shipped 20+ production systems — from government platforms used by thousands of civil servants at BKPM and OJK, to banking tools at BNI and BPD Bali, to an international health consultation backend in Singapore. I care deeply about architecture that outlasts the sprint it was built in.",
+    description: "A software engineer with over 5 years of experience delivering production-grade systems across government, banking, and enterprise sectors. Key deployments include internal platforms for BKPM and OJK serving thousands of civil servants, banking solutions for BNI and BPD Bali, and a telemedicine backend for an international healthcare provider in Singapore. Currently specializing in Flutter with a strong emphasis on scalable architecture and long-term maintainability.",
     stats: [
       { number: "5+", label: "Years Experience" },
-      { number: "20+", label: "Projects Completed" },
+      { number: "20+", label: "Projects Delivered" },
       { number: "10+", label: "Technologies" }
     ],
     philosophy: {
-      title: "Engineering Standard",
-      description: "I focus on building sustainable systems rather than just features. I prioritize technical excellence and architectural integrity to ensure products are performant, secure, and ready for scale.",
+      title: "Engineering Principles",
+      description: "Every project is approached with a focus on sustainability, clarity, and performance — ensuring systems that remain reliable well beyond their initial release.",
       features: [
-        "User-Centric & Data-Driven Design",
-        "Clean, Maintainable & Scalable Code",
-        "Strategic Solutions for Complex Problems"
+        "User experience as a core engineering consideration",
+        "Maintainable codebases through clean architecture",
+        "Pragmatic solutions grounded in real-world constraints"
       ]
     }
   },

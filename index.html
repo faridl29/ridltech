@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
+
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWC2DHZBRJ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-MWC2DHZBRJ');
@@ -17,47 +18,53 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Miftah Faridl — Portfolio & Professional Mobile/Web Developer</title>
-  <meta name="description" content="Miftah Faridl — Senior Mobile & Web Developer with 5+ years of experience specializing in Flutter, Kotlin, React, Laravel, and modular architectures." />
-  <meta name="keywords" content="Miftah Faridl, RidlTech, Mobile Developer, Flutter Developer, Web Developer, Android Developer, iOS Developer, Laravel, React, Cimahi, Indonesia, Software Engineer" />
+  <meta name="description"
+    content="Miftah Faridl — Senior Mobile & Web Developer with 5+ years of experience specializing in Flutter, Kotlin, React, Laravel, and modular architectures." />
+  <meta name="keywords"
+    content="Miftah Faridl, RidlTech, Mobile Developer, Flutter Developer, Web Developer, Android Developer, iOS Developer, Laravel, React, Cimahi, Indonesia, Software Engineer" />
   <meta name="author" content="Miftah Faridl" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#6366f1" />
-  
+
   <!-- Canonical Link -->
   <link rel="canonical" href="https://ridltech.my.id/" />
-  
+
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Miftah Faridl — Portfolio & Professional Mobile/Web Developer" />
-  <meta property="og:description" content="Senior Mobile & Web Developer specializing in Flutter, Kotlin, React, and modular architectures. Discover enterprise and government solutions." />
+  <meta property="og:description"
+    content="Senior Mobile & Web Developer specializing in Flutter, Kotlin, React, and modular architectures. Discover enterprise and government solutions." />
   <meta property="og:url" content="https://ridltech.my.id/" />
   <meta property="og:image" content="https://ridltech.my.id/assets/images/profile2.jpg" />
   <meta property="og:site_name" content="RidlTech Portfolio" />
-  
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Miftah Faridl — Portfolio & Professional Mobile/Web Developer" />
-  <meta name="twitter:description" content="Senior Mobile & Web Developer specializing in Flutter, Kotlin, React, and modular architectures. Discover enterprise and government solutions." />
+  <meta name="twitter:description"
+    content="Senior Mobile & Web Developer specializing in Flutter, Kotlin, React, and modular architectures. Discover enterprise and government solutions." />
   <meta name="twitter:image" content="https://ridltech.my.id/assets/images/profile2.jpg" />
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
   <link rel="apple-touch-icon" href="assets/images/favicon.png" />
-  
+
   <!-- Resource Hints & Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
-  
+
   <!-- Stylesheets -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <link href="style.css" rel="stylesheet" />
-  
+
   <!-- Structured Data / JSON-LD -->
   <script type="application/ld+json">
   {
@@ -86,6 +93,7 @@
   }
   </script>
 </head>
+
 <body tabindex="0">
 
   <!-- Scroll Progress Indicator -->
@@ -102,21 +110,38 @@
         <span>Miftah Faridl</span>
       </a>
       <div class="d-flex align-items-center gap-2 order-lg-2">
+        <div class="position-relative">
+          <button id="langToggle" class="btn btn-icon lang-btn" type="button" aria-label="Toggle language">
+            <i class="bi bi-translate"></i>
+            <span id="langLabel" style="font-size: 0.65rem; font-weight: 700; margin-left: 2px;">EN</span>
+          </button>
+          <div id="langDropdown" class="lang-dropdown">
+            <button class="lang-option" data-lang="en"><span>🇺🇸</span> English</button>
+            <button class="lang-option" data-lang="id"><span>🇮🇩</span> Bahasa Indonesia</button>
+          </div>
+        </div>
         <button id="themeToggle" class="btn btn-icon theme-btn" type="button" aria-label="Toggle theme">
           <i class="bi bi-moon-stars" id="themeIcon"></i>
         </button>
-        <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+        <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navContent">
           <i class="bi bi-list"></i>
         </button>
       </div>
       <div id="navContent" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto gap-lg-3 fs-6 px-3 px-lg-0">
-          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="#experience">Experience</a></li>
-          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="#projects">Work</a></li>
-          <li class="nav-item"><a class="nav-link custom-link custom-link-contact rounded-pill px-3" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="#home"
+              data-i18n="nav_home">Home</a></li>
+          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="#about"
+              data-i18n="nav_about">About</a></li>
+          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="#skills"
+              data-i18n="nav_skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="#experience"
+              data-i18n="nav_experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link custom-link rounded-pill px-3" href="#projects"
+              data-i18n="nav_work">Work</a></li>
+          <li class="nav-item"><a class="nav-link custom-link custom-link-contact rounded-pill px-3" href="#contact"
+              data-i18n="nav_contact">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -135,29 +160,39 @@
             <span class="hero-greeting">Hi, I'm</span>
             <span class="hero-name-gradient">Miftah Faridl</span>
           </h1>
-          <p class="hero-subtitle mb-4">I build enterprise-grade mobile systems that governments and corporations rely on daily.</p>
-          
+          <p class="hero-subtitle mb-4">I build enterprise-grade mobile systems that governments and corporations rely
+            on daily.</p>
+
           <div class="hero-typewriter-row mb-5">
             <span class="hero-typewriter-label">Specialized in</span>
             <span class="typewriter-text fw-bold" id="tw-text">Flutter</span>
           </div>
-          
+
           <div class="d-flex flex-wrap gap-3 mb-5">
-            <a href="#projects" class="btn btn-primary px-4 py-3 rounded-pill fw-medium shadow-sm d-flex align-items-center gap-2"><i class="bi bi-briefcase"></i> View Projects</a>
-            <a href="#contact" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i class="bi bi-envelope"></i> Contact Me</a>
-            <a href="assets/files/cv_miftah_faridl_alanshari_mobile_developer.pdf" target="_blank" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i class="bi bi-file-earmark-arrow-down"></i> Resume</a>
+            <a href="#projects"
+              class="btn btn-primary px-4 py-3 rounded-pill fw-medium shadow-sm d-flex align-items-center gap-2"><i
+                class="bi bi-briefcase"></i> View Projects</a>
+            <a href="#contact" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i
+                class="bi bi-envelope"></i> Contact Me</a>
+            <a href="assets/files/cv_miftah_faridl_alanshari_mobile_developer.pdf" target="_blank"
+              class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i
+                class="bi bi-file-earmark-arrow-down"></i> Resume</a>
           </div>
-          
+
           <div class="d-flex gap-3">
-            <a href="mailto:m.faridl441@gmail.com" class="social-icon text-decoration-none" aria-label="Email"><i class="bi bi-envelope"></i></a>
-            <a href="https://linkedin.com/in/miftah-faridl" target="_blank" class="social-icon text-decoration-none" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-            <a href="https://wa.me/6289654711175" target="_blank" class="social-icon text-decoration-none" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="mailto:m.faridl441@gmail.com" class="social-icon text-decoration-none" aria-label="Email"><i
+                class="bi bi-envelope"></i></a>
+            <a href="https://linkedin.com/in/miftah-faridl" target="_blank" class="social-icon text-decoration-none"
+              aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://wa.me/6289654711175" target="_blank" class="social-icon text-decoration-none"
+              aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
           </div>
         </div>
         <div class="col-lg-5 order-1 order-lg-2 text-center" data-aos="fade-left" data-aos-delay="100">
           <div class="profile-wrap mx-auto">
             <img src="assets/images/profile2.jpg" alt="Miftah Faridl" class="profile-img">
-            <div class="floating-badge"><i class="bi bi-geo-alt-fill" style="color: var(--accent);"></i> <span>Cimahi</span></div>
+            <div class="floating-badge"><i class="bi bi-geo-alt-fill" style="color: var(--accent);"></i>
+              <span>Cimahi</span></div>
           </div>
         </div>
       </div>
@@ -171,19 +206,21 @@
   <section id="about" class="page-section">
     <div class="container">
       <div class="text-center mb-5" data-aos="fade-up">
-        <div class="badge-subtitle mb-3">My Story</div>
-        <h2 class="section-title">About Me</h2>
-        <div class="section-divider"></div>
+        <h2 class="section-title" data-i18n="section_about">About Me</h2>
       </div>
       <div class="about-bento-grid" id="aboutContent">
         <!-- Bento Card 1: Bio & Summary -->
         <div class="bento-card bento-bio" data-aos="fade-up">
           <div class="elegant-card h-100 p-4">
             <h4 class="fw-bold mb-3 d-flex align-items-center gap-3">
-              <div class="brand-icon" style="background: var(--accent);"><i class="bi bi-person-fill"></i></div> About Me
+              <div class="brand-icon" style="background: var(--accent);"><i class="bi bi-person-fill"></i></div> About
+              Me
             </h4>
             <p class="text-secondary lh-lg mb-0 small">
-              I started coding at 16, building Android apps during vocational school. Since then, I've shipped 20+ production systems — from government platforms used by thousands of civil servants at BKPM and OJK, to banking tools at BNI and BPD Bali, to an international health consultation backend in Singapore. I care deeply about architecture that outlasts the sprint it was built in.
+              I started coding at 16, building Android apps during vocational school. Since then, I've shipped 20+
+              production systems — from government platforms used by thousands of civil servants at BKPM and OJK, to
+              banking tools at BNI and BPD Bali, to an international health consultation backend in Singapore. I care
+              deeply about architecture that outlasts the sprint it was built in.
             </p>
           </div>
         </div>
@@ -193,15 +230,18 @@
           <div class="elegant-card h-100 p-4 d-flex flex-column justify-content-between gap-3">
             <div class="text-center p-2 border-bottom border-subtle">
               <div class="stat-number">5+</div>
-              <div class="text-muted small text-uppercase fw-bold" style="font-size: 0.65rem; letter-spacing: 0.05em;">Years Experience</div>
+              <div class="text-muted small text-uppercase fw-bold" style="font-size: 0.65rem; letter-spacing: 0.05em;">
+                Years Experience</div>
             </div>
             <div class="text-center p-2 border-bottom border-subtle">
               <div class="stat-number">20+</div>
-              <div class="text-muted small text-uppercase fw-bold" style="font-size: 0.65rem; letter-spacing: 0.05em;">Projects Completed</div>
+              <div class="text-muted small text-uppercase fw-bold" style="font-size: 0.65rem; letter-spacing: 0.05em;">
+                Projects Completed</div>
             </div>
             <div class="text-center p-2">
               <div class="stat-number">10+</div>
-              <div class="text-muted small text-uppercase fw-bold" style="font-size: 0.65rem; letter-spacing: 0.05em;">Technologies</div>
+              <div class="text-muted small text-uppercase fw-bold" style="font-size: 0.65rem; letter-spacing: 0.05em;">
+                Technologies</div>
             </div>
           </div>
         </div>
@@ -210,13 +250,20 @@
         <div class="bento-card bento-philosophy" data-aos="fade-up" data-aos-delay="100">
           <div class="elegant-card h-100 p-4">
             <h4 class="fw-bold mb-3 d-flex align-items-center gap-3">
-              <div class="brand-icon" style="background: var(--accent-2);"><i class="bi bi-lightbulb-fill"></i></div> Engineering Standard
+              <div class="brand-icon" style="background: var(--accent-2);"><i class="bi bi-lightbulb-fill"></i></div>
+              Engineering Standard
             </h4>
             <p class="text-secondary small mb-3">Prioritizing quality, security, and scalability over quick hacks:</p>
             <ul class="list-unstyled fw-medium text-secondary m-0 small d-flex flex-column gap-2">
-              <li class="d-flex align-items-start gap-2"><i class="bi bi-check-circle-fill text-accent" style="font-size: 0.8rem; margin-top: 2px;"></i><span class="lh-sm">User-Centric & Data-Driven Design</span></li>
-              <li class="d-flex align-items-start gap-2"><i class="bi bi-check-circle-fill text-accent" style="font-size: 0.8rem; margin-top: 2px;"></i><span class="lh-sm">Clean, Maintainable & Scalable Code</span></li>
-              <li class="d-flex align-items-start gap-2"><i class="bi bi-check-circle-fill text-accent" style="font-size: 0.8rem; margin-top: 2px;"></i><span class="lh-sm">Strategic Solutions for Complex Problems</span></li>
+              <li class="d-flex align-items-start gap-2"><i class="bi bi-check-circle-fill text-accent"
+                  style="font-size: 0.8rem; margin-top: 2px;"></i><span class="lh-sm">User-Centric & Data-Driven
+                  Design</span></li>
+              <li class="d-flex align-items-start gap-2"><i class="bi bi-check-circle-fill text-accent"
+                  style="font-size: 0.8rem; margin-top: 2px;"></i><span class="lh-sm">Clean, Maintainable & Scalable
+                  Code</span></li>
+              <li class="d-flex align-items-start gap-2"><i class="bi bi-check-circle-fill text-accent"
+                  style="font-size: 0.8rem; margin-top: 2px;"></i><span class="lh-sm">Strategic Solutions for Complex
+                  Problems</span></li>
             </ul>
           </div>
         </div>
@@ -228,9 +275,7 @@
   <section id="skills" class="page-section bg-soft">
     <div class="container">
       <div class="text-center mb-5" data-aos="fade-up">
-        <div class="badge-subtitle mb-3">My Expertise</div>
-        <h2 class="section-title">Tools & Technologies</h2>
-        <div class="section-divider"></div>
+        <h2 class="section-title" data-i18n="section_skills">Skills & Tools</h2>
       </div>
       <div class="row g-4 justify-content-center" id="skillsContent">
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
@@ -370,8 +415,8 @@
     <div class="container">
       <div class="row gx-5 gy-5">
         <div class="col-lg-8" data-aos="fade-right">
-          <div class="badge-subtitle mb-3">Career Path</div>
-          <h2 class="section-title mb-5">Professional Experience</h2>
+          <div class="badge-subtitle mb-3" data-i18n="career_path">Career Path</div>
+          <h2 class="section-title mb-5" data-i18n="section_experience">Professional Experience</h2>
           <div id="experienceContent" class="experience-timeline">
             <div class="exp-item mb-5" data-aos="fade-up" data-aos-delay="0">
               <div class="exp-dot"></div>
@@ -388,13 +433,20 @@
                   </div>
                   <div class="exp-period-badge">01/2022 - Present</div>
                 </div>
-                <p class="text-secondary small mb-4 lh-base">Developing scalable mobile applications for enterprise and government systems, focusing on secure authentication, real-time features, and maintainable architecture.</p>
+                <p class="text-secondary small mb-4 lh-base">Developing scalable mobile applications for enterprise and
+                  government systems, focusing on secure authentication, real-time features, and maintainable
+                  architecture.</p>
                 <ul class="list-unstyled mb-0 exp-highlight-list">
-                  <li><i class="bi bi-check2-circle"></i> Developed cross-platform mobile applications using Flutter for enterprise and government-scale systems.</li>
-                  <li><i class="bi bi-check2-circle"></i> Implemented secure SSO authentication using Keycloak, OAuth (Azure AD), and role-based access control.</li>
-                  <li><i class="bi bi-check2-circle"></i> Designed and applied Clean Architecture with BLoC and repository pattern.</li>
-                  <li><i class="bi bi-check2-circle"></i> Built real-time features using Socket.IO, including live data synchronization.</li>
-                  <li><i class="bi bi-check2-circle"></i> Improved application performance through optimized state management and lazy loading.</li>
+                  <li><i class="bi bi-check2-circle"></i> Developed cross-platform mobile applications using Flutter for
+                    enterprise and government-scale systems.</li>
+                  <li><i class="bi bi-check2-circle"></i> Implemented secure SSO authentication using Keycloak, OAuth
+                    (Azure AD), and role-based access control.</li>
+                  <li><i class="bi bi-check2-circle"></i> Designed and applied Clean Architecture with BLoC and
+                    repository pattern.</li>
+                  <li><i class="bi bi-check2-circle"></i> Built real-time features using Socket.IO, including live data
+                    synchronization.</li>
+                  <li><i class="bi bi-check2-circle"></i> Improved application performance through optimized state
+                    management and lazy loading.</li>
                 </ul>
               </div>
             </div>
@@ -413,12 +465,16 @@
                   </div>
                   <div class="exp-period-badge">06/2020 - 12/2021</div>
                 </div>
-                <p class="text-secondary small mb-4 lh-base">Developed and maintained scalable backend systems and RESTful APIs for custom software solutions.</p>
+                <p class="text-secondary small mb-4 lh-base">Developed and maintained scalable backend systems and
+                  RESTful APIs for custom software solutions.</p>
                 <ul class="list-unstyled mb-0 exp-highlight-list">
                   <li><i class="bi bi-check2-circle"></i> Built scalable backend systems using Ruby on Rails.</li>
-                  <li><i class="bi bi-check2-circle"></i> Designed and implemented RESTful APIs with JWT authentication.</li>
-                  <li><i class="bi bi-check2-circle"></i> Collaborated in Agile/Scrum teams to deliver features iteratively.</li>
-                  <li><i class="bi bi-check2-circle"></i> Resolved critical bugs and improved application performance.</li>
+                  <li><i class="bi bi-check2-circle"></i> Designed and implemented RESTful APIs with JWT authentication.
+                  </li>
+                  <li><i class="bi bi-check2-circle"></i> Collaborated in Agile/Scrum teams to deliver features
+                    iteratively.</li>
+                  <li><i class="bi bi-check2-circle"></i> Resolved critical bugs and improved application performance.
+                  </li>
                 </ul>
               </div>
             </div>
@@ -437,19 +493,21 @@
                   </div>
                   <div class="exp-period-badge">06/2019 - 12/2019</div>
                 </div>
-                <p class="text-secondary small mb-4 lh-base">Developed internal tools and mobile applications to support logistics and office workflows.</p>
+                <p class="text-secondary small mb-4 lh-base">Developed internal tools and mobile applications to support
+                  logistics and office workflows.</p>
                 <ul class="list-unstyled mb-0 exp-highlight-list">
                   <li><i class="bi bi-check2-circle"></i> Developed Android-based meeting room booking application.</li>
                   <li><i class="bi bi-check2-circle"></i> Implemented scheduling and booking management features.</li>
-                  <li><i class="bi bi-check2-circle"></i> Created tools to support logistics workflows and invoice processing.</li>
+                  <li><i class="bi bi-check2-circle"></i> Created tools to support logistics workflows and invoice
+                    processing.</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
         <div class="col-lg-4" data-aos="fade-left" data-aos-delay="200">
-          <div class="badge-subtitle mb-3">Education</div>
-          <h2 class="section-title mb-5 text-lg-nowrap">Academic History</h2>
+          <div class="badge-subtitle mb-3" data-i18n="education_title">Education</div>
+          <h2 class="section-title mb-5 text-lg-nowrap" data-i18n="education_title">Academic History</h2>
           <div id="educationContent" class="d-flex flex-column gap-4">
             <div class="edu-card elegant-card p-4" data-aos="fade-up" data-aos-delay="0">
               <div class="d-flex align-items-center gap-3 mb-3">
@@ -478,11 +536,10 @@
   <!-- Projects Section -->
   <section id="projects" class="page-section">
     <div class="container">
-      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5 gap-4" data-aos="fade-up">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5 gap-4"
+        data-aos="fade-up">
         <div>
-          <div class="badge-subtitle mb-3">Portfolio</div>
-          <h2 class="section-title mb-2">Selected Work</h2>
-          <div class="section-divider" style="margin: 0;"></div>
+          <h2 class="section-title mb-2" data-i18n="section_projects">Selected Work</h2>
         </div>
         <div class="d-flex gap-2 flex-wrap" id="projectFilters">
           <button class="filter-pill active" data-filter="all">All</button>
@@ -508,43 +565,60 @@
       <!-- Decorative orbs -->
       <div class="contact-decor circle-1"></div>
       <div class="contact-decor circle-2"></div>
-      
+
       <div class="row gx-5 position-relative z-1" id="contactContent">
         <div class="col-lg-5 mb-5 mb-lg-0 z-1" data-aos="fade-right">
           <div class="badge-subtitle mb-3">Hire Me</div>
-          <h2 class="section-title mb-4 lh-base text-main">Let's build something <span class="gradient-text">beautiful</span> together.</h2>
-          <p class="text-secondary mb-5 fs-6 lh-lg">I'm currently available for freelance work or full-time roles. If you have a project that you want to get started, think you need my help with something, then get in touch.</p>
-          
+          <h2 class="section-title mb-4 lh-base text-main">Let's build something <span
+              class="gradient-text">beautiful</span> together.</h2>
+          <p class="text-secondary mb-5 fs-6 lh-lg">I'm currently available for freelance work or full-time roles. If
+            you have a project that you want to get started, think you need my help with something, then get in touch.
+          </p>
+
           <div class="d-flex flex-column gap-4">
             <div class="d-flex align-items-center gap-3">
               <div class="contact-info-icon"><i class="bi bi-envelope"></i></div>
-              <div><div class="text-muted small fw-semibold text-uppercase" style="letter-spacing: 0.06em; font-size: 0.7rem;">Email Me</div><a href="mailto:m.faridl441@gmail.com" class="text-main text-decoration-none fw-semibold fs-6">m.faridl441@gmail.com</a></div>
+              <div>
+                <div class="text-muted small fw-semibold text-uppercase"
+                  style="letter-spacing: 0.06em; font-size: 0.7rem;">Email Me</div><a
+                  href="mailto:m.faridl441@gmail.com"
+                  class="text-main text-decoration-none fw-semibold fs-6">m.faridl441@gmail.com</a>
+              </div>
             </div>
             <div class="d-flex align-items-center gap-3">
               <div class="contact-info-icon"><i class="bi bi-geo-alt"></i></div>
-              <div><div class="text-muted small fw-semibold text-uppercase" style="letter-spacing: 0.06em; font-size: 0.7rem;">Location</div><span class="text-main fw-semibold fs-6">Cimahi, West Java</span></div>
+              <div>
+                <div class="text-muted small fw-semibold text-uppercase"
+                  style="letter-spacing: 0.06em; font-size: 0.7rem;">Location</div><span
+                  class="text-main fw-semibold fs-6">Cimahi, West Java</span>
+              </div>
             </div>
           </div>
         </div>
-        
+
         <div class="col-lg-6 offset-lg-1 z-1" data-aos="fade-left">
           <div class="elegant-card p-4 p-md-5">
             <form id="contactForm">
               <div class="row g-3">
                 <div class="col-md-6 mb-3">
                   <label class="form-label text-main fw-semibold small mb-2" for="contactName">Name</label>
-                  <input type="text" class="form-control modern-input text-main" id="contactName" placeholder="John Doe" required>
+                  <input type="text" class="form-control modern-input text-main" id="contactName" placeholder="John Doe"
+                    required>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-label text-main fw-semibold small mb-2" for="contactSubject">Subject</label>
-                  <input type="text" class="form-control modern-input text-main" id="contactSubject" placeholder="App Development" required>
+                  <input type="text" class="form-control modern-input text-main" id="contactSubject"
+                    placeholder="App Development" required>
                 </div>
               </div>
               <div class="mb-4">
                 <label class="form-label text-main fw-semibold small mb-2" for="contactMessage">Project Details</label>
-                <textarea class="form-control modern-input text-main" id="contactMessage" rows="5" placeholder="Tell me about your idea..." required></textarea>
+                <textarea class="form-control modern-input text-main" id="contactMessage" rows="5"
+                  placeholder="Tell me about your idea..." required></textarea>
               </div>
-              <button type="submit" class="btn btn-primary w-100 py-3 rounded-3 fw-medium fs-6 d-flex justify-content-center align-items-center gap-2"><i class="bi bi-whatsapp fs-5"></i> Send Message via WhatsApp</button>
+              <button type="submit"
+                class="btn btn-primary w-100 py-3 rounded-3 fw-medium fs-6 d-flex justify-content-center align-items-center gap-2"><i
+                  class="bi bi-whatsapp fs-5"></i> Send Message via WhatsApp</button>
             </form>
           </div>
         </div>
@@ -555,59 +629,72 @@
   <!-- Project Modal -->
   <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content custom-modal border-0 shadow-lg" style="border-radius: 28px; border: 1px solid var(--border-color) !important;">
+      <div class="modal-content custom-modal border-0 shadow-lg"
+        style="border-radius: 28px; border: 1px solid var(--border-color) !important;">
         <div class="modal-header border-0 pb-0 pt-4 px-4 d-flex justify-content-between">
           <h4 class="modal-title fw-bold" id="projectModalLabel" style="font-family: var(--ff-heading);"></h4>
           <button type="button" class="btn-close custom-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body px-4">
           <div class="position-relative overflow-hidden mb-4 rounded-4 shadow-sm">
-             <img id="projectModalImg" src="" class="img-fluid w-100 object-fit-cover" style="max-height: 400px; border-radius: 16px;" alt="">
+            <img id="projectModalImg" src="" class="img-fluid w-100 object-fit-cover"
+              style="max-height: 400px; border-radius: 16px;" alt="">
           </div>
           <!-- Role & Context Badge -->
           <div class="mb-3 d-flex align-items-center gap-2 flex-wrap">
-             <span class="badge-subtitle text-uppercase" id="projectModalRole" style="font-size: 0.72rem; padding: 4px 12px; display: none;"></span>
+            <span class="badge-subtitle text-uppercase" id="projectModalRole"
+              style="font-size: 0.72rem; padding: 4px 12px; display: none;"></span>
           </div>
-          
+
           <!-- Enterprise Security/Proprietary Badge -->
-          <div id="projectModalSecurityBadge" class="alert alert-info py-2 px-3 mb-4 rounded-3 text-secondary small align-items-center gap-2" style="display: none; background-color: var(--bg-soft); border: 1px solid var(--border-color); font-size: 0.78rem;">
+          <div id="projectModalSecurityBadge"
+            class="alert alert-info py-2 px-3 mb-4 rounded-3 text-secondary small align-items-center gap-2"
+            style="display: none; background-color: var(--bg-soft); border: 1px solid var(--border-color); font-size: 0.78rem;">
             <i class="bi bi-shield-lock-fill text-accent"></i>
-            <span>Enterprise Proprietary System (Restricted Access)</span>
+            <span data-i18n="modal_private">Enterprise Proprietary System (Restricted Access)</span>
           </div>
-          
+
           <p id="projectModalDesc" class="text-secondary lh-lg mb-4"></p>
-          
+
           <!-- Case Study Details Grid -->
           <div id="projectCaseStudyContainer" class="row g-3 mb-4" style="display: none;">
             <div class="col-md-6">
               <div class="elegant-card p-3 h-100 border-subtle bg-soft">
-                <h6 class="fw-bold mb-2 text-main d-flex align-items-center gap-2" style="font-size: 0.85rem;"><i class="bi bi-exclamation-triangle text-warning"></i> The Challenge</h6>
+                <h6 class="fw-bold mb-2 text-main d-flex align-items-center gap-2" style="font-size: 0.85rem;"><i
+                    class="bi bi-exclamation-triangle text-warning"></i> <span data-i18n="modal_challenge">The
+                    Challenge</span></h6>
                 <p id="projectModalChallenge" class="text-secondary small mb-0 lh-base" style="font-size: 0.8rem;"></p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="elegant-card p-3 h-100 border-subtle bg-soft">
-                <h6 class="fw-bold mb-2 text-main d-flex align-items-center gap-2" style="font-size: 0.85rem;"><i class="bi bi-cpu text-info"></i> The Solution</h6>
+                <h6 class="fw-bold mb-2 text-main d-flex align-items-center gap-2" style="font-size: 0.85rem;"><i
+                    class="bi bi-cpu text-info"></i> <span data-i18n="modal_solution">The Solution</span></h6>
                 <p id="projectModalSolution" class="text-secondary small mb-0 lh-base" style="font-size: 0.8rem;"></p>
               </div>
             </div>
             <div class="col-12">
-              <div class="elegant-card p-3 border-subtle" style="background-color: var(--accent-soft); border-left: 4px solid var(--accent) !important;">
-                <h6 class="fw-bold mb-1 text-main d-flex align-items-center gap-2" style="font-size: 0.85rem;"><i class="bi bi-graph-up-arrow text-accent"></i> Key Impact & Result</h6>
+              <div class="elegant-card p-3 border-subtle"
+                style="background-color: var(--accent-soft); border-left: 4px solid var(--accent) !important;">
+                <h6 class="fw-bold mb-1 text-main d-flex align-items-center gap-2" style="font-size: 0.85rem;"><i
+                    class="bi bi-graph-up-arrow text-accent"></i> <span data-i18n="modal_impact">Key Impact &
+                    Result</span></h6>
                 <p id="projectModalImpact" class="text-secondary small mb-0 lh-base" style="font-size: 0.8rem;"></p>
               </div>
             </div>
           </div>
-          
-          <div class="fw-medium mb-3 text-main">Technologies Used:</div>
+
+          <div class="fw-medium mb-3 text-main" data-i18n="modal_tech">Technologies Used:</div>
           <div id="projectModalTech" class="d-flex flex-wrap gap-2 mb-2"></div>
         </div>
         <div class="modal-footer border-0 pt-0 pb-4 px-4 justify-content-start gap-2">
-          <a id="projectModalDemo" href="#" target="_blank" class="btn btn-primary rounded-pill px-4 fw-medium shadow-sm">
-             Open Live Site <i class="bi bi-box-arrow-up-right ms-2"></i>
+          <a id="projectModalDemo" href="#" target="_blank"
+            class="btn btn-primary rounded-pill px-4 fw-medium shadow-sm">
+            <span data-i18n="modal_live">Open Live Site</span> <i class="bi bi-box-arrow-up-right ms-2"></i>
           </a>
-          <a id="projectModalGithub" href="#" target="_blank" class="btn btn-outline-secondary rounded-pill px-4 fw-medium">
-             <i class="bi bi-github me-2"></i> Source Code
+          <a id="projectModalGithub" href="#" target="_blank"
+            class="btn btn-outline-secondary rounded-pill px-4 fw-medium">
+            <i class="bi bi-github me-2"></i> <span data-i18n="modal_source">Source Code</span>
           </a>
         </div>
       </div>
@@ -622,32 +709,36 @@
             <div class="brand-icon"><i class="bi bi-code-slash"></i></div>
             <span class="footer-brand">Miftah Faridl</span>
           </a>
-          <p class="footer-tagline mb-4">Senior Mobile &amp; Web Developer building scalable, high-performance solutions for enterprise and government systems.</p>
+          <p class="footer-tagline mb-4" data-i18n="footer_tagline">Senior Mobile &amp; Web Developer building scalable,
+            high-performance solutions for enterprise and government systems.</p>
           <div class="d-flex gap-3" id="footerSocials">
             <!-- Injected via Script -->
           </div>
         </div>
         <div class="col-lg-3 col-md-3 col-6">
-          <div class="footer-heading">Navigate</div>
+          <div class="footer-heading" data-i18n="footer_navigate">Navigate</div>
           <div class="footer-links d-flex flex-column gap-2">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Work</a>
+            <a href="#about" data-i18n="nav_about">About</a>
+            <a href="#skills" data-i18n="nav_skills">Skills</a>
+            <a href="#experience" data-i18n="nav_experience">Experience</a>
+            <a href="#projects" data-i18n="nav_work">Work</a>
           </div>
         </div>
         <div class="col-lg-4 col-md-3 col-6">
-          <div class="footer-heading">Get in touch</div>
+          <div class="footer-heading" data-i18n="footer_touch">Get in touch</div>
           <div class="footer-links d-flex flex-column gap-2">
             <a href="mailto:m.faridl441@gmail.com"><i class="bi bi-envelope me-2"></i>m.faridl441@gmail.com</a>
-            <a href="https://wa.me/6289654711175" target="_blank"><i class="bi bi-whatsapp me-2"></i>+62 896-5471-1175</a>
+            <a href="https://wa.me/6289654711175" target="_blank"><i class="bi bi-whatsapp me-2"></i>+62
+              896-5471-1175</a>
             <a href="#contact"><i class="bi bi-geo-alt me-2"></i>Cimahi, West Java</a>
           </div>
         </div>
       </div>
-      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 text-center">
-        <div>© <span id="year"></span> <span id="footerText">Miftah Faridl</span>. All rights reserved.</div>
-        <div>Designed &amp; built with precision.</div>
+      <div
+        class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 text-center">
+        <div>© <span id="year"></span> <span id="footerText">Miftah Faridl</span>. <span data-i18n="footer_rights">All
+            rights reserved.</span></div>
+        <div data-i18n="footer_built">Designed &amp; built with precision.</div>
       </div>
     </div>
   </footer>
@@ -659,15 +750,18 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="i18n.js"></script>
   <script src="data.js"></script>
   <script src="script.js"></script>
 
 
 
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/6289654711175?text=Hi%20Miftah,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!" target="_blank" class="wa-float-btn" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/6289654711175?text=Hi%20Miftah,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!"
+    target="_blank" class="wa-float-btn" aria-label="Chat on WhatsApp">
     <i class="bi bi-whatsapp"></i>
     <span class="wa-tooltip">Quick Chat</span>
   </a>
 </body>
+
 </html>
