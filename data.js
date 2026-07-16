@@ -117,6 +117,7 @@ const PORTFOLIO_DATA = {
       featured: true,
       title: "MKI Hub",
       category: "Mobile",
+      company: "PT. Mediatama Kreasi Informatika",
       thumb: "assets/images/poster_mki_hub.png",
       description: "A flagship enterprise workforce ecosystem for Mediatama Kreasi Informatika. Built with a modular monorepo architecture, it provides an all-in-one solution for HR management including AI-driven face recognition attendance, Sick Leave, WFH, Leave management, Business Trips (Perjadin), and real-time presence tracking.",
       tech: ["Flutter", "Melos", "Riverpod", "GoRouter", "Face Recognition", "Dio", "Clean Architecture"],
@@ -130,6 +131,7 @@ const PORTFOLIO_DATA = {
       featured: true,
       title: "Noor Ramadhan",
       category: "Mobile",
+      company: "personal_project",
       thumb: "assets/images/poster_noor_ramadhan.png",
       description: "An all-in-one Islamic worship companion application designed for local and global Muslim communities. Features a modular reactive architecture, geocoded real-time prayer schedule alarms, dynamic Hijri calendar fasting trackers, and advanced Al-Quran recitations paired with Gemini AI voice analysis.",
       tech: ["Flutter", "Dart", "Firebase AI", "Gemini", "ValueNotifier", "SQLite", "Speech-to-Text", "Local Notifications"],
@@ -143,6 +145,7 @@ const PORTFOLIO_DATA = {
       featured: true,
       title: "E-Office BKPM",
       category: "Mobile",
+      company: "BKPM / Kementerian Investasi & Hilirisasi",
       thumb: "assets/images/poster_eoffice_bkpm.png",
       description: "Enterprise-grade government internal platform for BKPM (Investment Coordinating Board). Modules include Attendance, Leave, HR, and Finance with secure SSO (Keycloak/Azure AD), dynamic dashboards, and document workflow integration.",
       tech: ["Flutter", "BLoC", "Keycloak", "AzureAD", "REST API", "Minio", "PDF Viewer", "Firebase"],
@@ -156,6 +159,7 @@ const PORTFOLIO_DATA = {
       featured: true,
       title: "Komplekita",
       category: "Mobile",
+      company: "PT. Mediatama Kreasi Informatika",
       thumb: "assets/images/poster_komplekita.png",
       description: "A comprehensive residential and community management platform. It features a Realtime Panic Button (Socket.IO + FlutterMap), Smart QR Access for residents and guests, Complaint Management with multimedia support, Carpool tracking, and integrated PPOB payment services.",
       tech: ["Flutter", "BLoC", "Socket.IO", "FlutterMap", "Firebase", "REST API", "Multimedia", "QR Scanner"],
@@ -169,6 +173,7 @@ const PORTFOLIO_DATA = {
       featured: true,
       title: "Sipena — OJK Archive App",
       category: "Mobile",
+      company: "OJK (Otoritas Jasa Keuangan)",
       thumb: "assets/images/poster_sipena_ojk.png",
       description: "Internal app for managing official documents at OJK. Features: Outbox, theme switching, push notifications (FCM), and an intuitive dashboard.",
       tech: ["Flutter", "GetX", "FCM"],
@@ -181,6 +186,7 @@ const PORTFOLIO_DATA = {
     {
       title: "Eoffice Portal (BKPM / Kementerian Investasi & Hilirisasi)",
       category: "Web",
+      company: "BKPM / Kementerian Investasi & Hilirisasi",
       thumb: "assets/images/poster_eoffice_portal.png",
       description: "Start page management with NLP speech-to-text. Frontend: React JS; Backend: Lumen; DB: PostgreSQL.",
       tech: ["React", "Lumen", "PostgreSQL", "NLP"],
@@ -193,6 +199,7 @@ const PORTFOLIO_DATA = {
     {
       title: "Eoffice DMS (BKPM / Kementerian Investasi & Hilirisasi)",
       category: "Web",
+      company: "BKPM / Kementerian Investasi & Hilirisasi",
       thumb: "assets/images/poster_dms.png",
       description: "Employee document management system. Frontend: React JS; Backend: Lumen; DB: PostgreSQL.",
       tech: ["React", "Lumen", "PostgreSQL"],
@@ -205,6 +212,7 @@ const PORTFOLIO_DATA = {
     {
       title: "SIGTK (Kementerian Sekretariat Negara)",
       category: "Web",
+      company: "Kementerian Sekretariat Negara",
       thumb: "assets/images/poster_sigtk.png",
       description: "Gelar Tanda Kehormatan management. Frontend: HTML/CSS; Backend: CodeIgniter 4; DB: MySQL.",
       tech: ["HTML/CSS", "CodeIgniter 4", "MySQL"],
@@ -217,6 +225,7 @@ const PORTFOLIO_DATA = {
     {
       title: "Eoffice Pendukung (Bank SulutGo)",
       category: "Web",
+      company: "Bank SulutGo",
       thumb: "assets/images/poster_pendukung.png",
       description: "Office loan supporting application. Frontend: HTML/CSS; Backend: CodeIgniter 3; DB: MySQL.",
       tech: ["HTML/CSS", "CodeIgniter 3", "MySQL"],
@@ -229,6 +238,7 @@ const PORTFOLIO_DATA = {
     {
       title: "Eoffice Inventory (Bank SulutGo)",
       category: "Web",
+      company: "Bank SulutGo",
       thumb: "assets/images/poster_inventory.png",
       description: "Inventory data management. Frontend: HTML/CSS; Backend: CodeIgniter 3; DB: MySQL.",
       tech: ["HTML/CSS", "CodeIgniter 3", "MySQL"],
@@ -241,6 +251,7 @@ const PORTFOLIO_DATA = {
     {
       title: "Kearsipan (BNI / Bank Nasional Indonesia)",
       category: "Web",
+      company: "BNI (Bank Negara Indonesia)",
       thumb: "assets/images/poster_kearsipan.png",
       description: "Head office archive management. Frontend: HTML/CSS; Backend: CodeIgniter 3; DB: MySQL.",
       tech: ["HTML/CSS", "CodeIgniter 3", "MySQL"],
@@ -253,6 +264,7 @@ const PORTFOLIO_DATA = {
     {
       title: "Digiproc (BPD Bali)",
       category: "Web",
+      company: "BPD Bali",
       thumb: "assets/images/poster_digiproc.png",
       description: "Digital procurement system. Frontend: HTML/CSS; Backend: CodeIgniter 3; DB: MySQL.",
       tech: ["HTML/CSS", "CodeIgniter 3", "MySQL"],
@@ -266,6 +278,7 @@ const PORTFOLIO_DATA = {
       featured: true,
       title: "WhatsDoc (International Pte. Ltd)",
       category: "Backend",
+      company: "WhatsDoc International Pte. Ltd",
       thumb: "assets/images/poster_whatsdoc.png",
       description: "Health consultation platform backend. Stack: Ruby on Rails + PostgreSQL.",
       tech: ["Ruby on Rails", "PostgreSQL"],
@@ -278,6 +291,7 @@ const PORTFOLIO_DATA = {
     {
       title: "WFM (Work Force Management)",
       category: "Mobile",
+      company: "PT. Mediatama Kreasi Informatika",
       thumb: "assets/images/poster_wfm.png",
       description: "Field operations tool: realtime location tracking, Google Maps (custom markers, polylines, geofencing, distance calc), offline caching.",
       tech: ["Flutter", "Maps", "Realtime", "Offline"],
@@ -290,6 +304,7 @@ const PORTFOLIO_DATA = {
     {
       title: "KlikGazz",
       category: "Mobile",
+      company: "KlikGazz",
       thumb: "assets/images/poster_klikgazz.png",
       description: "Gas delivery service app (Customer in Kotlin, Driver in Java). Maps place picker & geocoding, Xendit QRIS payments, FCM notifications, MVP architecture.",
       tech: ["Kotlin", "Java", "Maps", "Xendit", "FCM", "MVP"],
@@ -299,21 +314,11 @@ const PORTFOLIO_DATA = {
       solution: "Designed the architecture using the MVP pattern to decouple logic from the UI. Used Google Play services for location and custom RxJava observers to handle the payment polling states.",
       impact: "Successfully integrated automated payment receipts, accelerating driver response times by 30%."
     },
-    {
-      title: "ABDNT (AR Education)",
-      category: "Mobile",
-      thumb: "assets/images/poster_abdnt.png",
-      description: "Native Android app (Kotlin, MVVM) with Sceneform SDK for AR to visualize 3D models in real environments.",
-      tech: ["Kotlin", "MVVM", "AR", "Sceneform"],
-      links: { demo: "#", github: "#" },
-      role: "Android Developer",
-      challenge: "Rendering detailed 3D assets on low-end mobile devices without overheating or app crashes.",
-      solution: "Optimized 3D models for rendering in Sceneform SDK. Used Kotlin coroutines for asynchronous asset preloading and structured lifecycle handlers inside the MVVM architecture.",
-      impact: "Achieved a stable 60 FPS performance on 85% of target budget Android devices."
-    },
+
     {
       title: "Cakep (Cari Kerja Pariwisata)",
       category: "Mobile",
+      company: "personal_project",
       thumb: "assets/images/poster_cakep.png",
       description: "Mobile + API Developer. App in Kotlin; API using CodeIgniter 3.",
       tech: ["Kotlin", "CodeIgniter 3", "API"],
@@ -326,6 +331,7 @@ const PORTFOLIO_DATA = {
     {
       title: "Meeting Room Booking (Internship)",
       category: "Mobile",
+      company: "PT. Aplikanusa Lintasarta",
       thumb: "assets/images/meeting_room.png",
       description: "Android user app + web admin to book meeting rooms; part of internship workload along with invoicing/shipment utilities.",
       tech: ["Android", "Web Admin"],

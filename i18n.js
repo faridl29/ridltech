@@ -47,6 +47,7 @@ const I18N = {
     modal_live: "Open Live Site",
     modal_source: "Source Code",
     modal_private: "Enterprise Proprietary System (Restricted Access)",
+    personal_project: "Personal Project",
 
     // Contact
     section_contact: "Get In Touch",
@@ -122,6 +123,7 @@ const I18N = {
     modal_live: "Buka Situs",
     modal_source: "Kode Sumber",
     modal_private: "Sistem Proprietary Perusahaan (Akses Terbatas)",
+    personal_project: "Proyek Pribadi",
 
     // Contact
     section_contact: "Hubungi Saya",

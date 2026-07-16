@@ -537,6 +537,10 @@ function renderProjectsGrid(forceRefresh = true) {
     let techsHtml = p.tech.slice(0, 3).map(tech => `<span class="tech-pill">${tech}</span>`).join('');
     if (p.tech.length > 3) techsHtml += `<span class="tech-pill">+${p.tech.length - 3}</span>`;
 
+    const companyText = t(p.company);
+    const isPersonal = p.company === 'personal_project';
+    const companyIcon = isPersonal ? 'bi-person' : 'bi-building';
+
     card.innerHTML = `
       <div class="elegant-card elegant-card-hover project-card h-100" style="cursor: pointer;">
         <div class="img-wrap">
@@ -545,7 +549,10 @@ function renderProjectsGrid(forceRefresh = true) {
         </div>
         <div class="p-4 d-flex flex-column flex-grow-1">
           <div class="project-arrow"><i class="bi bi-arrow-up-right"></i></div>
-          <h4 class="fw-bold mb-3 fs-5">${p.title}</h4>
+          <h4 class="fw-bold mb-1 fs-5">${p.title}</h4>
+          <div class="project-company text-accent small mb-3 fw-medium d-flex align-items-center gap-1">
+            <i class="bi ${companyIcon}"></i> <span>${companyText}</span>
+          </div>
           <p class="text-secondary small mb-4 lh-base" style="display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; text-overflow:ellipsis; overflow:hidden;">${p.description}</p>
           <div class="mt-auto d-flex flex-wrap gap-2">${techsHtml}</div>
         </div>
@@ -567,7 +574,9 @@ function renderProjectsGrid(forceRefresh = true) {
       const impactEl = document.getElementById('projectModalImpact');
 
       if (proj.role) {
-        roleBadge.textContent = proj.role;
+        const companyText = t(proj.company);
+        const separator = proj.company === 'personal_project' ? ' — ' : ' @ ';
+        roleBadge.textContent = `${proj.role}${separator}${companyText}`;
         roleBadge.style.display = 'inline-block';
         challengeEl.textContent = proj.challenge;
         solutionEl.textContent = proj.solution;
