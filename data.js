@@ -291,7 +291,7 @@ const PORTFOLIO_DATA = {
     {
       title: "WFM (Work Force Management)",
       category: "Mobile",
-      company: "PT. Mediatama Kreasi Informatika",
+      company: "PT. Infrastruktur Telekomunikasi Indonesia",
       thumb: "assets/images/poster_wfm.png",
       description: "Field operations tool: realtime location tracking, Google Maps (custom markers, polylines, geofencing, distance calc), offline caching.",
       tech: ["Flutter", "Maps", "Realtime", "Offline"],
