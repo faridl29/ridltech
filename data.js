@@ -9,7 +9,7 @@ const PORTFOLIO_DATA = {
     email: "m.faridl441@gmail.com",
     linkedin: "https://linkedin.com/in/miftah-faridl",
     phone: "+6289654711175",
-    photo: "assets/images/profile2.jpg",
+    photo: "assets/images/profile3.jpg",
     cv_link: "assets/files/cv_miftah_faridl_alanshari_mobile_developer.pdf",
     github: "https://github.com/faridl29"
   },
