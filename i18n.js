@@ -17,7 +17,7 @@ const I18N = {
 
     // About
     section_about: "About Me",
-    about_desc: "A software engineer with over 5 years of experience delivering production-grade systems across government, banking, and enterprise sectors. Key deployments include internal platforms for BKPM and OJK serving thousands of civil servants, banking solutions for BNI and BPD Bali, and a telemedicine backend for an international healthcare provider in Singapore. Currently specializing in Flutter with a strong emphasis on scalable architecture and long-term maintainability.",
+    about_desc: "A software engineer with over 6 years of experience delivering production-grade systems across government, banking, and enterprise sectors. Key deployments include internal platforms for BKPM and OJK serving thousands of civil servants, banking solutions for BNI and BPD Bali, and a telemedicine backend for an international healthcare provider in Singapore. Currently specializing in Flutter with a strong emphasis on scalable architecture and long-term maintainability.",
     stat_years: "Years Experience",
     stat_projects: "Projects Delivered",
     stat_tech: "Technologies",
@@ -98,14 +98,14 @@ const I18N = {
 
     // Hero
     hero_label: "Pengembang Mobile & Web",
-    hero_subtitle: "5+ tahun menghadirkan sistem berstandar produksi untuk instansi pemerintah, perbankan, dan enterprise di Indonesia dan Singapura.",
+    hero_subtitle: "6+ tahun menghadirkan sistem berstandar produksi untuk instansi pemerintah, perbankan, dan enterprise di Indonesia dan Singapura.",
     hero_cta_work: "Lihat Portofolio",
     hero_cta_resume: "Resume",
     hero_channels: "Kanal profesional",
 
     // About
     section_about: "Tentang Saya",
-    about_desc: "Software engineer dengan pengalaman lebih dari 5 tahun dalam mengembangkan sistem berskala produksi di sektor pemerintahan, perbankan, dan enterprise. Proyek utama mencakup platform internal BKPM dan OJK yang digunakan ribuan ASN, solusi perbankan untuk BNI dan BPD Bali, serta backend telemedicine untuk penyedia layanan kesehatan internasional di Singapura. Saat ini berspesialisasi dalam Flutter dengan fokus pada arsitektur yang skalabel dan mudah dipelihara.",
+    about_desc: "Software engineer dengan pengalaman lebih dari 6 tahun dalam mengembangkan sistem berskala produksi di sektor pemerintahan, perbankan, dan enterprise. Proyek utama mencakup platform internal BKPM dan OJK yang digunakan ribuan ASN, solusi perbankan untuk BNI dan BPD Bali, serta backend telemedicine untuk penyedia layanan kesehatan internasional di Singapura. Saat ini berspesialisasi dalam Flutter dengan fokus pada arsitektur yang skalabel dan mudah dipelihara.",
     stat_years: "Tahun Pengalaman",
     stat_projects: "Proyek Terselesaikan",
     stat_tech: "Teknologi",
