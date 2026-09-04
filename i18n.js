@@ -10,6 +10,7 @@ const I18N = {
 
     // Hero
     hero_label: "Mobile & Web Developer",
+    hero_subtitle: "6+ years delivering production-grade systems for governments, banks, and enterprises across Indonesia and Singapore.",
     hero_cta_work: "See My Work",
     hero_cta_resume: "Resume",
     hero_channels: "Professional channels",
@@ -28,6 +29,14 @@ const I18N = {
 
     // Skills
     section_skills: "Skills & Tools",
+    "Programming Languages": "Programming Languages",
+    "Frameworks": "Frameworks",
+    "Artificial Intelligence": "Artificial Intelligence",
+    "UI / Frontend": "UI / Frontend",
+    "Design Patterns": "Design Patterns",
+    "Databases": "Databases",
+    "Tools & OS": "Tools & OS",
+    "Integrations": "Integrations",
 
     // Experience
     section_experience: "Professional Experience",
@@ -38,6 +47,9 @@ const I18N = {
     // Projects
     section_projects: "Selected Work",
     filter_all: "All",
+    "Mobile": "Mobile",
+    "Web": "Web",
+    "Backend": "Backend",
     btn_view_all: "View All Work",
     btn_load_more: "Load More Works",
     modal_tech: "Technologies Used:",
@@ -86,6 +98,7 @@ const I18N = {
 
     // Hero
     hero_label: "Pengembang Mobile & Web",
+    hero_subtitle: "5+ tahun menghadirkan sistem berstandar produksi untuk instansi pemerintah, perbankan, dan enterprise di Indonesia dan Singapura.",
     hero_cta_work: "Lihat Portofolio",
     hero_cta_resume: "Resume",
     hero_channels: "Kanal profesional",
@@ -104,6 +117,14 @@ const I18N = {
 
     // Skills
     section_skills: "Keahlian & Teknologi",
+    "Programming Languages": "Bahasa Pemrograman",
+    "Frameworks": "Framework & Library",
+    "Artificial Intelligence": "Kecerdasan Buatan (AI)",
+    "UI / Frontend": "UI / Frontend",
+    "Design Patterns": "Pola Arsitektur & Desain",
+    "Databases": "Basis Data",
+    "Tools & OS": "Tools & Sistem Operasi",
+    "Integrations": "Integrasi Layanan",
 
     // Experience
     section_experience: "Pengalaman Profesional",
@@ -114,6 +135,9 @@ const I18N = {
     // Projects
     section_projects: "Portofolio Pilihan",
     filter_all: "Semua",
+    "Mobile": "Mobile",
+    "Web": "Web",
+    "Backend": "Backend",
     btn_view_all: "Lihat Semua Portofolio",
     btn_load_more: "Muat Lebih Banyak",
     modal_tech: "Teknologi yang Digunakan:",

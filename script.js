@@ -211,7 +211,7 @@ function renderPortfolio() {
     <div class="col-lg-7 mb-5 mb-lg-0 order-2 order-lg-1" data-aos="fade-right">
       <p class="hero-label mb-3">${t('hero_label')}</p>
       <h1 class="hero-heading mb-4">${data.profile.name}</h1>
-      <p class="hero-subtitle mb-4">${data.profile.hero_subtitle}</p>
+      <p class="hero-subtitle mb-4">${t('hero_subtitle') || data.profile.hero_subtitle}</p>
       
       <div class="d-flex flex-wrap gap-3 mb-5">
         <a href="#projects" class="btn btn-primary px-4 py-3 rounded-pill fw-medium shadow-sm d-flex align-items-center gap-2"><i class="bi bi-briefcase"></i> ${t('hero_cta_work')}</a>
@@ -293,7 +293,7 @@ function renderPortfolio() {
       skillsHtml += `
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="${(idx % 3) * 60}">
         <div class="elegant-card h-100 p-4">
-          <h6 class="fw-bold text-muted small text-uppercase mb-3" style="letter-spacing: 0.05em; font-size: 0.72rem;">${cat.title}</h6>
+          <h6 class="fw-bold text-muted small text-uppercase mb-3" style="letter-spacing: 0.05em; font-size: 0.72rem;">${t(cat.title) || cat.title}</h6>
           <div class="d-flex flex-wrap gap-2">${tagsHtml}</div>
         </div>
       </div>
@@ -305,10 +305,16 @@ function renderPortfolio() {
   // ═══════════════════════════════════════
   // EXPERIENCE & EDUCATION (homepage only)
   // ═══════════════════════════════════════
+  const isId = getCurrentLang() === 'id';
   const expEl = document.getElementById('experienceContent');
   if (expEl) {
     let expHtml = '';
     data.experience.forEach((exp, idx) => {
+      const role = (isId && exp.role_id) || exp.role;
+      const period = (isId && exp.period_id) || (isId ? exp.period.replace(/Present/gi, 'Sekarang') : exp.period);
+      const desc = (isId && exp.description_id) || exp.description;
+      const highlights = (isId && exp.highlights_id) || exp.highlights;
+
       expHtml += `
       <div class="exp-item mb-5" data-aos="fade-up" data-aos-delay="${idx * 100}">
         <div class="exp-dot"></div>
@@ -319,15 +325,15 @@ function renderPortfolio() {
                 <i class="bi bi-building"></i>
               </div>
               <div>
-                <h4 class="fw-bold mb-1 fs-5 text-main">${exp.role}</h4>
+                <h4 class="fw-bold mb-1 fs-5 text-main">${role}</h4>
                 <div class="text-accent fw-medium small">${exp.company}</div>
               </div>
             </div>
-            <div class="exp-period-badge">${exp.period}</div>
+            <div class="exp-period-badge">${period}</div>
           </div>
-          <p class="text-secondary small mb-4 lh-base">${exp.description}</p>
+          <p class="text-secondary small mb-4 lh-base">${desc}</p>
           <ul class="list-unstyled mb-0 exp-highlight-list">
-            ${exp.highlights.map(h => `<li><i class="bi bi-check2-circle"></i> ${h}</li>`).join('')}
+            ${highlights.map(h => `<li><i class="bi bi-check2-circle"></i> ${h}</li>`).join('')}
           </ul>
         </div>
       </div>
@@ -340,15 +346,19 @@ function renderPortfolio() {
   if (eduEl) {
     let eduHtml = '';
     data.education.forEach((edu, idx) => {
+      const degree = (isId && edu.degree_id) || edu.degree;
+      const status = (isId && edu.status_id) || (isId ? (edu.status === 'In Progress' ? 'Sedang Berjalan' : (edu.status === 'Graduated' ? 'Lulus' : edu.status)) : edu.status);
+      const period = (isId && edu.period_id) || (isId ? edu.period.replace(/Present/gi, 'Sekarang') : edu.period);
+
       eduHtml += `
       <div class="edu-card elegant-card p-4" data-aos="fade-up" data-aos-delay="${idx * 150}">
         <div class="d-flex align-items-center gap-3 mb-3">
           <div class="edu-icon"><i class="bi bi-mortarboard-fill"></i></div>
-          <div class="edu-status-badge">${edu.status}</div>
+          <div class="edu-status-badge">${status}</div>
         </div>
-        <h5 class="fw-bold mb-1 fs-6">${edu.degree}</h5>
+        <h5 class="fw-bold mb-1 fs-6">${degree}</h5>
         <div class="text-secondary small mb-3">${edu.school}</div>
-        <div class="text-accent fw-semibold small">${edu.period}</div>
+        <div class="text-accent fw-semibold small">${period}</div>
       </div>
     `;
     });
@@ -364,7 +374,7 @@ function renderPortfolio() {
     categories.forEach(cat => {
       const btn = document.createElement('button');
       btn.className = `filter-pill ${cat === 'all' ? 'active' : ''}`;
-      btn.textContent = cat === 'all' ? t('filter_all') : cat;
+      btn.textContent = cat === 'all' ? t('filter_all') : (t(cat) || cat);
       btn.dataset.filter = cat;
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
@@ -540,11 +550,14 @@ function renderProjectsGrid(forceRefresh = true) {
     const companyText = t(p.company);
     const isPersonal = p.company === 'personal_project';
     const companyIcon = isPersonal ? 'bi-person' : 'bi-building';
+    const isId = getCurrentLang() === 'id';
+    const projDesc = (isId && p.description_id) || p.description;
+    const catLabel = t(p.category) || p.category;
 
     card.innerHTML = `
       <div class="elegant-card elegant-card-hover project-card h-100" style="cursor: pointer;">
         <div class="img-wrap">
-          <span class="img-tag">${p.category}</span>
+          <span class="img-tag">${catLabel}</span>
           <img src="${p.thumb}" alt="${p.title}" loading="lazy">
         </div>
         <div class="p-4 d-flex flex-column flex-grow-1">
@@ -553,7 +566,7 @@ function renderProjectsGrid(forceRefresh = true) {
           <div class="project-company text-accent small mb-3 fw-medium d-flex align-items-center gap-1">
             <i class="bi ${companyIcon}"></i> <span>${companyText}</span>
           </div>
-          <p class="text-secondary small mb-4 lh-base" style="display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; text-overflow:ellipsis; overflow:hidden;">${p.description}</p>
+          <p class="text-secondary small mb-4 lh-base" style="display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; text-overflow:ellipsis; overflow:hidden;">${projDesc}</p>
           <div class="mt-auto d-flex flex-wrap gap-2">${techsHtml}</div>
         </div>
       </div>
@@ -561,9 +574,16 @@ function renderProjectsGrid(forceRefresh = true) {
 
     card.querySelector('.project-card').addEventListener('click', () => {
       const proj = allGlobalProjects[glIdx];
+      const isIdModal = getCurrentLang() === 'id';
+      const mDesc = (isIdModal && proj.description_id) || proj.description;
+      const mRole = (isIdModal && proj.role_id) || proj.role;
+      const mChallenge = (isIdModal && proj.challenge_id) || proj.challenge;
+      const mSolution = (isIdModal && proj.solution_id) || proj.solution;
+      const mImpact = (isIdModal && proj.impact_id) || proj.impact;
+
       document.getElementById('projectModalLabel').textContent = proj.title;
       document.getElementById('projectModalImg').src = proj.thumb;
-      document.getElementById('projectModalDesc').textContent = proj.description;
+      document.getElementById('projectModalDesc').textContent = mDesc;
       document.getElementById('projectModalTech').innerHTML = proj.tech.map(tech => `<span class="tech-pill border-subtle px-3 py-2 fs-6 fw-medium">${tech}</span>`).join('');
 
       // Populate case-study elements
@@ -576,11 +596,11 @@ function renderProjectsGrid(forceRefresh = true) {
       if (proj.role) {
         const companyText = t(proj.company);
         const separator = proj.company === 'personal_project' ? ' — ' : ' @ ';
-        roleBadge.textContent = `${proj.role}${separator}${companyText}`;
+        roleBadge.textContent = `${mRole}${separator}${companyText}`;
         roleBadge.style.display = 'inline-block';
-        challengeEl.textContent = proj.challenge;
-        solutionEl.textContent = proj.solution;
-        impactEl.textContent = proj.impact;
+        challengeEl.textContent = mChallenge;
+        solutionEl.textContent = mSolution;
+        impactEl.textContent = mImpact;
         caseStudyContainer.style.display = 'flex';
       } else {
         roleBadge.style.display = 'none';
