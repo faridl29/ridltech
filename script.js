@@ -209,30 +209,53 @@ function renderPortfolio() {
   if (heroEl) {
     heroEl.innerHTML = `
     <div class="col-lg-7 mb-5 mb-lg-0 order-2 order-lg-1" data-aos="fade-right">
-      <p class="hero-label mb-3">${t('hero_label')}</p>
-      <h1 class="hero-heading mb-4">${data.profile.name}</h1>
+      <div class="hero-status-pill mb-3">
+        <span class="status-dot"></span>
+        <span>${t('hero_status')}</span>
+      </div>
+      <div class="hero-role-tag mb-2">${t('hero_label')}</div>
+      <h1 class="hero-heading mb-3">${data.profile.name}</h1>
       <p class="hero-subtitle mb-4">${t('hero_subtitle') || data.profile.hero_subtitle}</p>
       
+      <div class="hero-clients-row mb-4">
+        <span class="hero-client-chip"><i class="bi bi-shield-check"></i> DJKN Kemenkeu RI</span>
+        <span class="hero-client-chip"><i class="bi bi-bank"></i> Bank BNI</span>
+        <span class="hero-client-chip"><i class="bi bi-building-check"></i> OJK RI</span>
+        <span class="hero-client-chip"><i class="bi bi-globe"></i> SingHealth SG</span>
+      </div>
+
       <div class="d-flex flex-wrap gap-3 mb-5">
-        <a href="#projects" class="btn btn-primary px-4 py-3 rounded-pill fw-medium shadow-sm d-flex align-items-center gap-2"><i class="bi bi-briefcase"></i> ${t('hero_cta_work')}</a>
-        <a href="#contact" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i class="bi bi-envelope"></i> ${t('nav_contact')}</a>
-        <a href="${data.profile.cv_link}" target="_blank" class="btn btn-outline-primary px-4 py-3 rounded-pill d-flex align-items-center gap-2"><i class="bi bi-download"></i> ${t('hero_cta_resume')}</a>
+        <a href="#projects" class="btn btn-primary px-4 py-3 d-flex align-items-center gap-2"><i class="bi bi-arrow-down-right"></i> ${t('hero_cta_work')}</a>
+        <a href="#contact" class="btn btn-outline-primary px-4 py-3 d-flex align-items-center gap-2"><i class="bi bi-chat-text"></i> ${t('nav_contact')}</a>
+        <a href="${data.profile.cv_link}" target="_blank" class="btn btn-outline-primary px-4 py-3 d-flex align-items-center gap-2"><i class="bi bi-file-earmark-arrow-down"></i> ${t('hero_cta_resume')}</a>
       </div>
       
-      <div class="hero-social-bar">
-        <span class="hero-social-label">${t('hero_channels')}</span>
-        <div class="hero-social-divider"></div>
-        <div class="d-flex gap-3">
-          <a href="${data.profile.github}" target="_blank" class="social-icon text-decoration-none" aria-label="GitHub"><i class="bi bi-github"></i></a>
-          <a href="${data.profile.linkedin}" target="_blank" class="social-icon text-decoration-none" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-          <a href="mailto:${data.profile.email}" class="social-icon text-decoration-none" aria-label="Email"><i class="bi bi-envelope"></i></a>
-          <a href="https://wa.me/${data.profile.phone.replace(/[^a-zA-Z0-9]/g, '')}" target="_blank" class="social-icon text-decoration-none" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      <div class="d-flex align-items-center gap-3">
+        <span class="text-muted small fw-semibold text-uppercase" style="font-family: var(--ff-mono); font-size: 0.7rem; letter-spacing: 0.08em;">${t('hero_channels')}</span>
+        <div style="width: 24px; height: 1px; background: var(--border-color);"></div>
+        <div class="d-flex gap-2">
+          <a href="${data.profile.github}" target="_blank" class="social-icon" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="${data.profile.linkedin}" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="mailto:${data.profile.email}" class="social-icon" aria-label="Email"><i class="bi bi-envelope"></i></a>
+          <a href="https://wa.me/${data.profile.phone.replace(/[^a-zA-Z0-9]/g, '')}" target="_blank" class="social-icon" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
         </div>
       </div>
     </div>
     <div class="col-lg-5 order-1 order-lg-2 text-center" data-aos="fade-left" data-aos-delay="100">
       <div class="profile-wrap mx-auto">
-        <img src="${data.profile.photo}" alt="${data.profile.name}" class="profile-img">
+        <div class="profile-card">
+          <img src="${data.profile.photo}" alt="${data.profile.name}" class="profile-img">
+          <div class="profile-badge-strip">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-patch-check-fill" style="color: #6366f1;"></i>
+              <span>Lead Mobile & AI</span>
+            </div>
+            <div class="text-secondary small d-flex align-items-center gap-1">
+              <i class="bi bi-geo-alt-fill text-danger"></i>
+              <span>Cimahi, ID</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   `;
@@ -246,60 +269,147 @@ function renderPortfolio() {
     aboutEl.className = 'row g-4';
     aboutEl.innerHTML = `
     <div class="col-lg-7" data-aos="fade-up">
-      <div class="elegant-card h-100 p-4 p-lg-5">
-        <h4 class="fw-bold mb-4">${t('section_about')}</h4>
-        <p class="text-secondary lh-lg mb-4">${t('about_desc')}</p>
-        <div class="d-flex flex-wrap gap-5 pt-2">
-          <div class="text-center">
+      <div class="editorial-card h-100 d-flex flex-column justify-content-between">
+        <div>
+          <div class="section-label">${t('section_about')}</div>
+          <h3 class="fw-bold mb-3 fs-4">${data.profile.name}</h3>
+          <p class="text-secondary lh-lg mb-4">${t('about_desc')}</p>
+        </div>
+        <div class="d-flex flex-wrap gap-4 pt-3 border-top border-subtle">
+          <div class="stat-item">
             <div class="stat-counter gradient-text" data-counter="${data.about.stats[0].number}">0</div>
-            <div class="text-muted small fw-semibold text-uppercase" style="letter-spacing:0.05em;font-size:0.65rem;">${t('stat_years')}</div>
+            <div class="stat-label">${t('stat_years')}</div>
           </div>
-          <div class="text-center">
+          <div class="stat-item">
             <div class="stat-counter gradient-text" data-counter="${data.about.stats[1].number}">0</div>
-            <div class="text-muted small fw-semibold text-uppercase" style="letter-spacing:0.05em;font-size:0.65rem;">${t('stat_projects')}</div>
+            <div class="stat-label">${t('stat_projects')}</div>
           </div>
-          <div class="text-center">
+          <div class="stat-item">
             <div class="stat-counter gradient-text" data-counter="${data.about.stats[2].number}">0</div>
-            <div class="text-muted small fw-semibold text-uppercase" style="letter-spacing:0.05em;font-size:0.65rem;">${t('stat_tech')}</div>
+            <div class="stat-label">${t('stat_tech')}</div>
           </div>
         </div>
       </div>
     </div>
     <div class="col-lg-5" data-aos="fade-up" data-aos-delay="80">
-      <div class="elegant-card h-100 p-4 p-lg-5">
-        <h4 class="fw-bold mb-3">${t('philosophy_title')}</h4>
+      <div class="editorial-card h-100">
+        <div class="section-label">${t('philosophy_title')}</div>
         <p class="text-secondary small mb-4">${t('philosophy_desc')}</p>
-        <ul class="list-unstyled fw-medium text-secondary m-0 small d-flex flex-column gap-3">
-          <li class="d-flex align-items-start gap-2"><span class="text-accent mt-1">→</span><span class="lh-sm">${t('philosophy_1')}</span></li>
-          <li class="d-flex align-items-start gap-2"><span class="text-accent mt-1">→</span><span class="lh-sm">${t('philosophy_2')}</span></li>
-          <li class="d-flex align-items-start gap-2"><span class="text-accent mt-1">→</span><span class="lh-sm">${t('philosophy_3')}</span></li>
-        </ul>
+        <div class="d-flex flex-column gap-3">
+          <div class="pillar-card">
+            <div class="pillar-icon"><i class="bi bi-shield-lock-fill"></i></div>
+            <div>
+              <div class="pillar-title">${t('arch_pillar_1_title')}</div>
+              <p class="pillar-desc">${t('arch_pillar_1_desc')}</p>
+            </div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon"><i class="bi bi-diagram-3-fill"></i></div>
+            <div>
+              <div class="pillar-title">${t('arch_pillar_2_title')}</div>
+              <p class="pillar-desc">${t('arch_pillar_2_desc')}</p>
+            </div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon"><i class="bi bi-cpu-fill"></i></div>
+            <div>
+              <div class="pillar-title">${t('arch_pillar_3_title')}</div>
+              <p class="pillar-desc">${t('arch_pillar_3_desc')}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   `;
   } // end about
 
   // ═══════════════════════════════════════
-  // SKILLS (homepage only)
+  // SKILLS (homepage only: Tiered Architectural View)
   // ═══════════════════════════════════════
   const skillsEl = document.getElementById('skillsContent');
   if (skillsEl) {
-    let skillsHtml = '';
-    data.skills_categories.forEach((cat, idx) => {
-      let tagsHtml = cat.items.map(item => `
-      <span class="skill-chip">${item.name}</span>
-    `).join('');
-
-      skillsHtml += `
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="${(idx % 3) * 60}">
-        <div class="elegant-card h-100 p-4">
-          <h6 class="fw-bold text-muted small text-uppercase mb-3" style="letter-spacing: 0.05em; font-size: 0.72rem;">${t(cat.title) || cat.title}</h6>
-          <div class="d-flex flex-wrap gap-2">${tagsHtml}</div>
+    skillsEl.innerHTML = `
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="skill-tier-card">
+          <div class="skill-tier-header">
+            <div class="skill-tier-icon" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8;">
+              <i class="bi bi-cpu"></i>
+            </div>
+            <h5 class="skill-tier-title">${t('skills_cat_ai')}</h5>
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="skill-chip skill-chip-highlight"><i class="bi bi-stars"></i> LangGraph</span>
+            <span class="skill-chip skill-chip-highlight"><i class="bi bi-stars"></i> LangChain</span>
+            <span class="skill-chip skill-chip-highlight">Model Context Protocol</span>
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">FastAPI</span>
+            <span class="skill-chip">pgvector (RAG)</span>
+            <span class="skill-chip">Ollama</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="60">
+        <div class="skill-tier-card">
+          <div class="skill-tier-header">
+            <div class="skill-tier-icon" style="background: rgba(99, 102, 241, 0.12); color: #818cf8;">
+              <i class="bi bi-phone"></i>
+            </div>
+            <h5 class="skill-tier-title">${t('skills_cat_mobile')}</h5>
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="skill-chip skill-chip-highlight">Flutter</span>
+            <span class="skill-chip skill-chip-highlight">Dart</span>
+            <span class="skill-chip">Kotlin</span>
+            <span class="skill-chip">Java</span>
+            <span class="skill-chip">BLoC Pattern</span>
+            <span class="skill-chip">Cubit</span>
+            <span class="skill-chip">Clean Architecture</span>
+            <span class="skill-chip">GetX</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="120">
+        <div class="skill-tier-card">
+          <div class="skill-tier-header">
+            <div class="skill-tier-icon" style="background: rgba(52, 211, 153, 0.12); color: #34d399;">
+              <i class="bi bi-server"></i>
+            </div>
+            <h5 class="skill-tier-title">${t('skills_cat_backend')}</h5>
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="skill-chip skill-chip-highlight">Next.js</span>
+            <span class="skill-chip">React.js</span>
+            <span class="skill-chip">TypeScript</span>
+            <span class="skill-chip">Laravel</span>
+            <span class="skill-chip">Node.js</span>
+            <span class="skill-chip">Ruby on Rails</span>
+            <span class="skill-chip">Socket.IO</span>
+            <span class="skill-chip">REST APIs</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="180">
+        <div class="skill-tier-card">
+          <div class="skill-tier-header">
+            <div class="skill-tier-icon" style="background: rgba(251, 191, 36, 0.12); color: #fbbf24;">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h5 class="skill-tier-title">${t('skills_cat_devops')}</h5>
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="skill-chip skill-chip-highlight">Keycloak SSO</span>
+            <span class="skill-chip">Azure AD (OAuth)</span>
+            <span class="skill-chip">PostgreSQL</span>
+            <span class="skill-chip">Redis</span>
+            <span class="skill-chip">MySQL</span>
+            <span class="skill-chip">Google Cloud</span>
+            <span class="skill-chip">Firebase</span>
+            <span class="skill-chip">Git / GitLab</span>
+            <span class="skill-chip">MinIO</span>
+          </div>
         </div>
       </div>
     `;
-    });
-    skillsEl.innerHTML = skillsHtml;
   } // end skills
 
   // ═══════════════════════════════════════
@@ -516,8 +626,66 @@ function renderPortfolio() {
 }
 
 // ═══════════════════════════════════════
-// PROJECTS GRID
+// PROJECTS GRID & MODAL
 // ═══════════════════════════════════════
+function openProjectModal(proj) {
+  const isIdModal = getCurrentLang() === 'id';
+  const mDesc = (isIdModal && proj.description_id) || proj.description;
+  const mRole = (isIdModal && proj.role_id) || proj.role;
+  const mChallenge = (isIdModal && proj.challenge_id) || proj.challenge;
+  const mSolution = (isIdModal && proj.solution_id) || proj.solution;
+  const mImpact = (isIdModal && proj.impact_id) || proj.impact;
+
+  document.getElementById('projectModalLabel').textContent = proj.title;
+  document.getElementById('projectModalImg').src = proj.thumb;
+  document.getElementById('projectModalDesc').textContent = mDesc;
+  document.getElementById('projectModalTech').innerHTML = proj.tech.map(tech => `<span class="tech-pill px-3 py-2 fs-6 fw-medium">${tech}</span>`).join('');
+
+  // Populate case-study elements
+  const roleBadge = document.getElementById('projectModalRole');
+  const caseStudyContainer = document.getElementById('projectCaseStudyContainer');
+  const challengeEl = document.getElementById('projectModalChallenge');
+  const solutionEl = document.getElementById('projectModalSolution');
+  const impactEl = document.getElementById('projectModalImpact');
+
+  if (proj.role) {
+    const companyText = t(proj.company);
+    const separator = proj.company === 'personal_project' ? ' — ' : ' @ ';
+    roleBadge.textContent = `${mRole}${separator}${companyText}`;
+    roleBadge.style.display = 'inline-block';
+    challengeEl.textContent = mChallenge;
+    solutionEl.textContent = mSolution;
+    impactEl.textContent = mImpact;
+    caseStudyContainer.style.display = 'flex';
+  } else {
+    roleBadge.style.display = 'none';
+    caseStudyContainer.style.display = 'none';
+  }
+
+  const btnDemo = document.getElementById('projectModalDemo');
+  const btnGit = document.getElementById('projectModalGithub');
+
+  if (!proj.links || proj.links.demo === '#') btnDemo.style.display = 'none';
+  else { btnDemo.style.display = 'inline-flex'; btnDemo.href = proj.links.demo; }
+
+  if (!proj.links || proj.links.github === '#') btnGit.style.display = 'none';
+  else { btnGit.style.display = 'inline-flex'; btnGit.href = proj.links.github; }
+
+  // Private/restricted system badge logic
+  const securityBadge = document.getElementById('projectModalSecurityBadge');
+  if (securityBadge) {
+    if (!proj.links || (proj.links.demo === '#' && proj.links.github === '#')) {
+      securityBadge.style.display = 'flex';
+    } else {
+      securityBadge.style.display = 'none';
+    }
+  }
+
+  let projModal = bootstrap.Modal.getInstance(document.getElementById('projectModal'));
+  if (!projModal) projModal = new bootstrap.Modal(document.getElementById('projectModal'));
+  projModal.show();
+}
+
 function renderProjectsGrid(forceRefresh = true) {
   const grid = document.getElementById('projectsGrid');
   const loadMoreBtnContainer = document.getElementById('loadMoreContainer');
@@ -534,36 +702,88 @@ function renderProjectsGrid(forceRefresh = true) {
   }
 
   // Determine which cards need rendering
-  const alreadyRendered = forceRefresh ? 0 : grid.querySelectorAll('.col-md-6').length;
+  const alreadyRendered = forceRefresh ? 0 : grid.querySelectorAll('.project-card-item').length;
   const toShow = cachedProjectsList.slice(alreadyRendered, currentProjectCount);
 
+  // Check if we should render Flagship spotlight card on homepage
+  const hasFlagship = !isWorkPage && forceRefresh && toShow.length > 0 && toShow[0].title === "SATU KND AI Platform";
+
   toShow.forEach((p, index) => {
-    const glIdx = allGlobalProjects.findIndex(ap => ap.title === p.title);
+    const isId = getCurrentLang() === 'id';
+    const projDesc = (isId && p.description_id) || p.description;
+    const companyText = t(p.company);
+    const catLabel = t(p.category) || p.category;
+
+    if (hasFlagship && index === 0) {
+      // Flagship Spotlight Layout
+      const flagshipCol = document.createElement('div');
+      flagshipCol.className = "col-12 project-card-item mb-4";
+      flagshipCol.setAttribute('data-aos', 'fade-up');
+
+      flagshipCol.innerHTML = `
+        <div class="flagship-card" style="cursor: pointer;">
+          <div class="row g-0 align-items-stretch">
+            <div class="col-lg-7 p-4 p-md-5 d-flex flex-column justify-content-between">
+              <div>
+                <div class="flagship-badge">
+                  <i class="bi bi-stars"></i> <span>${t('flagship_badge')}</span>
+                </div>
+                <h3 class="flagship-title">${p.title}</h3>
+                <div class="flagship-company">
+                  <i class="bi bi-building"></i> <span>${companyText}</span>
+                </div>
+                <p class="flagship-desc">${projDesc}</p>
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                  ${p.tech.map(tech => `<span class="tech-pill">${tech}</span>`).join('')}
+                </div>
+              </div>
+              <div>
+                <button class="btn btn-primary px-4 py-3 d-inline-flex align-items-center gap-2" id="openFlagshipModal">
+                  <i class="bi bi-diagram-3"></i> <span>${t('flagship_view')}</span>
+                </button>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="flagship-preview-wrap">
+                <img src="${p.thumb}" alt="${p.title}" class="flagship-preview-img" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      flagshipCol.querySelector('#openFlagshipModal').addEventListener('click', (e) => {
+        e.stopPropagation();
+        openProjectModal(p);
+      });
+      flagshipCol.querySelector('.flagship-card').addEventListener('click', () => {
+        openProjectModal(p);
+      });
+
+      grid.appendChild(flagshipCol);
+      return;
+    }
+
     const card = document.createElement('div');
-    card.className = "col-md-6 col-lg-4";
+    card.className = "col-md-6 col-lg-4 project-card-item";
     card.setAttribute('data-aos', 'fade-up');
     card.setAttribute('data-aos-delay', `${(index % 3) * 60}`);
 
     let techsHtml = p.tech.slice(0, 3).map(tech => `<span class="tech-pill">${tech}</span>`).join('');
     if (p.tech.length > 3) techsHtml += `<span class="tech-pill">+${p.tech.length - 3}</span>`;
 
-    const companyText = t(p.company);
     const isPersonal = p.company === 'personal_project';
     const companyIcon = isPersonal ? 'bi-person' : 'bi-building';
-    const isId = getCurrentLang() === 'id';
-    const projDesc = (isId && p.description_id) || p.description;
-    const catLabel = t(p.category) || p.category;
 
     card.innerHTML = `
-      <div class="elegant-card elegant-card-hover project-card h-100" style="cursor: pointer;">
+      <div class="project-card h-100">
         <div class="img-wrap">
           <span class="img-tag">${catLabel}</span>
           <img src="${p.thumb}" alt="${p.title}" loading="lazy">
         </div>
         <div class="p-4 d-flex flex-column flex-grow-1">
-          <div class="project-arrow"><i class="bi bi-arrow-up-right"></i></div>
           <h4 class="fw-bold mb-1 fs-5">${p.title}</h4>
-          <div class="project-company text-accent small mb-3 fw-medium d-flex align-items-center gap-1">
+          <div class="text-accent small mb-3 fw-medium d-flex align-items-center gap-1">
             <i class="bi ${companyIcon}"></i> <span>${companyText}</span>
           </div>
           <p class="text-secondary small mb-4 lh-base" style="display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; text-overflow:ellipsis; overflow:hidden;">${projDesc}</p>
@@ -573,62 +793,7 @@ function renderProjectsGrid(forceRefresh = true) {
     `;
 
     card.querySelector('.project-card').addEventListener('click', () => {
-      const proj = allGlobalProjects[glIdx];
-      const isIdModal = getCurrentLang() === 'id';
-      const mDesc = (isIdModal && proj.description_id) || proj.description;
-      const mRole = (isIdModal && proj.role_id) || proj.role;
-      const mChallenge = (isIdModal && proj.challenge_id) || proj.challenge;
-      const mSolution = (isIdModal && proj.solution_id) || proj.solution;
-      const mImpact = (isIdModal && proj.impact_id) || proj.impact;
-
-      document.getElementById('projectModalLabel').textContent = proj.title;
-      document.getElementById('projectModalImg').src = proj.thumb;
-      document.getElementById('projectModalDesc').textContent = mDesc;
-      document.getElementById('projectModalTech').innerHTML = proj.tech.map(tech => `<span class="tech-pill border-subtle px-3 py-2 fs-6 fw-medium">${tech}</span>`).join('');
-
-      // Populate case-study elements
-      const roleBadge = document.getElementById('projectModalRole');
-      const caseStudyContainer = document.getElementById('projectCaseStudyContainer');
-      const challengeEl = document.getElementById('projectModalChallenge');
-      const solutionEl = document.getElementById('projectModalSolution');
-      const impactEl = document.getElementById('projectModalImpact');
-
-      if (proj.role) {
-        const companyText = t(proj.company);
-        const separator = proj.company === 'personal_project' ? ' — ' : ' @ ';
-        roleBadge.textContent = `${mRole}${separator}${companyText}`;
-        roleBadge.style.display = 'inline-block';
-        challengeEl.textContent = mChallenge;
-        solutionEl.textContent = mSolution;
-        impactEl.textContent = mImpact;
-        caseStudyContainer.style.display = 'flex';
-      } else {
-        roleBadge.style.display = 'none';
-        caseStudyContainer.style.display = 'none';
-      }
-
-      const btnDemo = document.getElementById('projectModalDemo');
-      const btnGit = document.getElementById('projectModalGithub');
-
-      if (!proj.links || proj.links.demo === '#') btnDemo.style.display = 'none';
-      else { btnDemo.style.display = 'inline-flex'; btnDemo.href = proj.links.demo; }
-
-      if (!proj.links || proj.links.github === '#') btnGit.style.display = 'none';
-      else { btnGit.style.display = 'inline-flex'; btnGit.href = proj.links.github; }
-
-      // Private/restricted system badge logic
-      const securityBadge = document.getElementById('projectModalSecurityBadge');
-      if (securityBadge) {
-        if (!proj.links || (proj.links.demo === '#' && proj.links.github === '#')) {
-          securityBadge.style.display = 'flex';
-        } else {
-          securityBadge.style.display = 'none';
-        }
-      }
-
-      let projModal = bootstrap.Modal.getInstance(document.getElementById('projectModal'));
-      if (!projModal) projModal = new bootstrap.Modal(document.getElementById('projectModal'));
-      projModal.show();
+      openProjectModal(p);
     });
 
     grid.appendChild(card);
@@ -643,13 +808,13 @@ function renderProjectsGrid(forceRefresh = true) {
   if (isWorkPage) {
     if (cachedProjectsList.length > currentProjectCount) {
       loadMoreBtnContainer.innerHTML = `
-        <button class="btn btn-outline-secondary rounded-pill px-5 py-2 mt-2 fw-medium d-inline-flex align-items-center gap-2">
+        <button class="btn btn-outline-primary px-5 py-2 mt-2 fw-medium d-inline-flex align-items-center gap-2">
           ${t('btn_load_more')} <i class="bi bi-arrow-down"></i>
         </button>
       `;
       loadMoreBtnContainer.querySelector('button').addEventListener('click', () => {
         currentProjectCount += 6;
-        renderProjectsGrid(false); // append-only, no refresh
+        renderProjectsGrid(false);
       });
     } else {
       loadMoreBtnContainer.innerHTML = '';
@@ -659,7 +824,7 @@ function renderProjectsGrid(forceRefresh = true) {
     const viewAllContainer = document.getElementById('viewAllContainer');
     if (viewAllContainer) {
       viewAllContainer.innerHTML = `
-        <a href="work.html" class="btn btn-outline-secondary rounded-pill px-5 py-3 fw-medium d-inline-flex align-items-center gap-2">
+        <a href="work.html" class="btn btn-outline-primary px-5 py-3 fw-medium d-inline-flex align-items-center gap-2">
           ${t('btn_view_all')} <i class="bi bi-arrow-right"></i>
         </a>
       `;
@@ -707,4 +872,12 @@ window.addEventListener('DOMContentLoaded', () => {
   renderPortfolio();
   applyI18n();
   animateCounters();
+  setTimeout(() => {
+    if (typeof AOS !== 'undefined') {
+      AOS.refreshHard();
+      window.dispatchEvent(new Event('scroll'));
+      window.dispatchEvent(new Event('resize'));
+    }
+  }, 300);
 });
+
