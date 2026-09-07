@@ -471,23 +471,23 @@ const PORTFOLIO_DATA = {
   experience: [
     {
       company: "PT. Mediatama Kreasi Informatika",
-      role: "Senior Mobile Developer",
-      role_id: "Senior Mobile Developer",
+      role: "Lead Mobile Developer",
+      role_id: "Lead Mobile Developer",
       period: "01/2022 - Present",
       period_id: "01/2022 - Sekarang",
-      description: "Developing scalable mobile applications for enterprise and government systems, focusing on secure authentication, real-time features, and maintainable architecture.",
-      description_id: "Mengembangkan aplikasi mobile berskala besar untuk sistem enterprise dan pemerintahan, berfokus pada autentikasi aman, fitur real-time, dan arsitektur yang mudah dipelihara.",
+      description: "Leading mobile engineering and architectural strategy for enterprise and government platforms, focusing on scalable architecture, secure authentication, and team standardizations.",
+      description_id: "Memimpin rekayasa arsitektur mobile untuk sistem enterprise dan kementerian/pemerintah, berfokus pada skalabilitas arsitektur, autentikasi aman, dan standardisasi tim developer.",
       highlights: [
-        "Developed cross-platform mobile applications using Flutter, successfully delivering 5+ enterprise & government-scale systems (OJK, BKPM, Ministry of Investment).",
-        "Designed and configured a highly scalable modular monorepo structure (using Melos), reducing redundant code and cutting new feature development cycles by 25%.",
-        "Implemented secure authentication protocols (Keycloak Single Sign-On, Azure AD OAuth2) ensuring zero security leaks across 3,000+ active users.",
-        "Integrated offline-first geofencing tracking models, achieving 100% data consistency for remote workforce tracking under unstable network conditions."
+        "Lead cross-platform mobile engineering with Flutter, overseeing the architecture and successful deployment of 5+ production systems (OJK, BKPM, Ministry of Investment).",
+        "Designed and configured an enterprise-grade modular monorepo structure using Melos, standardizing shared packages and cutting new feature time-to-market by 25%.",
+        "Architected secure identity protocols (Keycloak Single Sign-On, Azure AD OAuth2) ensuring zero security leaks across 3,000+ active civil servants.",
+        "Directed code reviews, established CI/CD and BLoC state architecture standards, and implemented offline-first geofencing models with 100% data consistency."
       ],
       highlights_id: [
-        "Mengembangkan aplikasi mobile multiplatform menggunakan Flutter, sukses merilis 5+ sistem skala enterprise & kementerian/pemerintah (OJK, BKPM, Kementerian Investasi).",
-        "Merancang dan mengonfigurasi struktur monorepo modular yang skalabel (menggunakan Melos), mengurangi kode redundan dan memangkas siklus pengembangan fitur baru hingga 25%.",
-        "Mengimplementasikan protokol autentikasi aman (Keycloak Single Sign-On, Azure AD OAuth2) untuk menjamin zero security leaks pada 3.000+ pengguna aktif.",
-        "Mengintegrasikan pelacakan geofencing offline-first, mencapai konsistensi data 100% untuk pemantauan presensi pegawai lapangan dalam kondisi jaringan tidak stabil."
+        "Memimpin arsitektur mobile lintas platform dengan Flutter, mengawal pengiriman 5+ sistem skala enterprise & kementerian (OJK, BKPM, Kementerian Investasi).",
+        "Merancang dan mengonfigurasi struktur monorepo modular dengan Melos, menstandarisasi paket pustaka dan memangkas waktu rilis fitur baru hingga 25%.",
+        "Merancang protokol autentikasi enterprise (Keycloak Single Sign-On, Azure AD OAuth2) untuk menjamin zero security leaks pada 3.000+ pengguna aktif.",
+        "Memimpin standardisasi kode tim, review arsitektur BLoC, dan integrasi geofencing offline-first dengan konsistensi data 100% untuk mobilitas pegawai."
       ]
     },
     {
