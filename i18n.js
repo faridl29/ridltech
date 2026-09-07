@@ -11,7 +11,7 @@ const I18N = {
     // Hero
     hero_status: "Available for Senior Engineering Roles & Architecture Consulting",
     hero_label: "Lead Mobile & Fullstack AI Engineer",
-    hero_subtitle: "6+ years architecting and shipping production systems for government ministries, banking institutions, and enterprises — trusted by DJKN Kemenkeu, BKPM, Bank BNI, and OJK.",
+    hero_subtitle: "6+ years architecting and shipping production systems across government ministries, banking institutions, and high-scale enterprises.",
     hero_cta_work: "Explore Selected Work",
     hero_cta_resume: "Resume / CV",
     hero_channels: "Professional channels",
@@ -116,7 +116,7 @@ const I18N = {
     // Hero
     hero_status: "Terbuka untuk Peran Senior Engineer & Konsultasi Arsitektur",
     hero_label: "Lead Mobile & Fullstack AI Engineer",
-    hero_subtitle: "6+ tahun merancang dan membangun sistem berstandar produksi untuk kementerian, perbankan, dan enterprise — dipercaya oleh DJKN Kemenkeu, BKPM, Bank BNI, dan OJK.",
+    hero_subtitle: "6+ tahun merancang dan membangun sistem berstandar produksi di sektor kementerian, perbankan, dan enterprise berskala besar.",
     hero_cta_work: "Lihat Portofolio Pilihan",
     hero_cta_resume: "Resume / CV",
     hero_channels: "Kanal profesional",

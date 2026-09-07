@@ -3,7 +3,7 @@ const PORTFOLIO_DATA = {
     name: "Miftah Faridl",
     role: "Lead Mobile & Fullstack AI Engineer",
     hero_title: "Hi, I'm Miftah Faridl",
-    hero_subtitle: "6+ years delivering production-grade systems for governments, banks, and enterprises across Indonesia and Singapore.",
+    hero_subtitle: "6+ years delivering production-grade systems across government ministries, banking institutions, and high-scale enterprises.",
     typewriter: ["Flutter", "Kotlin/Java", "React JS", "Laravel/CI", "Ruby on Rails"],
     location: "Cimahi, West Java",
     email: "m.faridl441@gmail.com",
