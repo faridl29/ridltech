@@ -183,10 +183,10 @@ if (langToggleBtn && langDrop) {
 }
 
 // Global state for projects
-let cachedProjectsList = [];
-let currentProjectCount = 6;
-let allGlobalProjects = [];
 const isWorkPage = window.location.pathname.includes('work');
+let cachedProjectsList = [];
+let currentProjectCount = isWorkPage ? 6 : 7;
+let allGlobalProjects = [];
 
 // ═══════════════════════════════════════
 // MAIN RENDER
@@ -217,11 +217,15 @@ function renderPortfolio() {
       <h1 class="hero-heading mb-3">${data.profile.name}</h1>
       <p class="hero-subtitle mb-4">${t('hero_subtitle') || data.profile.hero_subtitle}</p>
       
-      <div class="hero-clients-row mb-4">
-        <span class="hero-client-chip"><i class="bi bi-shield-check"></i> DJKN Kemenkeu RI</span>
-        <span class="hero-client-chip"><i class="bi bi-bank"></i> Bank BNI</span>
-        <span class="hero-client-chip"><i class="bi bi-building-check"></i> OJK RI</span>
-        <span class="hero-client-chip"><i class="bi bi-globe"></i> SingHealth SG</span>
+      <div class="hero-clients-line mb-4">
+        <span class="text-muted small me-2" style="font-family: var(--ff-mono); font-size: 0.72rem;">// TRACK RECORD:</span>
+        <span class="hero-client-name">DJKN Kemenkeu RI</span>
+        <span class="hero-client-dot">·</span>
+        <span class="hero-client-name">BKPM RI</span>
+        <span class="hero-client-dot">·</span>
+        <span class="hero-client-name">Bank BNI</span>
+        <span class="hero-client-dot">·</span>
+        <span class="hero-client-name">OJK RI</span>
       </div>
 
       <div class="d-flex flex-wrap gap-3 mb-5">
@@ -242,79 +246,59 @@ function renderPortfolio() {
       </div>
     </div>
     <div class="col-lg-5 order-1 order-lg-2 text-center" data-aos="fade-left" data-aos-delay="100">
-      <div class="profile-wrap mx-auto">
-        <div class="profile-card">
-          <img src="${data.profile.photo}" alt="${data.profile.name}" class="profile-img">
-          <div class="profile-badge-strip">
-            <div class="d-flex align-items-center gap-2">
-              <i class="bi bi-patch-check-fill" style="color: #6366f1;"></i>
-              <span>Lead Mobile & AI</span>
-            </div>
-            <div class="text-secondary small d-flex align-items-center gap-1">
-              <i class="bi bi-geo-alt-fill text-danger"></i>
-              <span>Cimahi, ID</span>
-            </div>
-          </div>
-        </div>
+      <div class="editorial-portrait mx-auto">
+        <img src="${data.profile.photo}" alt="${data.profile.name}" class="portrait-img">
       </div>
     </div>
   `;
   } // end hero
 
   // ═══════════════════════════════════════
-  // ABOUT (homepage only)
+  // ABOUT (homepage only) — DE-CARDIFIED EDITORIAL
   // ═══════════════════════════════════════
   const aboutEl = document.getElementById('aboutContent');
   if (aboutEl) {
-    aboutEl.className = 'row g-4';
+    aboutEl.className = 'row gx-5 gy-5 align-items-start';
     aboutEl.innerHTML = `
     <div class="col-lg-7" data-aos="fade-up">
-      <div class="editorial-card h-100 d-flex flex-column justify-content-between">
-        <div>
-          <div class="section-label">${t('section_about')}</div>
-          <h3 class="fw-bold mb-3 fs-4">${data.profile.name}</h3>
-          <p class="text-secondary lh-lg mb-4">${t('about_desc')}</p>
+      <div class="section-label">${t('section_about')}</div>
+      <h3 class="fw-bold mb-3 fs-3 text-main">${data.profile.name}</h3>
+      <p class="text-secondary lh-lg mb-4" style="font-size: 1.05rem;">${t('about_desc')}</p>
+      
+      <div class="editorial-quote-strip p-3 rounded-2 mt-4 border-start border-3 border-accent">
+        <div class="d-flex align-items-center gap-2 text-accent fw-semibold small mb-1">
+          <i class="bi bi-terminal"></i> <span>Engineering Perspective</span>
         </div>
-        <div class="d-flex flex-wrap gap-4 pt-3 border-top border-subtle">
-          <div class="stat-item">
-            <div class="stat-counter gradient-text" data-counter="${data.about.stats[0].number}">0</div>
-            <div class="stat-label">${t('stat_years')}</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-counter gradient-text" data-counter="${data.about.stats[1].number}">0</div>
-            <div class="stat-label">${t('stat_projects')}</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-counter gradient-text" data-counter="${data.about.stats[2].number}">0</div>
-            <div class="stat-label">${t('stat_tech')}</div>
-          </div>
-        </div>
+        <p class="text-secondary small mb-0 lh-base">${t('philosophy_desc')}</p>
       </div>
     </div>
     <div class="col-lg-5" data-aos="fade-up" data-aos-delay="80">
-      <div class="editorial-card h-100">
-        <div class="section-label">${t('philosophy_title')}</div>
-        <p class="text-secondary small mb-4">${t('philosophy_desc')}</p>
-        <div class="d-flex flex-column gap-3">
-          <div class="pillar-card">
-            <div class="pillar-icon"><i class="bi bi-shield-lock-fill"></i></div>
+      <div class="section-label">${t('philosophy_title')}</div>
+      <div class="editorial-principles-list">
+        <div class="principle-item py-3 border-bottom border-subtle">
+          <div class="d-flex align-items-baseline gap-3">
+            <span class="principle-num text-accent fw-bold" style="font-family: var(--ff-mono);">01</span>
             <div>
-              <div class="pillar-title">${t('arch_pillar_1_title')}</div>
-              <p class="pillar-desc">${t('arch_pillar_1_desc')}</p>
+              <div class="principle-title fw-bold mb-1 text-main">${t('arch_pillar_1_title')}</div>
+              <p class="principle-desc text-secondary small mb-0 lh-base">${t('arch_pillar_1_desc')}</p>
             </div>
           </div>
-          <div class="pillar-card">
-            <div class="pillar-icon"><i class="bi bi-diagram-3-fill"></i></div>
+        </div>
+        <div class="principle-item py-3 border-bottom border-subtle">
+          <div class="d-flex align-items-baseline gap-3">
+            <span class="principle-num text-accent fw-bold" style="font-family: var(--ff-mono);">02</span>
             <div>
-              <div class="pillar-title">${t('arch_pillar_2_title')}</div>
-              <p class="pillar-desc">${t('arch_pillar_2_desc')}</p>
+              <div class="principle-title fw-bold mb-1 text-main">${t('arch_pillar_2_title')}</div>
+              <p class="principle-desc text-secondary small mb-0 lh-base">${t('arch_pillar_2_desc')}</p>
             </div>
           </div>
-          <div class="pillar-card">
-            <div class="pillar-icon"><i class="bi bi-cpu-fill"></i></div>
+        </div>
+        <div class="principle-item py-3">
+          <div class="d-flex align-items-baseline gap-3">
+            <span class="principle-num text-accent fw-bold" style="font-family: var(--ff-mono);">03</span>
             <div>
-              <div class="pillar-title">${t('arch_pillar_3_title')}</div>
-              <p class="pillar-desc">${t('arch_pillar_3_desc')}</p>
+              <div class="principle-title fw-bold mb-1 text-main">${t('arch_pillar_3_title')}</div>
+              <p class="principle-desc text-secondary small mb-0 lh-base">${t('arch_pillar_3_desc')}</p>
             </div>
           </div>
         </div>
@@ -324,88 +308,128 @@ function renderPortfolio() {
   } // end about
 
   // ═══════════════════════════════════════
-  // SKILLS (homepage only: Tiered Architectural View)
+  // SKILLS (homepage only: Architectural Stack Directory)
   // ═══════════════════════════════════════
   const skillsEl = document.getElementById('skillsContent');
   if (skillsEl) {
     skillsEl.innerHTML = `
-      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
-        <div class="skill-tier-card">
-          <div class="skill-tier-header">
-            <div class="skill-tier-icon" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8;">
-              <i class="bi bi-cpu"></i>
+      <div class="col-12" data-aos="fade-up">
+        <div class="stack-directory border-top border-bottom border-subtle">
+          <div class="stack-row py-4 border-bottom border-subtle">
+            <div class="row gy-2 align-items-center">
+              <div class="col-md-4">
+                <div class="stack-category d-flex align-items-center gap-2">
+                  <i class="bi bi-cpu text-accent fs-5"></i>
+                  <span class="fw-bold text-main fs-6">${t('skills_cat_ai')}</span>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="stack-items">
+                  <span class="stack-tag stack-tag-highlight">LangGraph</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag stack-tag-highlight">LangChain</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">Model Context Protocol (MCP)</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">Python</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">FastAPI</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">pgvector (RAG)</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">Ollama</span>
+                </div>
+              </div>
             </div>
-            <h5 class="skill-tier-title">${t('skills_cat_ai')}</h5>
           </div>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="skill-chip skill-chip-highlight"><i class="bi bi-stars"></i> LangGraph</span>
-            <span class="skill-chip skill-chip-highlight"><i class="bi bi-stars"></i> LangChain</span>
-            <span class="skill-chip skill-chip-highlight">Model Context Protocol</span>
-            <span class="skill-chip">Python</span>
-            <span class="skill-chip">FastAPI</span>
-            <span class="skill-chip">pgvector (RAG)</span>
-            <span class="skill-chip">Ollama</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="60">
-        <div class="skill-tier-card">
-          <div class="skill-tier-header">
-            <div class="skill-tier-icon" style="background: rgba(99, 102, 241, 0.12); color: #818cf8;">
-              <i class="bi bi-phone"></i>
+          <div class="stack-row py-4 border-bottom border-subtle">
+            <div class="row gy-2 align-items-center">
+              <div class="col-md-4">
+                <div class="stack-category d-flex align-items-center gap-2">
+                  <i class="bi bi-phone text-accent fs-5"></i>
+                  <span class="fw-bold text-main fs-6">${t('skills_cat_mobile')}</span>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="stack-items">
+                  <span class="stack-tag stack-tag-highlight">Flutter</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag stack-tag-highlight">Dart</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">Kotlin</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">Java</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">BLoC Pattern</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">Cubit</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">Clean Architecture</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">GetX</span>
+                </div>
+              </div>
             </div>
-            <h5 class="skill-tier-title">${t('skills_cat_mobile')}</h5>
           </div>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="skill-chip skill-chip-highlight">Flutter</span>
-            <span class="skill-chip skill-chip-highlight">Dart</span>
-            <span class="skill-chip">Kotlin</span>
-            <span class="skill-chip">Java</span>
-            <span class="skill-chip">BLoC Pattern</span>
-            <span class="skill-chip">Cubit</span>
-            <span class="skill-chip">Clean Architecture</span>
-            <span class="skill-chip">GetX</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="120">
-        <div class="skill-tier-card">
-          <div class="skill-tier-header">
-            <div class="skill-tier-icon" style="background: rgba(52, 211, 153, 0.12); color: #34d399;">
-              <i class="bi bi-server"></i>
+          <div class="stack-row py-4 border-bottom border-subtle">
+            <div class="row gy-2 align-items-center">
+              <div class="col-md-4">
+                <div class="stack-category d-flex align-items-center gap-2">
+                  <i class="bi bi-server text-accent fs-5"></i>
+                  <span class="fw-bold text-main fs-6">${t('skills_cat_backend')}</span>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="stack-items">
+                  <span class="stack-tag stack-tag-highlight">Next.js</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">React.js</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">TypeScript</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">Laravel</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">Node.js</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">Ruby on Rails</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">Socket.IO</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">REST APIs</span>
+                </div>
+              </div>
             </div>
-            <h5 class="skill-tier-title">${t('skills_cat_backend')}</h5>
           </div>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="skill-chip skill-chip-highlight">Next.js</span>
-            <span class="skill-chip">React.js</span>
-            <span class="skill-chip">TypeScript</span>
-            <span class="skill-chip">Laravel</span>
-            <span class="skill-chip">Node.js</span>
-            <span class="skill-chip">Ruby on Rails</span>
-            <span class="skill-chip">Socket.IO</span>
-            <span class="skill-chip">REST APIs</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="180">
-        <div class="skill-tier-card">
-          <div class="skill-tier-header">
-            <div class="skill-tier-icon" style="background: rgba(251, 191, 36, 0.12); color: #fbbf24;">
-              <i class="bi bi-shield-check"></i>
+          <div class="stack-row py-4">
+            <div class="row gy-2 align-items-center">
+              <div class="col-md-4">
+                <div class="stack-category d-flex align-items-center gap-2">
+                  <i class="bi bi-shield-check text-accent fs-5"></i>
+                  <span class="fw-bold text-main fs-6">${t('skills_cat_devops')}</span>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="stack-items">
+                  <span class="stack-tag stack-tag-highlight">Keycloak SSO</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">Azure AD (OAuth)</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">PostgreSQL</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">Redis</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">MySQL</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">Google Cloud</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">Firebase</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">Git / GitLab</span>
+                  <span class="stack-sep">·</span>
+                  <span class="stack-tag">MinIO</span>
+                </div>
+              </div>
             </div>
-            <h5 class="skill-tier-title">${t('skills_cat_devops')}</h5>
-          </div>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="skill-chip skill-chip-highlight">Keycloak SSO</span>
-            <span class="skill-chip">Azure AD (OAuth)</span>
-            <span class="skill-chip">PostgreSQL</span>
-            <span class="skill-chip">Redis</span>
-            <span class="skill-chip">MySQL</span>
-            <span class="skill-chip">Google Cloud</span>
-            <span class="skill-chip">Firebase</span>
-            <span class="skill-chip">Git / GitLab</span>
-            <span class="skill-chip">MinIO</span>
           </div>
         </div>
       </div>
@@ -413,12 +437,12 @@ function renderPortfolio() {
   } // end skills
 
   // ═══════════════════════════════════════
-  // EXPERIENCE & EDUCATION (homepage only)
+  // EXPERIENCE & EDUCATION (homepage only) — EDITORIAL RESUME
   // ═══════════════════════════════════════
   const isId = getCurrentLang() === 'id';
   const expEl = document.getElementById('experienceContent');
   if (expEl) {
-    let expHtml = '';
+    let expHtml = '<div class="editorial-timeline">';
     data.experience.forEach((exp, idx) => {
       const role = (isId && exp.role_id) || exp.role;
       const period = (isId && exp.period_id) || (isId ? exp.period.replace(/Present/gi, 'Sekarang') : exp.period);
@@ -426,52 +450,45 @@ function renderPortfolio() {
       const highlights = (isId && exp.highlights_id) || exp.highlights;
 
       expHtml += `
-      <div class="exp-item mb-5" data-aos="fade-up" data-aos-delay="${idx * 100}">
-        <div class="exp-dot"></div>
-        <div class="elegant-card elegant-card-hover p-4 exp-card">
-          <div class="exp-header">
-            <div class="exp-company-wrap">
-              <div class="exp-company-icon">
-                <i class="bi bi-building"></i>
-              </div>
-              <div>
-                <h4 class="fw-bold mb-1 fs-5 text-main">${role}</h4>
-                <div class="text-accent fw-medium small">${exp.company}</div>
-              </div>
-            </div>
-            <div class="exp-period-badge">${period}</div>
+      <div class="timeline-entry py-4 border-bottom border-subtle" data-aos="fade-up" data-aos-delay="${idx * 80}">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-baseline mb-2">
+          <div>
+            <h4 class="fw-bold fs-5 text-main mb-1">${role}</h4>
+            <div class="text-accent fw-semibold small">${exp.company}</div>
           </div>
-          <p class="text-secondary small mb-4 lh-base">${desc}</p>
-          <ul class="list-unstyled mb-0 exp-highlight-list">
-            ${highlights.map(h => `<li><i class="bi bi-check2-circle"></i> ${h}</li>`).join('')}
-          </ul>
+          <div class="timeline-period text-muted small fw-medium" style="font-family: var(--ff-mono);">${period}</div>
         </div>
+        <p class="text-secondary small mb-3 lh-base">${desc}</p>
+        <ul class="timeline-bullets list-unstyled mb-0">
+          ${highlights.map(h => `<li class="timeline-bullet-item text-secondary small d-flex gap-2 mb-1"><span class="text-accent">—</span> <span>${h}</span></li>`).join('')}
+        </ul>
       </div>
     `;
     });
+    expHtml += '</div>';
     expEl.innerHTML = expHtml;
   }
 
   const eduEl = document.getElementById('educationContent');
   if (eduEl) {
-    let eduHtml = '';
+    let eduHtml = '<div class="editorial-timeline">';
     data.education.forEach((edu, idx) => {
       const degree = (isId && edu.degree_id) || edu.degree;
       const status = (isId && edu.status_id) || (isId ? (edu.status === 'In Progress' ? 'Sedang Berjalan' : (edu.status === 'Graduated' ? 'Lulus' : edu.status)) : edu.status);
       const period = (isId && edu.period_id) || (isId ? edu.period.replace(/Present/gi, 'Sekarang') : edu.period);
 
       eduHtml += `
-      <div class="edu-card elegant-card p-4" data-aos="fade-up" data-aos-delay="${idx * 150}">
-        <div class="d-flex align-items-center gap-3 mb-3">
-          <div class="edu-icon"><i class="bi bi-mortarboard-fill"></i></div>
-          <div class="edu-status-badge">${status}</div>
+      <div class="edu-entry py-4 border-bottom border-subtle" data-aos="fade-up" data-aos-delay="${idx * 100}">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="edu-status-pill">${status}</span>
+          <span class="timeline-period text-muted small" style="font-family: var(--ff-mono);">${period}</span>
         </div>
-        <h5 class="fw-bold mb-1 fs-6">${degree}</h5>
-        <div class="text-secondary small mb-3">${edu.school}</div>
-        <div class="text-accent fw-semibold small">${period}</div>
+        <h5 class="fw-bold mb-1 fs-6 text-main">${degree}</h5>
+        <div class="text-secondary small mb-1">${edu.school}</div>
       </div>
     `;
     });
+    eduHtml += '</div>';
     eduEl.innerHTML = eduHtml;
   } // end education
 
@@ -491,10 +508,11 @@ function renderPortfolio() {
         btn.classList.add('active');
         if (cat === 'all') {
           cachedProjectsList = isWorkPage ? data.projects : data.projects.filter(p => p.featured);
+          currentProjectCount = isWorkPage ? 6 : 7; // 1 Flagship + 6 cards = 2 complete rows of 3
         } else {
           cachedProjectsList = data.projects.filter(p => p.category === cat);
+          currentProjectCount = 6; // Multiples of 3 (2 complete rows of 3, no empty gap)
         }
-        currentProjectCount = 6;
         renderProjectsGrid();
       });
       filterWrap.appendChild(btn);
@@ -509,9 +527,9 @@ function renderPortfolio() {
     loadMoreContainer.className = "col-12 text-center mt-5 mb-2";
     document.getElementById('projectsGrid').parentNode.appendChild(loadMoreContainer);
   } else {
-    // Homepage: start with featured projects
+    // Homepage: start with 7 featured projects (1 flagship + 6 grid cards)
     cachedProjectsList = data.projects.filter(p => p.featured);
-    currentProjectCount = 6;
+    currentProjectCount = 7;
   }
 
   renderProjectsGrid();
@@ -726,7 +744,7 @@ function renderProjectsGrid(forceRefresh = true) {
             <div class="col-lg-7 p-4 p-md-5 d-flex flex-column justify-content-between">
               <div>
                 <div class="flagship-badge">
-                  <i class="bi bi-stars"></i> <span>${t('flagship_badge')}</span>
+                  <i class="bi bi-bookmark-check-fill"></i> <span>${t('flagship_badge')}</span>
                 </div>
                 <h3 class="flagship-title">${p.title}</h3>
                 <div class="flagship-company">

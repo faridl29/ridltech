@@ -1,7 +1,7 @@
 const PORTFOLIO_DATA = {
   profile: {
     name: "Miftah Faridl",
-    role: "Mobile & Web Developer",
+    role: "Lead Mobile & Fullstack AI Engineer",
     hero_title: "Hi, I'm Miftah Faridl",
     hero_subtitle: "6+ years delivering production-grade systems for governments, banks, and enterprises across Indonesia and Singapore.",
     typewriter: ["Flutter", "Kotlin/Java", "React JS", "Laravel/CI", "Ruby on Rails"],
@@ -251,6 +251,7 @@ const PORTFOLIO_DATA = {
       impact_id: "Meningkatkan kecepatan pencarian naskah dinas hingga 35% dengan tingkat keberhasilan pengiriman notifikasi mencapai 100%."
     },
     {
+      featured: true,
       title: "Eoffice Portal (BKPM / Kementerian Investasi & Hilirisasi)",
       category: "Web",
       company: "BKPM / Kementerian Investasi & Hilirisasi",
@@ -377,7 +378,6 @@ const PORTFOLIO_DATA = {
       impact_id: "Lolos uji audit keamanan perbankan dan sukses memfasilitasi transaksi pengadaan bernilai miliaran rupiah."
     },
     {
-      featured: true,
       title: "WhatsDoc (International Pte. Ltd)",
       category: "Backend",
       company: "WhatsDoc International Pte. Ltd",
