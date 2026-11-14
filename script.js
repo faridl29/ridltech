@@ -684,19 +684,34 @@ function openProjectModal(proj) {
     caseStudyContainer.style.display = 'none';
   }
 
-  const btnDemo = document.getElementById('projectModalDemo');
+  const linkBindings = [
+    { id: 'projectModalDemo', url: proj.links?.demo },
+    { id: 'projectModalPlayStore', url: proj.links?.playstore },
+    { id: 'projectModalAppStore', url: proj.links?.appstore }
+  ];
 
-  if (!proj.links || !proj.links.demo || proj.links.demo === '#') btnDemo.style.display = 'none';
-  else { btnDemo.style.display = 'inline-flex'; btnDemo.href = proj.links.demo; }
+  let hasPublicLink = false;
+  linkBindings.forEach(({ id, url }) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (!url || url === '#') {
+      el.style.display = 'none';
+    } else {
+      el.style.display = 'inline-flex';
+      el.href = url;
+      hasPublicLink = true;
+    }
+  });
 
   // Private/restricted system badge logic
   const securityBadge = document.getElementById('projectModalSecurityBadge');
   if (securityBadge) {
-    if (!proj.links || !proj.links.demo || proj.links.demo === '#') {
-      securityBadge.style.display = 'flex';
-    } else {
-      securityBadge.style.display = 'none';
-    }
+    securityBadge.style.display = hasPublicLink ? 'none' : 'flex';
+  }
+
+  const modalFooter = document.querySelector('#projectModal .modal-footer');
+  if (modalFooter) {
+    modalFooter.style.display = hasPublicLink ? 'flex' : 'none';
   }
 
   let projModal = bootstrap.Modal.getInstance(document.getElementById('projectModal'));
