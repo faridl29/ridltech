@@ -1226,9 +1226,11 @@ h6 {
   .dossier-modal-poster {
     height: 240px;
   }
+
   .dossier-cs-grid {
     grid-template-columns: 1fr;
   }
+
   .dossier-cs-block:first-child {
     border-right: none;
   }
