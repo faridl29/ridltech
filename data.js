@@ -15,7 +15,7 @@ const PORTFOLIO_DATA = {
   },
   about: {
     title: "About Me",
-    description: "A software engineer with over 5 years of experience delivering production-grade systems across government, banking, and enterprise sectors. Key deployments include internal platforms for BKPM and OJK serving thousands of civil servants, banking solutions for BNI and BPD Bali, and a telemedicine backend for an international healthcare provider in Singapore. Currently specializing in Flutter with a strong emphasis on scalable architecture and long-term maintainability.",
+    description: "A software engineer with 6+ years of experience delivering production-grade systems across government ministries, banking, and enterprise sectors. Key deployments include AI multi-agent and RAG platforms for Kemenkeu (DJKN) and Bappenas (DTSEN), internal portals for BKPM and OJK serving thousands of civil servants, banking solutions for BNI and BPD Bali, and a telemedicine backend in Singapore. Currently specializing in Flutter architecture and applied AI systems (LangGraph, FastAPI, MCP).",
     stats: [
       { number: "6+", label: "Years Experience" },
       { number: "20+", label: "Projects Delivered" },

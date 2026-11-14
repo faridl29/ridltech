@@ -21,7 +21,7 @@ const I18N = {
 
     // About
     section_about: "About Me",
-    about_desc: "A software engineer with over 6 years of experience building reliable, production-grade applications across banking, government, and enterprise domains. Key projects include core internal systems for BKPM and OJK serving thousands of active civil servants, mobile banking workflows for BNI and BPD Bali, and telehealth infrastructure for an international provider in Singapore. Currently focused on Flutter architecture, maintainable state management, and high-performance cross-platform engineering.",
+    about_desc: "A software engineer with 6+ years of experience building reliable, production-grade systems across government ministries, banking, and enterprise domains. Key deployments include AI multi-agent and RAG platforms for Kemenkeu (DJKN) and Bappenas (DTSEN), core internal systems for BKPM and OJK serving thousands of civil servants, mobile banking workflows for BNI and BPD Bali, and telehealth infrastructure in Singapore. Currently focused on Flutter Clean Architecture and applied AI engineering (LangGraph, FastAPI, MCP).",
     stat_years: "Years in Production",
     stat_projects: "Production Deployments",
     stat_tech: "Core Technologies",
@@ -68,7 +68,6 @@ const I18N = {
     modal_solution: "The Solution",
     modal_impact: "Key Impact & Result",
     modal_live: "Open Live Site",
-    modal_source: "Source Code",
     modal_private: "Enterprise Proprietary System (Restricted Access)",
     personal_project: "Personal Project",
 
@@ -82,7 +81,7 @@ const I18N = {
     section_contact: "Get In Touch",
     contact_hire: "Open for Collaboration & Senior Roles",
     contact_heading: "Let's discuss your next project or engineering challenge",
-    contact_desc: "Available for senior engineering roles, mobile architecture consulting, and technical advisory",
+    contact_desc: "Available for senior engineering roles, mobile & AI architecture consulting, and technical advisory",
     contact_email_label: "Direct Email",
     contact_location_label: "Base Location",
     contact_name: "Name",
@@ -98,7 +97,7 @@ const I18N = {
     footer_touch: "Direct Channels",
     footer_rights: "All rights reserved.",
     footer_built: "Designed & built with clean engineering principles.",
-    footer_tagline: "Senior Mobile & Fullstack Engineer delivering resilient, high-concurrency systems for enterprise and government platforms.",
+    footer_tagline: "Lead Mobile & Fullstack AI Engineer delivering resilient, high-concurrency systems and applied AI platforms for enterprise and government.",
 
     // Work page
     work_title: "All Work",
@@ -126,7 +125,7 @@ const I18N = {
 
     // About
     section_about: "Tentang Saya",
-    about_desc: "Software engineer dengan pengalaman lebih dari 6 tahun dalam merancang dan mengembangkan aplikasi berskala produksi di sektor pemerintahan, perbankan, dan enterprise. Rekam jejak mencakup platform internal untuk BKPM dan OJK yang melayani ribuan aparatur negara, solusi perbankan BNI dan BPD Bali, hingga backend telemedicine untuk penyedia layanan kesehatan internasional di Singapura. Berfokus pada pengembangan Flutter dengan arsitektur modular, teruji, dan mudah dipelihara jangka panjang.",
+    about_desc: "Software engineer dengan pengalaman 6+ tahun dalam merancang dan membangun sistem berskala produksi di sektor kementerian, perbankan, dan enterprise. Rekam jejak mencakup platform AI multi-agent dan RAG untuk Kemenkeu (DJKN) serta Bappenas (DTSEN), sistem internal BKPM dan OJK yang melayani ribuan aparatur negara, solusi perbankan BNI dan BPD Bali, hingga backend telemedicine di Singapura. Berfokus pada arsitektur Flutter Clean Architecture dan rekayasa AI terapan (LangGraph, FastAPI, MCP).",
     stat_years: "Tahun di Produksi",
     stat_projects: "Deploy Sistem Produksi",
     stat_tech: "Teknologi Utama",
@@ -173,7 +172,6 @@ const I18N = {
     modal_solution: "Solusi",
     modal_impact: "Dampak & Hasil",
     modal_live: "Buka Situs",
-    modal_source: "Kode Sumber",
     modal_private: "Sistem Proprietary Perusahaan (Akses Terbatas)",
     personal_project: "Proyek Pribadi",
 
@@ -187,7 +185,7 @@ const I18N = {
     section_contact: "Hubungi Saya",
     contact_hire: "Terbuka untuk Kolaborasi & Peran Senior",
     contact_heading: "Mari diskusikan proyek Anda atau tantangan teknis yang dihadapi",
-    contact_desc: "Tersedia untuk peran senior engineering, konsultasi arsitektur mobile, dan advisory teknis",
+    contact_desc: "Tersedia untuk peran senior engineering, konsultasi arsitektur mobile & AI, dan advisory teknis",
     contact_email_label: "Email Langsung",
     contact_location_label: "Domisili",
     contact_name: "Nama",
@@ -203,7 +201,7 @@ const I18N = {
     footer_touch: "Kanal Langsung",
     footer_rights: "Hak cipta dilindungi.",
     footer_built: "Dirancang & dibangun dengan prinsip rekayasa yang bersih.",
-    footer_tagline: "Senior Mobile & Fullstack Engineer yang menghadirkan sistem tangguh dan terukur untuk sektor perbankan dan kementerian.",
+    footer_tagline: "Lead Mobile & Fullstack AI Engineer yang menghadirkan sistem tangguh dan platform AI terapan untuk sektor perbankan, enterprise, dan kementerian.",
 
     // Work page
     work_title: "Semua Portofolio",
