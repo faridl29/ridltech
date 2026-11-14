@@ -817,44 +817,8 @@ function renderProjectsGrid(forceRefresh = true) {
     const isPersonal = p.company === 'personal_project';
     const companyIcon = isPersonal ? 'bi-person' : 'bi-building';
 
-    // Asymmetric Editorial Rhythm on Homepage when Flagship is active:
-    // #02 & #03 = 2-col wide visual cards; #04..#07 = 2-col horizontal dossier rows
-    if (hasFlagship && index >= 3) {
-      const rowCard = document.createElement('div');
-      rowCard.className = "col-lg-6 project-card-item";
-      rowCard.setAttribute('data-aos', 'fade-up');
-      rowCard.setAttribute('data-aos-delay', `${(index % 2) * 60}`);
-
-      rowCard.innerHTML = `
-        <div class="project-dossier-row">
-          <div class="project-dossier-thumb">
-            <img src="${p.thumb}" alt="${p.title}" loading="lazy">
-          </div>
-          <div class="project-dossier-body">
-            <div>
-              <div class="project-dossier-meta">
-                <span class="dossier-num">${indexCode} // ${catLabel}</span>
-              </div>
-              <h4 class="fw-bold mb-1 fs-6 text-main">${p.title}</h4>
-              <div class="text-accent small mb-2 fw-medium d-flex align-items-center gap-1">
-                <i class="bi ${companyIcon}"></i> <span>${companyText}</span>
-              </div>
-              <p class="text-secondary small mb-3 line-clamp-2">${projDesc}</p>
-            </div>
-            <div class="d-flex flex-wrap gap-1 mt-auto">${techsHtml}</div>
-          </div>
-        </div>
-      `;
-
-      rowCard.addEventListener('click', () => openProjectModal(p));
-      grid.appendChild(rowCard);
-      return;
-    }
-
     const card = document.createElement('div');
-    card.className = (hasFlagship && (index === 1 || index === 2))
-      ? "col-md-6 project-card-item"
-      : "col-md-6 col-lg-4 project-card-item";
+    card.className = "col-md-6 col-lg-4 project-card-item";
     card.setAttribute('data-aos', 'fade-up');
     card.setAttribute('data-aos-delay', `${(index % 3) * 60}`);
 
