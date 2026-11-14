@@ -347,10 +347,13 @@ h6 {
   transform: scale(0.98);
 }
 
-.btn-primary.btn-sm {
+.btn-primary.btn-sm,
+.btn-outline-primary.btn-sm,
+.btn-outline-secondary.btn-sm {
   height: 36px;
   padding: 0 16px !important;
   font-size: 13px;
+  line-height: 1;
 }
 
 .btn-outline-primary,

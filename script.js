@@ -703,24 +703,28 @@ function openProjectModal(proj) {
   linkBindings.forEach(({ id, url }) => {
     const el = document.getElementById(id);
     if (!el) return;
-    if (!url || url === '#') {
-      el.style.display = 'none';
-    } else {
-      el.style.display = 'inline-flex';
+    const isVisible = Boolean(url && url !== '#');
+    el.classList.toggle('d-none', !isVisible);
+    el.classList.toggle('d-inline-flex', isVisible);
+    if (isVisible) {
       el.href = url;
       hasPublicLink = true;
+    } else {
+      el.removeAttribute('href');
     }
   });
 
   // Private/restricted system badge logic
   const securityBadge = document.getElementById('projectModalSecurityBadge');
   if (securityBadge) {
+    securityBadge.classList.toggle('d-none', hasPublicLink);
     securityBadge.style.display = hasPublicLink ? 'none' : 'flex';
   }
 
   const modalFooter = document.getElementById('projectModalFooter');
   if (modalFooter) {
-    modalFooter.style.display = hasPublicLink ? 'flex' : 'none';
+    modalFooter.classList.toggle('d-none', !hasPublicLink);
+    modalFooter.classList.toggle('d-flex', hasPublicLink);
   }
 
   let projModal = bootstrap.Modal.getInstance(document.getElementById('projectModal'));
