@@ -208,24 +208,33 @@ function renderPortfolio() {
   const heroEl = document.getElementById('heroContent');
   if (heroEl) {
     heroEl.innerHTML = `
-    <div class="col-lg-7 mb-5 mb-lg-0 order-2 order-lg-1">
-      <div class="hero-status-pill mb-3">
-        <span class="status-dot"></span>
-        <span>${t('hero_status')}</span>
+    <div class="col-lg-8 mb-5 mb-lg-0 order-2 order-lg-1">
+      <div class="hero-dossier-code">
+        <span class="dossier-accent">DOSSIER · 00</span>
+        <span>/</span>
+        <span>${t('hero_label')}</span>
       </div>
-      <div class="hero-role-tag mb-2">${t('hero_label')}</div>
       <h1 class="hero-heading mb-3">${data.profile.name}</h1>
-      <p class="hero-subtitle mb-4">${t('hero_subtitle') || data.profile.hero_subtitle}</p>
-      
-      <div class="hero-clients-line">
-        <span class="hero-clients-label me-1">Track record</span>
-        <span class="hero-client-name">DJKN Kemenkeu RI</span>
-        <span class="hero-client-dot">·</span>
-        <span class="hero-client-name">BKPM RI</span>
-        <span class="hero-client-dot">·</span>
-        <span class="hero-client-name">Bank BNI</span>
-        <span class="hero-client-dot">·</span>
-        <span class="hero-client-name">OJK RI</span>
+      <p class="hero-subtitle mb-0">${t('hero_subtitle') || data.profile.hero_subtitle}</p>
+      <div class="hero-rule"></div>
+
+      <div class="hero-ledger">
+        <div class="hero-ledger-cell">
+          <div class="hero-ledger-k">01 · AI</div>
+          <div class="hero-ledger-v">DJKN Kemenkeu</div>
+        </div>
+        <div class="hero-ledger-cell">
+          <div class="hero-ledger-k">02 · RAG</div>
+          <div class="hero-ledger-v">Bappenas DTSEN</div>
+        </div>
+        <div class="hero-ledger-cell">
+          <div class="hero-ledger-k">03 · GOV</div>
+          <div class="hero-ledger-v">BKPM & OJK</div>
+        </div>
+        <div class="hero-ledger-cell">
+          <div class="hero-ledger-k">04 · BANK</div>
+          <div class="hero-ledger-v">BNI & BPD Bali</div>
+        </div>
       </div>
 
       <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
@@ -245,12 +254,12 @@ function renderPortfolio() {
         </div>
       </div>
     </div>
-    <div class="col-lg-5 order-1 order-lg-2 text-center">
-      <div class="editorial-portrait mx-auto">
+    <div class="col-lg-4 order-1 order-lg-2 text-center text-lg-end">
+      <div class="editorial-portrait mx-auto ms-lg-auto">
         <img src="${data.profile.photo}" alt="${data.profile.name}" class="portrait-img">
         <div class="editorial-portrait-meta">
-          <span class="meta-role tabular-nums">6+ yrs · 20+ systems</span>
-          <span>Cimahi, ID</span>
+          <span class="meta-role tabular-nums">6+ YRS · 20+ DEPLOYS</span>
+          <span>CIMAHI, ID</span>
         </div>
       </div>
     </div>
@@ -678,7 +687,7 @@ function openProjectModal(proj) {
     challengeEl.textContent = mChallenge;
     solutionEl.textContent = mSolution;
     impactEl.textContent = mImpact;
-    caseStudyContainer.style.display = 'flex';
+    caseStudyContainer.style.display = 'grid';
   } else {
     roleBadge.style.display = 'none';
     caseStudyContainer.style.display = 'none';
@@ -709,7 +718,7 @@ function openProjectModal(proj) {
     securityBadge.style.display = hasPublicLink ? 'none' : 'flex';
   }
 
-  const modalFooter = document.querySelector('#projectModal .modal-footer');
+  const modalFooter = document.getElementById('projectModalFooter');
   if (modalFooter) {
     modalFooter.style.display = hasPublicLink ? 'flex' : 'none';
   }
@@ -797,21 +806,59 @@ function renderProjectsGrid(forceRefresh = true) {
       return;
     }
 
-    const card = document.createElement('div');
-    card.className = "col-md-6 col-lg-4 project-card-item";
-    card.setAttribute('data-aos', 'fade-up');
-    card.setAttribute('data-aos-delay', `${(index % 3) * 60}`);
-
+    const indexCode = String(alreadyRendered + index + 1).padStart(2, '0');
     let techsHtml = p.tech.slice(0, 3).map(tech => `<span class="tech-pill">${tech}</span>`).join('');
     if (p.tech.length > 3) techsHtml += `<span class="tech-pill">+${p.tech.length - 3}</span>`;
 
     const isPersonal = p.company === 'personal_project';
     const companyIcon = isPersonal ? 'bi-person' : 'bi-building';
 
+    // Asymmetric Editorial Rhythm on Homepage when Flagship is active:
+    // #02 & #03 = 2-col wide visual cards; #04..#07 = 2-col horizontal dossier rows
+    if (hasFlagship && index >= 3) {
+      const rowCard = document.createElement('div');
+      rowCard.className = "col-lg-6 project-card-item";
+      rowCard.setAttribute('data-aos', 'fade-up');
+      rowCard.setAttribute('data-aos-delay', `${(index % 2) * 60}`);
+
+      rowCard.innerHTML = `
+        <div class="project-dossier-row">
+          <div class="project-dossier-thumb">
+            <img src="${p.thumb}" alt="${p.title}" loading="lazy">
+          </div>
+          <div class="project-dossier-body">
+            <div>
+              <div class="project-dossier-meta">
+                <span class="dossier-num">${indexCode} // ${catLabel}</span>
+              </div>
+              <h4 class="fw-bold mb-1 fs-6 text-main">${p.title}</h4>
+              <div class="text-accent small mb-2 fw-medium d-flex align-items-center gap-1">
+                <i class="bi ${companyIcon}"></i> <span>${companyText}</span>
+              </div>
+              <p class="text-secondary small mb-3 line-clamp-2">${projDesc}</p>
+            </div>
+            <div class="d-flex flex-wrap gap-1 mt-auto">${techsHtml}</div>
+          </div>
+        </div>
+      `;
+
+      rowCard.addEventListener('click', () => openProjectModal(p));
+      grid.appendChild(rowCard);
+      return;
+    }
+
+    const card = document.createElement('div');
+    card.className = (hasFlagship && (index === 1 || index === 2))
+      ? "col-md-6 project-card-item"
+      : "col-md-6 col-lg-4 project-card-item";
+    card.setAttribute('data-aos', 'fade-up');
+    card.setAttribute('data-aos-delay', `${(index % 3) * 60}`);
+
     card.innerHTML = `
       <div class="project-card h-100">
         <div class="img-wrap">
           <span class="img-tag">${catLabel}</span>
+          <span class="project-index-badge">${indexCode}</span>
           <img src="${p.thumb}" alt="${p.title}" loading="lazy">
         </div>
         <div class="p-4 d-flex flex-column flex-grow-1">
