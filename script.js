@@ -685,18 +685,14 @@ function openProjectModal(proj) {
   }
 
   const btnDemo = document.getElementById('projectModalDemo');
-  const btnGit = document.getElementById('projectModalGithub');
 
-  if (!proj.links || proj.links.demo === '#') btnDemo.style.display = 'none';
+  if (!proj.links || !proj.links.demo || proj.links.demo === '#') btnDemo.style.display = 'none';
   else { btnDemo.style.display = 'inline-flex'; btnDemo.href = proj.links.demo; }
-
-  if (!proj.links || proj.links.github === '#') btnGit.style.display = 'none';
-  else { btnGit.style.display = 'inline-flex'; btnGit.href = proj.links.github; }
 
   // Private/restricted system badge logic
   const securityBadge = document.getElementById('projectModalSecurityBadge');
   if (securityBadge) {
-    if (!proj.links || (proj.links.demo === '#' && proj.links.github === '#')) {
+    if (!proj.links || !proj.links.demo || proj.links.demo === '#') {
       securityBadge.style.display = 'flex';
     } else {
       securityBadge.style.display = 'none';
