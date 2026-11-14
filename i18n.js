@@ -11,7 +11,7 @@ const I18N = {
     // Hero
     hero_status: "Available for Senior Engineering Roles & Architecture Consulting",
     hero_label: "Lead Mobile & Fullstack AI Engineer",
-    hero_subtitle: "6+ years architecting and shipping production systems across government ministries, banking institutions, and high-scale enterprises.",
+    hero_subtitle: "6+ years architecting and shipping production systems across government ministries, banking institutions, and high-scale enterprises",
     hero_cta_work: "Explore Selected Work",
     hero_cta_resume: "Resume / CV",
     hero_channels: "Professional channels",
@@ -39,7 +39,7 @@ const I18N = {
 
     // Skills
     section_skills: "Technical Architecture & Stack",
-    skills_intro: "Core engineering stack and design patterns applied across enterprise banking, ministry systems, and production platforms.",
+    skills_intro: "Core engineering stack and design patterns applied across enterprise banking, ministry systems, and production platforms",
     skills_cat_ai: "AI Engineering & Agent Systems",
     skills_cat_mobile: "Mobile Engineering & Architecture",
     skills_cat_backend: "Web, Microservices & APIs",
@@ -81,13 +81,13 @@ const I18N = {
     // Contact
     section_contact: "Get In Touch",
     contact_hire: "Open for Collaboration & Senior Roles",
-    contact_heading: "Let's discuss your next project or engineering challenge.",
-    contact_desc: "Available for senior engineering roles, mobile architecture consulting, and technical advisory. Feel free to reach out directly.",
+    contact_heading: "Let's discuss your next project or engineering challenge",
+    contact_desc: "Available for senior engineering roles, mobile architecture consulting, and technical advisory",
     contact_email_label: "Direct Email",
     contact_location_label: "Base Location",
     contact_name: "Name",
     contact_subject: "Subject",
-    contact_name_placeholder: "John Doe",
+    contact_name_placeholder: "Alex Pratama",
     contact_subject_placeholder: "Enterprise Architecture / Lead Role",
     contact_details: "Project / Role Details",
     contact_details_placeholder: "Briefly outline your team, timeline, and engineering requirements...",
@@ -102,7 +102,7 @@ const I18N = {
 
     // Work page
     work_title: "All Work",
-    work_desc: "A complete collection of 20+ projects I've built — from enterprise mobile apps to government systems and international platforms.",
+    work_desc: "A complete collection of 20+ projects — from enterprise mobile apps to government systems and international platforms",
   },
   id: {
     // Navbar
@@ -116,7 +116,7 @@ const I18N = {
     // Hero
     hero_status: "Terbuka untuk Peran Senior Engineer & Konsultasi Arsitektur",
     hero_label: "Lead Mobile & Fullstack AI Engineer",
-    hero_subtitle: "6+ tahun merancang dan membangun sistem berstandar produksi di sektor kementerian, perbankan, dan enterprise berskala besar.",
+    hero_subtitle: "6+ tahun merancang dan membangun sistem berstandar produksi di sektor kementerian, perbankan, dan enterprise berskala besar",
     hero_cta_work: "Lihat Portofolio Pilihan",
     hero_cta_resume: "Resume / CV",
     hero_channels: "Kanal profesional",
@@ -144,7 +144,7 @@ const I18N = {
 
     // Skills
     section_skills: "Arsitektur Teknis & Stack",
-    skills_intro: "Teknologi inti dan pola arsitektur yang diterapkan langsung pada sistem kementerian, perbankan, dan layanan skala produksi.",
+    skills_intro: "Teknologi inti dan pola arsitektur yang diterapkan langsung pada sistem kementerian, perbankan, dan layanan skala produksi",
     skills_cat_ai: "Rekayasa AI & Sistem Agen",
     skills_cat_mobile: "Teknik Mobile & Multi-Platform",
     skills_cat_backend: "Web, Microservices & API",
@@ -186,8 +186,8 @@ const I18N = {
     // Contact
     section_contact: "Hubungi Saya",
     contact_hire: "Terbuka untuk Kolaborasi & Peran Senior",
-    contact_heading: "Mari diskusikan proyek Anda atau tantangan teknis yang dihadapi.",
-    contact_desc: "Tersedia untuk peran senior engineering, konsultasi arsitektur mobile, dan advisory teknis. Silakan hubungi langsung.",
+    contact_heading: "Mari diskusikan proyek Anda atau tantangan teknis yang dihadapi",
+    contact_desc: "Tersedia untuk peran senior engineering, konsultasi arsitektur mobile, dan advisory teknis",
     contact_email_label: "Email Langsung",
     contact_location_label: "Domisili",
     contact_name: "Nama",
@@ -207,7 +207,7 @@ const I18N = {
 
     // Work page
     work_title: "Semua Portofolio",
-    work_desc: "Koleksi lengkap lebih dari 20 proyek yang telah saya bangun — mulai dari aplikasi mobile enterprise hingga sistem pemerintahan dan platform internasional.",
+    work_desc: "Koleksi lengkap lebih dari 20 proyek — mulai dari aplikasi mobile enterprise hingga sistem pemerintahan dan platform internasional",
   }
 };
 

@@ -1,6 +1,6 @@
 // Initialization
 document.getElementById('year').textContent = new Date().getFullYear();
-AOS.init({ duration: 700, once: true, offset: 60, easing: 'ease-out-cubic' });
+AOS.init({ duration: 400, once: true, offset: 48, easing: 'ease-out-cubic' });
 
 // ═══════════════════════════════════════
 // CUSTOM SCROLLSPY — reliable section tracking
@@ -110,11 +110,11 @@ function setTheme(theme) {
   localStorage.setItem("theme", theme);
   const icon = document.getElementById("themeIcon");
   if (theme === "dark") {
-    icon.className = "bi bi-sun-fill";
-    icon.style.color = "#fbbf24";
+    icon.className = "bi bi-sun";
+    icon.style.color = "";
   } else {
-    icon.className = "bi bi-moon-stars-fill";
-    icon.style.color = "var(--accent)";
+    icon.className = "bi bi-moon-stars";
+    icon.style.color = "";
   }
 }
 setTheme(localStorage.getItem("theme") || "dark");
@@ -208,7 +208,7 @@ function renderPortfolio() {
   const heroEl = document.getElementById('heroContent');
   if (heroEl) {
     heroEl.innerHTML = `
-    <div class="col-lg-7 mb-5 mb-lg-0 order-2 order-lg-1" data-aos="fade-right">
+    <div class="col-lg-7 mb-5 mb-lg-0 order-2 order-lg-1">
       <div class="hero-status-pill mb-3">
         <span class="status-dot"></span>
         <span>${t('hero_status')}</span>
@@ -217,8 +217,8 @@ function renderPortfolio() {
       <h1 class="hero-heading mb-3">${data.profile.name}</h1>
       <p class="hero-subtitle mb-4">${t('hero_subtitle') || data.profile.hero_subtitle}</p>
       
-      <div class="hero-clients-line mb-4">
-        <span class="text-muted small me-2" style="font-family: var(--ff-mono); font-size: 0.72rem;">// TRACK RECORD:</span>
+      <div class="hero-clients-line">
+        <span class="hero-clients-label me-1">Track record</span>
         <span class="hero-client-name">DJKN Kemenkeu RI</span>
         <span class="hero-client-dot">·</span>
         <span class="hero-client-name">BKPM RI</span>
@@ -228,14 +228,14 @@ function renderPortfolio() {
         <span class="hero-client-name">OJK RI</span>
       </div>
 
-      <div class="d-flex flex-wrap gap-3 mb-5">
-        <a href="#projects" class="btn btn-primary px-4 py-3 d-flex align-items-center gap-2"><i class="bi bi-arrow-down-right"></i> ${t('hero_cta_work')}</a>
-        <a href="#contact" class="btn btn-outline-primary px-4 py-3 d-flex align-items-center gap-2"><i class="bi bi-chat-text"></i> ${t('nav_contact')}</a>
-        <a href="${data.profile.cv_link}" target="_blank" class="btn btn-outline-primary px-4 py-3 d-flex align-items-center gap-2"><i class="bi bi-file-earmark-arrow-down"></i> ${t('hero_cta_resume')}</a>
+      <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
+        <a href="#projects" class="btn btn-primary d-inline-flex align-items-center gap-2"><i class="bi bi-arrow-down-right"></i> <span>${t('hero_cta_work')}</span></a>
+        <a href="#contact" class="btn btn-outline-primary d-inline-flex align-items-center gap-2"><i class="bi bi-chat-text"></i> <span>${t('nav_contact')}</span></a>
+        <a href="${data.profile.cv_link}" target="_blank" class="hero-resume-link ms-1"><i class="bi bi-file-earmark-arrow-down"></i> <span>${t('hero_cta_resume')}</span></a>
       </div>
       
-      <div class="d-flex align-items-center gap-3">
-        <span class="text-muted small fw-semibold text-uppercase" style="font-family: var(--ff-mono); font-size: 0.7rem; letter-spacing: 0.08em;">${t('hero_channels')}</span>
+      <div class="d-flex align-items-center gap-3 pt-2">
+        <span class="text-muted" style="font-family: var(--ff-mono); font-size: 12px;">${t('hero_channels')}</span>
         <div style="width: 24px; height: 1px; background: var(--border-color);"></div>
         <div class="d-flex gap-2">
           <a href="${data.profile.github}" target="_blank" class="social-icon" aria-label="GitHub"><i class="bi bi-github"></i></a>
@@ -245,7 +245,7 @@ function renderPortfolio() {
         </div>
       </div>
     </div>
-    <div class="col-lg-5 order-1 order-lg-2 text-center" data-aos="fade-left" data-aos-delay="100">
+    <div class="col-lg-5 order-1 order-lg-2 text-center">
       <div class="editorial-portrait mx-auto">
         <img src="${data.profile.photo}" alt="${data.profile.name}" class="portrait-img">
       </div>
@@ -315,12 +315,12 @@ function renderPortfolio() {
     skillsEl.innerHTML = `
       <div class="col-12" data-aos="fade-up">
         <div class="stack-directory border-top border-bottom border-subtle">
-          <div class="stack-row py-4 border-bottom border-subtle">
+          <div class="stack-row border-bottom border-subtle">
             <div class="row gy-2 align-items-center">
               <div class="col-md-4">
                 <div class="stack-category d-flex align-items-center gap-2">
-                  <i class="bi bi-cpu text-accent fs-5"></i>
-                  <span class="fw-bold text-main fs-6">${t('skills_cat_ai')}</span>
+                  <i class="bi bi-cpu"></i>
+                  <span class="fw-medium text-main">${t('skills_cat_ai')}</span>
                 </div>
               </div>
               <div class="col-md-8">
@@ -342,12 +342,12 @@ function renderPortfolio() {
               </div>
             </div>
           </div>
-          <div class="stack-row py-4 border-bottom border-subtle">
+          <div class="stack-row border-bottom border-subtle">
             <div class="row gy-2 align-items-center">
               <div class="col-md-4">
                 <div class="stack-category d-flex align-items-center gap-2">
-                  <i class="bi bi-phone text-accent fs-5"></i>
-                  <span class="fw-bold text-main fs-6">${t('skills_cat_mobile')}</span>
+                  <i class="bi bi-phone"></i>
+                  <span class="fw-medium text-main">${t('skills_cat_mobile')}</span>
                 </div>
               </div>
               <div class="col-md-8">
@@ -371,12 +371,12 @@ function renderPortfolio() {
               </div>
             </div>
           </div>
-          <div class="stack-row py-4 border-bottom border-subtle">
+          <div class="stack-row border-bottom border-subtle">
             <div class="row gy-2 align-items-center">
               <div class="col-md-4">
                 <div class="stack-category d-flex align-items-center gap-2">
-                  <i class="bi bi-server text-accent fs-5"></i>
-                  <span class="fw-bold text-main fs-6">${t('skills_cat_backend')}</span>
+                  <i class="bi bi-server"></i>
+                  <span class="fw-medium text-main">${t('skills_cat_backend')}</span>
                 </div>
               </div>
               <div class="col-md-8">
@@ -400,12 +400,12 @@ function renderPortfolio() {
               </div>
             </div>
           </div>
-          <div class="stack-row py-4">
+          <div class="stack-row">
             <div class="row gy-2 align-items-center">
               <div class="col-md-4">
                 <div class="stack-category d-flex align-items-center gap-2">
-                  <i class="bi bi-shield-check text-accent fs-5"></i>
-                  <span class="fw-bold text-main fs-6">${t('skills_cat_devops')}</span>
+                  <i class="bi bi-shield-check"></i>
+                  <span class="fw-medium text-main">${t('skills_cat_devops')}</span>
                 </div>
               </div>
               <div class="col-md-8">
@@ -540,57 +540,57 @@ function renderPortfolio() {
   const contactEl = document.getElementById('contactContent');
   if (contactEl) {
     contactEl.innerHTML = `
-    <div class="col-lg-5 mb-5 mb-lg-0 z-1" data-aos="fade-right">
-      <div class="badge-subtitle mb-3" data-i18n="contact_hire">${t('contact_hire')}</div>
-      <h2 class="section-title mb-4 lh-base text-main" data-i18n="contact_heading">${t('contact_heading')}</h2>
-      <p class="text-secondary mb-5 fs-6 lh-lg" data-i18n="contact_desc">${t('contact_desc')}</p>
+    <div class="col-lg-5 mb-5 mb-lg-0 z-1" data-aos="fade-up">
+      <div class="section-label" data-i18n="contact_hire">${t('contact_hire')}</div>
+      <h2 class="section-title mb-4 text-main" data-i18n="contact_heading">${t('contact_heading')}</h2>
+      <p class="text-secondary mb-4 lh-base" data-i18n="contact_desc">${t('contact_desc')}</p>
       
-      <div class="d-flex flex-column gap-4">
+      <div class="d-flex flex-column gap-4 mt-4">
         <div class="d-flex align-items-center gap-3">
           <div class="contact-info-icon"><i class="bi bi-envelope"></i></div>
           <div>
-            <div class="text-muted small fw-semibold text-uppercase" style="letter-spacing: 0.06em; font-size: 0.7rem;" data-i18n="contact_email_label">${t('contact_email_label')}</div>
+            <div class="text-muted" style="font-family: var(--ff-mono); font-size: 12px;" data-i18n="contact_email_label">${t('contact_email_label')}</div>
             <div class="d-flex align-items-center gap-2">
-              <a href="mailto:${data.profile.email}" class="text-main text-decoration-none fw-semibold fs-6">${data.profile.email}</a>
-              <button type="button" class="btn btn-sm btn-icon border-0 p-1" id="copyEmailBtn" title="Copy email to clipboard" style="background: transparent; color: var(--accent); transition: transform 0.2s;"><i class="bi bi-copy" id="copyEmailIcon"></i></button>
+              <a href="mailto:${data.profile.email}" class="text-main text-decoration-none fw-medium">${data.profile.email}</a>
+              <button type="button" class="btn btn-sm btn-icon border-0 p-1" id="copyEmailBtn" title="Copy email to clipboard" style="background: transparent; color: var(--text-secondary);"><i class="bi bi-copy" id="copyEmailIcon"></i></button>
             </div>
           </div>
         </div>
         <div class="d-flex align-items-center gap-3">
           <div class="contact-info-icon"><i class="bi bi-linkedin"></i></div>
           <div>
-            <div class="text-muted small fw-semibold text-uppercase" style="letter-spacing: 0.06em; font-size: 0.7rem;">LinkedIn</div>
-            <a href="${data.profile.linkedin}" target="_blank" class="text-main text-decoration-none fw-semibold fs-6">linkedin.com/in/miftah-faridl</a>
+            <div class="text-muted" style="font-family: var(--ff-mono); font-size: 12px;">LinkedIn</div>
+            <a href="${data.profile.linkedin}" target="_blank" class="text-main text-decoration-none fw-medium">linkedin.com/in/miftah-faridl</a>
           </div>
         </div>
         <div class="d-flex align-items-center gap-3">
           <div class="contact-info-icon"><i class="bi bi-geo-alt"></i></div>
           <div>
-            <div class="text-muted small fw-semibold text-uppercase" style="letter-spacing: 0.06em; font-size: 0.7rem;" data-i18n="contact_location_label">${t('contact_location_label')}</div>
-            <span class="text-main fw-semibold fs-6">${data.profile.location}</span>
+            <div class="text-muted" style="font-family: var(--ff-mono); font-size: 12px;" data-i18n="contact_location_label">${t('contact_location_label')}</div>
+            <span class="text-main fw-medium">${data.profile.location}</span>
           </div>
         </div>
       </div>
     </div>
     
-    <div class="col-lg-6 offset-lg-1 z-1" data-aos="fade-left">
-      <div class="elegant-card p-4 p-md-5">
+    <div class="col-lg-6 offset-lg-1 z-1" data-aos="fade-up" data-aos-delay="60">
+      <div class="elegant-card p-4">
         <form id="contactForm">
           <div class="row g-3">
             <div class="col-md-6 mb-3">
-              <label class="form-label text-main fw-semibold small mb-2" for="contactName" data-i18n="contact_name">${t('contact_name')}</label>
+              <label class="form-label text-main fw-medium small mb-2" for="contactName" data-i18n="contact_name">${t('contact_name')}</label>
               <input type="text" class="form-control modern-input text-main" id="contactName" placeholder="${t('contact_name_placeholder')}" data-i18n-placeholder="contact_name_placeholder" required>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="form-label text-main fw-semibold small mb-2" for="contactSubject" data-i18n="contact_subject">${t('contact_subject')}</label>
+              <label class="form-label text-main fw-medium small mb-2" for="contactSubject" data-i18n="contact_subject">${t('contact_subject')}</label>
               <input type="text" class="form-control modern-input text-main" id="contactSubject" placeholder="${t('contact_subject_placeholder')}" data-i18n-placeholder="contact_subject_placeholder" required>
             </div>
           </div>
           <div class="mb-4">
-            <label class="form-label text-main fw-semibold small mb-2" for="contactMessage" data-i18n="contact_details">${t('contact_details')}</label>
+            <label class="form-label text-main fw-medium small mb-2" for="contactMessage" data-i18n="contact_details">${t('contact_details')}</label>
             <textarea class="form-control modern-input text-main" id="contactMessage" rows="5" placeholder="${t('contact_details_placeholder')}" data-i18n-placeholder="contact_details_placeholder" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary w-100 py-3 rounded-3 fw-medium fs-6 d-flex justify-content-center align-items-center gap-2"><i class="bi bi-whatsapp fs-5"></i> <span data-i18n="contact_send">${t('contact_send')}</span></button>
+          <button type="submit" class="btn btn-primary w-100 d-flex justify-content-center align-items-center gap-2"><i class="bi bi-whatsapp"></i> <span data-i18n="contact_send">${t('contact_send')}</span></button>
         </form>
       </div>
     </div>
@@ -632,10 +632,10 @@ function renderPortfolio() {
   const footerSocials = document.getElementById('footerSocials');
   if (footerSocials) {
     footerSocials.innerHTML = `
-      <a href="${data.profile.github}" target="_blank" class="social-icon text-decoration-none" style="width: 38px; height: 38px; font-size: 1rem; border-radius: 10px;" aria-label="GitHub"><i class="bi bi-github"></i></a>
-      <a href="mailto:${data.profile.email}" class="social-icon text-decoration-none" style="width: 38px; height: 38px; font-size: 1rem; border-radius: 10px;" aria-label="Email"><i class="bi bi-envelope"></i></a>
-      <a href="${data.profile.linkedin}" target="_blank" class="social-icon text-decoration-none" style="width: 38px; height: 38px; font-size: 1rem; border-radius: 10px;" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-      <a href="https://wa.me/${data.profile.phone.replace(/[^a-zA-Z0-9]/g, '')}" target="_blank" class="social-icon text-decoration-none" style="width: 38px; height: 38px; font-size: 1rem; border-radius: 10px;" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      <a href="${data.profile.github}" target="_blank" class="social-icon text-decoration-none" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="mailto:${data.profile.email}" class="social-icon text-decoration-none" aria-label="Email"><i class="bi bi-envelope"></i></a>
+      <a href="${data.profile.linkedin}" target="_blank" class="social-icon text-decoration-none" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="https://wa.me/${data.profile.phone.replace(/[^a-zA-Z0-9]/g, '')}" target="_blank" class="social-icon text-decoration-none" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
     `;
   }
 
@@ -657,7 +657,7 @@ function openProjectModal(proj) {
   document.getElementById('projectModalLabel').textContent = proj.title;
   document.getElementById('projectModalImg').src = proj.thumb;
   document.getElementById('projectModalDesc').textContent = mDesc;
-  document.getElementById('projectModalTech').innerHTML = proj.tech.map(tech => `<span class="tech-pill px-3 py-2 fs-6 fw-medium">${tech}</span>`).join('');
+  document.getElementById('projectModalTech').innerHTML = proj.tech.map(tech => `<span class="tech-pill">${tech}</span>`).join('');
 
   // Populate case-study elements
   const roleBadge = document.getElementById('projectModalRole');
@@ -756,7 +756,7 @@ function renderProjectsGrid(forceRefresh = true) {
                 </div>
               </div>
               <div>
-                <button class="btn btn-primary px-4 py-3 d-inline-flex align-items-center gap-2" id="openFlagshipModal">
+                <button class="btn btn-primary d-inline-flex align-items-center gap-2" id="openFlagshipModal">
                   <i class="bi bi-diagram-3"></i> <span>${t('flagship_view')}</span>
                 </button>
               </div>
@@ -826,7 +826,7 @@ function renderProjectsGrid(forceRefresh = true) {
   if (isWorkPage) {
     if (cachedProjectsList.length > currentProjectCount) {
       loadMoreBtnContainer.innerHTML = `
-        <button class="btn btn-outline-primary px-5 py-2 mt-2 fw-medium d-inline-flex align-items-center gap-2">
+        <button class="btn btn-outline-primary mt-2 d-inline-flex align-items-center gap-2">
           ${t('btn_load_more')} <i class="bi bi-arrow-down"></i>
         </button>
       `;
@@ -842,7 +842,7 @@ function renderProjectsGrid(forceRefresh = true) {
     const viewAllContainer = document.getElementById('viewAllContainer');
     if (viewAllContainer) {
       viewAllContainer.innerHTML = `
-        <a href="work.html" class="btn btn-outline-primary px-5 py-3 fw-medium d-inline-flex align-items-center gap-2">
+        <a href="work.html" class="btn btn-outline-primary d-inline-flex align-items-center gap-2">
           ${t('btn_view_all')} <i class="bi bi-arrow-right"></i>
         </a>
       `;
