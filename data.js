@@ -10,7 +10,12 @@ const PORTFOLIO_DATA = {
     linkedin: "https://linkedin.com/in/miftah-faridl",
     phone: "+6289654711175",
     photo: "assets/images/profile3.jpg",
-    cv_link: "assets/files/cv_miftah_faridl_alanshari_mobile_developer.pdf",
+    cv_link: "assets/files/CV_Miftah_Faridl_AI_Programmer.pdf",
+    cv_links: [
+      { label: "AI Engineer", tag: "AI", url: "assets/files/CV_Miftah_Faridl_AI_Programmer.pdf" },
+      { label: "Full-Stack Engineer", tag: "FS", url: "assets/files/CV_Miftah_Faridl_Fullstack_Engineer.pdf" },
+      { label: "Mobile Developer", tag: "MB", url: "assets/files/cv_miftah_faridl_alanshari_mobile_developer.pdf" }
+    ],
     github: "https://github.com/faridl29"
   },
   about: {

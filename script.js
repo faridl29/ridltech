@@ -240,7 +240,21 @@ function renderPortfolio() {
       <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
         <a href="#projects" class="btn btn-primary d-inline-flex align-items-center gap-2"><i class="bi bi-arrow-down-right"></i> <span>${t('hero_cta_work')}</span></a>
         <a href="#contact" class="btn btn-outline-primary d-inline-flex align-items-center gap-2"><i class="bi bi-chat-text"></i> <span>${t('nav_contact')}</span></a>
-        <a href="${data.profile.cv_link}" target="_blank" class="hero-resume-link ms-1"><i class="bi bi-file-earmark-arrow-down"></i> <span>${t('hero_cta_resume')}</span></a>
+        <div class="position-relative">
+          <button type="button" id="cvToggleBtn" class="hero-resume-link ms-1" aria-expanded="false">
+            <i class="bi bi-file-earmark-arrow-down"></i>
+            <span>${t('hero_cta_resume')}</span>
+            <i class="bi bi-chevron-down" style="font-size: 11px;"></i>
+          </button>
+          <div id="cvDropdown" class="cv-dropdown">
+            ${(data.profile.cv_links || [{ label: t('hero_cta_resume'), tag: 'PDF', url: data.profile.cv_link }]).map(cv => `
+              <a href="${cv.url}" target="_blank" rel="noopener noreferrer" class="cv-option">
+                <span>${cv.label}</span>
+                <span class="lang-code">${cv.tag}</span>
+              </a>
+            `).join('')}
+          </div>
+        </div>
       </div>
       
       <div class="d-flex align-items-center gap-3 pt-2">
@@ -264,6 +278,20 @@ function renderPortfolio() {
       </div>
     </div>
   `;
+
+    const cvToggleBtn = document.getElementById('cvToggleBtn');
+    const cvDropdown = document.getElementById('cvDropdown');
+    if (cvToggleBtn && cvDropdown) {
+      cvToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const open = cvDropdown.classList.toggle('show');
+        cvToggleBtn.setAttribute('aria-expanded', String(open));
+      });
+      document.addEventListener('click', () => {
+        cvDropdown.classList.remove('show');
+        cvToggleBtn.setAttribute('aria-expanded', 'false');
+      });
+    }
   } // end hero
 
   // ═══════════════════════════════════════

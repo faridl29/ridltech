@@ -555,10 +555,57 @@ h6 {
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
+  background: transparent;
+  border: none;
+  padding: 6px 0;
+  cursor: pointer;
   transition: color var(--t-fast) var(--ease);
 }
 
 .hero-resume-link:hover {
+  color: var(--text-main);
+}
+
+.cv-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 240px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  box-shadow: var(--modal-shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity var(--t-med) var(--ease), transform var(--t-med) var(--ease), visibility var(--t-med) var(--ease);
+  z-index: 1050;
+  padding: 4px;
+}
+
+.cv-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.cv-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  border-radius: 2px;
+  transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+
+.cv-option:hover {
+  background: var(--accent-soft);
   color: var(--text-main);
 }
 
