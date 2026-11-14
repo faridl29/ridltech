@@ -248,6 +248,10 @@ function renderPortfolio() {
     <div class="col-lg-5 order-1 order-lg-2 text-center">
       <div class="editorial-portrait mx-auto">
         <img src="${data.profile.photo}" alt="${data.profile.name}" class="portrait-img">
+        <div class="editorial-portrait-meta">
+          <span class="meta-role tabular-nums">6+ yrs · 20+ systems</span>
+          <span>Cimahi, ID</span>
+        </div>
       </div>
     </div>
   `;
@@ -450,7 +454,7 @@ function renderPortfolio() {
       const highlights = (isId && exp.highlights_id) || exp.highlights;
 
       expHtml += `
-      <div class="timeline-entry py-4 border-bottom border-subtle" data-aos="fade-up" data-aos-delay="${idx * 80}">
+      <div class="timeline-entry timeline-node py-4 border-bottom border-subtle" data-aos="fade-up" data-aos-delay="${idx * 60}">
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-baseline mb-2">
           <div>
             <h4 class="fw-bold fs-5 text-main mb-1">${role}</h4>

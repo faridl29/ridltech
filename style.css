@@ -91,6 +91,16 @@ body {
   overflow-x: hidden;
 }
 
+[data-bs-theme="dark"] body {
+  background-image: radial-gradient(ellipse 80% 420px at 50% 0%, rgba(59, 130, 246, 0.07), transparent 70%);
+  background-repeat: no-repeat;
+}
+
+[data-bs-theme="light"] body {
+  background-image: radial-gradient(ellipse 80% 420px at 50% 0%, rgba(37, 99, 235, 0.045), transparent 70%);
+  background-repeat: no-repeat;
+}
+
 h1,
 h2,
 h3,
@@ -486,12 +496,12 @@ h6 {
   position: relative;
   display: inline-block;
   width: 100%;
-  max-width: 320px;
+  max-width: 340px;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--border-color);
   background: var(--card-bg);
-  box-shadow: var(--card-shadow);
+  box-shadow: var(--card-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   transition: border-color var(--t-fast) var(--ease);
 }
 
@@ -501,10 +511,28 @@ h6 {
 
 .portrait-img {
   width: 100%;
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/4.6;
   object-fit: cover;
   object-position: top center;
   display: block;
+}
+
+.editorial-portrait-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-color);
+  background: var(--card-bg);
+  font-family: var(--ff-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.editorial-portrait-meta .meta-role {
+  color: var(--text-main);
+  font-weight: 500;
 }
 
 /* Social icons bar */
@@ -681,9 +709,10 @@ h6 {
 .flagship-card {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
+  border-top: 2px solid var(--accent);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: var(--card-shadow);
+  box-shadow: var(--card-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   transition: border-color var(--t-fast) var(--ease);
 }
 
@@ -765,12 +794,13 @@ h6 {
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  box-shadow: var(--card-shadow);
-  transition: border-color var(--t-fast) var(--ease);
+  box-shadow: var(--card-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: border-color var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease);
 }
 
 .project-card:hover {
   border-color: var(--border-hover);
+  background: var(--bg-elevated);
 }
 
 .project-card .img-wrap {
@@ -833,6 +863,29 @@ h6 {
 .editorial-timeline {
   display: flex;
   flex-direction: column;
+}
+
+.timeline-node {
+  position: relative;
+  padding-left: 24px;
+  border-left: 1px solid var(--border-color);
+}
+
+.timeline-node::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 28px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 2px solid var(--text-muted);
+}
+
+.timeline-node:first-child::before {
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .timeline-period {
