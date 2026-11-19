@@ -210,9 +210,8 @@ function renderPortfolio() {
     heroEl.innerHTML = `
     <div class="col-lg-8 mb-5 mb-lg-0 order-2 order-lg-1">
       <div class="hero-dossier-code">
-        <span class="dossier-accent">DOSSIER · 00</span>
-        <span>/</span>
-        <span>${t('hero_label')}</span>
+        <span class="status-dot"></span>
+        <span class="dossier-accent">${t('hero_label')}</span>
       </div>
       <h1 class="hero-heading mb-3">${data.profile.name}</h1>
       <p class="hero-subtitle mb-0">${t('hero_subtitle') || data.profile.hero_subtitle}</p>
