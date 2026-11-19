@@ -493,24 +493,6 @@ const PORTFOLIO_DATA = {
       impact_id: "Berhasil mengintegrasikan konfirmasi pembayaran instan otomatis, mempercepat waktu respon driver hingga 30%."
     },
     {
-      title: "Cakep (Cari Kerja Pariwisata)",
-      category: "Mobile",
-      company: "personal_project",
-      thumb: "assets/images/poster_cakep.png",
-      description: "Mobile + API Developer. App in Kotlin; API using CodeIgniter 3.",
-      description_id: "Platform portal lowongan kerja pariwisata. Aplikasi mobile dikembangkan menggunakan Kotlin; API menggunakan CodeIgniter 3.",
-      tech: ["Kotlin", "CodeIgniter 3", "API"],
-      links: {},
-      role: "Mobile & API Developer",
-      role_id: "Mobile & API Developer",
-      challenge: "Building a responsive tourism job portal mobile client and coordinating REST APIs simultaneously.",
-      challenge_id: "Membangun aplikasi mobile lowongan kerja pariwisata yang responsif sekaligus mengoordinasikan REST API pendukungnya.",
-      solution: "Coded a native Android app in Kotlin with Retrofit client, while crafting efficient PHP backend routes using CodeIgniter 3.",
-      solution_id: "Mengembangkan aplikasi native Android di Kotlin menggunakan Retrofit client, serta merancang rute backend PHP yang efisien dengan CodeIgniter 3.",
-      impact: "Provided a zero-latency sync flow between job listings and applicant profile updates.",
-      impact_id: "Menghadirkan sinkronisasi tanpa latensi antara daftar lowongan dan pembaruan profil pelamar kerja."
-    },
-    {
       title: "Meeting Room Booking (Internship)",
       category: "Mobile",
       company: "PT. Aplikanusa Lintasarta",
